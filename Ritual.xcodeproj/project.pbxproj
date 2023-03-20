@@ -1,0 +1,791 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7704D11A2A819BD200742907 /* RecipeNotesEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704D1192A819BD200742907 /* RecipeNotesEmptyState.swift */; };
+		7704D11C2A85957F00742907 /* BrewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704D11B2A85957F00742907 /* BrewData.swift */; };
+		7704D11E2A85B19600742907 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704D11D2A85B19600742907 /* Constants.swift */; };
+		7706F1F629EF5AA800B0A312 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7706F1F529EF5AA800B0A312 /* Prompt.swift */; };
+		7706F1F829F3247F00B0A312 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7706F1F729F3247F00B0A312 /* PromptView.swift */; };
+		770B392B2A6DB80600EFC165 /* JournalEntryCardEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B392A2A6DB80600EFC165 /* JournalEntryCardEmptyState.swift */; };
+		770B392D2A6DBA7800EFC165 /* BrewNowCardEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B392C2A6DBA7800EFC165 /* BrewNowCardEmptyState.swift */; };
+		770BC48F29FCA645000127AD /* EntriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BC48E29FCA645000127AD /* EntriesListCell.swift */; };
+		772193C32AC23F790038C51C /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772193C22AC23F790038C51C /* LaunchScreen.swift */; };
+		772193C52AC245780038C51C /* AppContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772193C42AC245780038C51C /* AppContainerView.swift */; };
+		7722F62C2AAA91860051BF53 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 7722F62B2AAA91860051BF53 /* Collections */; };
+		773912F22A43BBF600A57307 /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773912F12A43BBF600A57307 /* NewEntryView.swift */; };
+		7744F6D22A50FF6C00C87CEB /* SavedRecipesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744F6D12A50FF6C00C87CEB /* SavedRecipesCell.swift */; };
+		7747AF742A7F072A00A84325 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747AF732A7F072A00A84325 /* BackButton.swift */; };
+		7747AF792A7F103B00A84325 /* Entensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747AF782A7F103B00A84325 /* Entensions.swift */; };
+		77498CB52A411E830078CF61 /* EntryGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77498CB42A411E830078CF61 /* EntryGroup.swift */; };
+		77498CB72A4121BF0078CF61 /* EmptyRecipeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77498CB62A4121BF0078CF61 /* EmptyRecipeState.swift */; };
+		774A56582A71E5C800AE1692 /* ScrollOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A56572A71E5C800AE1692 /* ScrollOffsetPreferenceKey.swift */; };
+		775577982A3DF5F800A9FB23 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775577972A3DF5F800A9FB23 /* TabBar.swift */; };
+		7755779A2A3E027000A9FB23 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775577992A3E027000A9FB23 /* TabItem.swift */; };
+		7758F1542A67489700B27DF5 /* SavedEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7758F1532A67489700B27DF5 /* SavedEntryView.swift */; };
+		775FE30629C9080C00B0622F /* RitualApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FE30529C9080C00B0622F /* RitualApp.swift */; };
+		775FE30A29C9080C00B0622F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 775FE30929C9080C00B0622F /* Assets.xcassets */; };
+		775FE30D29C9080C00B0622F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 775FE30C29C9080C00B0622F /* Preview Assets.xcassets */; };
+		775FE30F29C9080C00B0622F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FE30E29C9080C00B0622F /* Persistence.swift */; };
+		775FE31229C9080C00B0622F /* Ritual.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 775FE31029C9080C00B0622F /* Ritual.xcdatamodeld */; };
+		775FE31929C90A4F00B0622F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FE31829C90A4F00B0622F /* HomeView.swift */; };
+		775FE31B29C91AAB00B0622F /* BrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FE31A29C91AAB00B0622F /* BrewView.swift */; };
+		775FE31D29CA62EE00B0622F /* EntriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FE31C29CA62EE00B0622F /* EntriesListView.swift */; };
+		775FE31F29CA63F700B0622F /* SavedRecipesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FE31E29CA63F700B0622F /* SavedRecipesListView.swift */; };
+		775FE32129CA643900B0622F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FE32029CA643900B0622F /* SettingsView.swift */; };
+		776C0F492A5B8125007BBED9 /* SavedRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776C0F482A5B8125007BBED9 /* SavedRecipesView.swift */; };
+		778A9AE429D3ADFE007D5E5B /* EmptyEntryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A9AE329D3ADFE007D5E5B /* EmptyEntryState.swift */; };
+		778F49022ACF73D100CC1BB3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 778F49012ACF73D100CC1BB3 /* Lottie */; };
+		778F49062ACF741B00CC1BB3 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778F49052ACF741B00CC1BB3 /* LottieView.swift */; };
+		778F49082ACF755400CC1BB3 /* progress-bar.json in Resources */ = {isa = PBXBuildFile; fileRef = 778F49072ACF755300CC1BB3 /* progress-bar.json */; };
+		77A3FCC92A3CCF9B00CCE445 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A3FCC82A3CCF9B00CCE445 /* UserDefaultKeys.swift */; };
+		77A3FCCE2A3CD29700CCE445 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A3FCCD2A3CD29700CCE445 /* Haptics.swift */; };
+		77A3FCD02A3D38FF00CCE445 /* BrewTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A3FCCF2A3D38FF00CCE445 /* BrewTimerViewModel.swift */; };
+		77A59FBC2A6C439800C69159 /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59FBB2A6C439800C69159 /* RecipesViewModel.swift */; };
+		77DEA9C129D9F1C800C1A620 /* BrewNowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DEA9C029D9F1C800C1A620 /* BrewNowCard.swift */; };
+		77DEA9C329D9F22400C1A620 /* JournalEntryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DEA9C229D9F22400C1A620 /* JournalEntryCard.swift */; };
+		77E9E72C29E8856C005C54DC /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E9E72B29E8856C005C54DC /* CalculatorViewModel.swift */; };
+		77EBEA4A2A7B0DB2004DA838 /* RitualError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBEA492A7B0DB2004DA838 /* RitualError.swift */; };
+		77EBEA4C2A7B0E02004DA838 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBEA4B2A7B0E02004DA838 /* Alert.swift */; };
+		77F57A832A3E8AA3001DD89C /* EntriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F57A822A3E8AA3001DD89C /* EntriesViewModel.swift */; };
+		77FB74182A1C1EB500DB03CC /* BrewMethodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FB74172A1C1EB500DB03CC /* BrewMethodCard.swift */; };
+		77FB741A2A1C25D800DB03CC /* BrewCupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FB74192A1C25D800DB03CC /* BrewCupView.swift */; };
+		77FB741C2A1C27BF00DB03CC /* BrewRatioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FB741B2A1C27BF00DB03CC /* BrewRatioView.swift */; };
+		77FB741E2A1C2BEA00DB03CC /* BrewRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FB741D2A1C2BEA00DB03CC /* BrewRecipeView.swift */; };
+		77FB74202A1D7E2C00DB03CC /* BrewTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FB741F2A1D7E2C00DB03CC /* BrewTimerView.swift */; };
+		77FB74222A1D89DA00DB03CC /* SaveAndWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FB74212A1D89DA00DB03CC /* SaveAndWriteView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7704D1192A819BD200742907 /* RecipeNotesEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeNotesEmptyState.swift; sourceTree = "<group>"; };
+		7704D11B2A85957F00742907 /* BrewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewData.swift; sourceTree = "<group>"; };
+		7704D11D2A85B19600742907 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7706F1F529EF5AA800B0A312 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
+		7706F1F729F3247F00B0A312 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
+		770B392A2A6DB80600EFC165 /* JournalEntryCardEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryCardEmptyState.swift; sourceTree = "<group>"; };
+		770B392C2A6DBA7800EFC165 /* BrewNowCardEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewNowCardEmptyState.swift; sourceTree = "<group>"; };
+		770BC48E29FCA645000127AD /* EntriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesListCell.swift; sourceTree = "<group>"; };
+		772193C22AC23F790038C51C /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		772193C42AC245780038C51C /* AppContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainerView.swift; sourceTree = "<group>"; };
+		773912F12A43BBF600A57307 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
+		7744F6D12A50FF6C00C87CEB /* SavedRecipesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesCell.swift; sourceTree = "<group>"; };
+		7747AF732A7F072A00A84325 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		7747AF782A7F103B00A84325 /* Entensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entensions.swift; sourceTree = "<group>"; };
+		77498CB42A411E830078CF61 /* EntryGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryGroup.swift; sourceTree = "<group>"; };
+		77498CB62A4121BF0078CF61 /* EmptyRecipeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRecipeState.swift; sourceTree = "<group>"; };
+		774A56572A71E5C800AE1692 /* ScrollOffsetPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetPreferenceKey.swift; sourceTree = "<group>"; };
+		775577972A3DF5F800A9FB23 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		775577992A3E027000A9FB23 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		7758F1532A67489700B27DF5 /* SavedEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedEntryView.swift; sourceTree = "<group>"; };
+		775FE30229C9080B00B0622F /* Ritual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ritual.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		775FE30529C9080C00B0622F /* RitualApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualApp.swift; sourceTree = "<group>"; };
+		775FE30929C9080C00B0622F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		775FE30C29C9080C00B0622F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		775FE30E29C9080C00B0622F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		775FE31129C9080C00B0622F /* Ritual.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ritual.xcdatamodel; sourceTree = "<group>"; };
+		775FE31829C90A4F00B0622F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		775FE31A29C91AAB00B0622F /* BrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewView.swift; sourceTree = "<group>"; };
+		775FE31C29CA62EE00B0622F /* EntriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesListView.swift; sourceTree = "<group>"; };
+		775FE31E29CA63F700B0622F /* SavedRecipesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesListView.swift; sourceTree = "<group>"; };
+		775FE32029CA643900B0622F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		775FE32229CBC3E500B0622F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		776C0F482A5B8125007BBED9 /* SavedRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesView.swift; sourceTree = "<group>"; };
+		778A9AE329D3ADFE007D5E5B /* EmptyEntryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEntryState.swift; sourceTree = "<group>"; };
+		778F49052ACF741B00CC1BB3 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		778F49072ACF755300CC1BB3 /* progress-bar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "progress-bar.json"; path = "Ritual/LottieFiles/progress-bar.json"; sourceTree = SOURCE_ROOT; };
+		77A3FCC82A3CCF9B00CCE445 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		77A3FCCD2A3CD29700CCE445 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		77A3FCCF2A3D38FF00CCE445 /* BrewTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewTimerViewModel.swift; sourceTree = "<group>"; };
+		77A59FBB2A6C439800C69159 /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
+		77DEA9C029D9F1C800C1A620 /* BrewNowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewNowCard.swift; sourceTree = "<group>"; };
+		77DEA9C229D9F22400C1A620 /* JournalEntryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryCard.swift; sourceTree = "<group>"; };
+		77E9E72B29E8856C005C54DC /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
+		77EBEA492A7B0DB2004DA838 /* RitualError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualError.swift; sourceTree = "<group>"; };
+		77EBEA4B2A7B0E02004DA838 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		77F57A822A3E8AA3001DD89C /* EntriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesViewModel.swift; sourceTree = "<group>"; };
+		77FB74172A1C1EB500DB03CC /* BrewMethodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewMethodCard.swift; sourceTree = "<group>"; };
+		77FB74192A1C25D800DB03CC /* BrewCupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCupView.swift; sourceTree = "<group>"; };
+		77FB741B2A1C27BF00DB03CC /* BrewRatioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewRatioView.swift; sourceTree = "<group>"; };
+		77FB741D2A1C2BEA00DB03CC /* BrewRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewRecipeView.swift; sourceTree = "<group>"; };
+		77FB741F2A1D7E2C00DB03CC /* BrewTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewTimerView.swift; sourceTree = "<group>"; };
+		77FB74212A1D89DA00DB03CC /* SaveAndWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndWriteView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		775FE2FF29C9080B00B0622F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7722F62C2AAA91860051BF53 /* Collections in Frameworks */,
+				778F49022ACF73D100CC1BB3 /* Lottie in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7706F1F429EF5A9000B0A312 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				77498CB42A411E830078CF61 /* EntryGroup.swift */,
+				775577992A3E027000A9FB23 /* TabItem.swift */,
+				7706F1F529EF5AA800B0A312 /* Prompt.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		770BC48D29FCA627000127AD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				770BC48E29FCA645000127AD /* EntriesListCell.swift */,
+				7744F6D12A50FF6C00C87CEB /* SavedRecipesCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		772193C62AC2489F0038C51C /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				772193C42AC245780038C51C /* AppContainerView.swift */,
+				772193C22AC23F790038C51C /* LaunchScreen.swift */,
+				778F49052ACF741B00CC1BB3 /* LottieView.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		7747AF752A7F0FEC00A84325 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7747AF782A7F103B00A84325 /* Entensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		774A56562A71E5A400AE1692 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				774A56572A71E5C800AE1692 /* ScrollOffsetPreferenceKey.swift */,
+				7704D11D2A85B19600742907 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		775577952A3DF45500A9FB23 /* BrewFlow */ = {
+			isa = PBXGroup;
+			children = (
+				77FB74192A1C25D800DB03CC /* BrewCupView.swift */,
+				77FB741B2A1C27BF00DB03CC /* BrewRatioView.swift */,
+				77FB741D2A1C2BEA00DB03CC /* BrewRecipeView.swift */,
+				77FB741F2A1D7E2C00DB03CC /* BrewTimerView.swift */,
+				77FB74212A1D89DA00DB03CC /* SaveAndWriteView.swift */,
+			);
+			path = BrewFlow;
+			sourceTree = "<group>";
+		};
+		775577962A3DF5CB00A9FB23 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				775577972A3DF5F800A9FB23 /* TabBar.swift */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		775FE2F929C9080B00B0622F = {
+			isa = PBXGroup;
+			children = (
+				775FE30429C9080B00B0622F /* Ritual */,
+				775FE30329C9080B00B0622F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		775FE30329C9080B00B0622F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				775FE30229C9080B00B0622F /* Ritual.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		775FE30429C9080B00B0622F /* Ritual */ = {
+			isa = PBXGroup;
+			children = (
+				775FE31029C9080C00B0622F /* Ritual.xcdatamodeld */,
+				775FE30E29C9080C00B0622F /* Persistence.swift */,
+				77D75F8F2A0692E600748F4D /* Base */,
+				7706F1F429EF5A9000B0A312 /* Model */,
+				77E9E72929E88536005C54DC /* ViewModel */,
+				778A9AE529D3B0C0007D5E5B /* Screens */,
+				775FE32229CBC3E500B0622F /* Info.plist */,
+				775FE30529C9080C00B0622F /* RitualApp.swift */,
+				775FE30929C9080C00B0622F /* Assets.xcassets */,
+				778F49092ACF756A00CC1BB3 /* LottieFiles */,
+				775FE30B29C9080C00B0622F /* Preview Content */,
+			);
+			path = Ritual;
+			sourceTree = "<group>";
+		};
+		775FE30B29C9080C00B0622F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				775FE30C29C9080C00B0622F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		778A9AE129D3ADC6007D5E5B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				770BC48D29FCA627000127AD /* Cells */,
+				77DEA9BF29D9F1B300C1A620 /* CustomViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		778A9AE229D3ADE9007D5E5B /* Empty State */ = {
+			isa = PBXGroup;
+			children = (
+				778A9AE329D3ADFE007D5E5B /* EmptyEntryState.swift */,
+				77498CB62A4121BF0078CF61 /* EmptyRecipeState.swift */,
+				770B392A2A6DB80600EFC165 /* JournalEntryCardEmptyState.swift */,
+				770B392C2A6DBA7800EFC165 /* BrewNowCardEmptyState.swift */,
+				7704D1192A819BD200742907 /* RecipeNotesEmptyState.swift */,
+			);
+			path = "Empty State";
+			sourceTree = "<group>";
+		};
+		778A9AE529D3B0C0007D5E5B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				772193C62AC2489F0038C51C /* LaunchScreen */,
+				778A9AE629D3B0DD007D5E5B /* HomeView */,
+				778A9AE729D3B130007D5E5B /* EntriesView */,
+				778A9AE829D3B15D007D5E5B /* BrewView */,
+				778A9AE929D3B19E007D5E5B /* SavedRecipesView */,
+				778A9AEA29D3B1BC007D5E5B /* SettingsView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		778A9AE629D3B0DD007D5E5B /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				775FE31829C90A4F00B0622F /* HomeView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		778A9AE729D3B130007D5E5B /* EntriesView */ = {
+			isa = PBXGroup;
+			children = (
+				775FE31C29CA62EE00B0622F /* EntriesListView.swift */,
+				773912F12A43BBF600A57307 /* NewEntryView.swift */,
+				7758F1532A67489700B27DF5 /* SavedEntryView.swift */,
+			);
+			path = EntriesView;
+			sourceTree = "<group>";
+		};
+		778A9AE829D3B15D007D5E5B /* BrewView */ = {
+			isa = PBXGroup;
+			children = (
+				775577952A3DF45500A9FB23 /* BrewFlow */,
+				775FE31A29C91AAB00B0622F /* BrewView.swift */,
+			);
+			path = BrewView;
+			sourceTree = "<group>";
+		};
+		778A9AE929D3B19E007D5E5B /* SavedRecipesView */ = {
+			isa = PBXGroup;
+			children = (
+				775FE31E29CA63F700B0622F /* SavedRecipesListView.swift */,
+				776C0F482A5B8125007BBED9 /* SavedRecipesView.swift */,
+			);
+			path = SavedRecipesView;
+			sourceTree = "<group>";
+		};
+		778A9AEA29D3B1BC007D5E5B /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				775FE32029CA643900B0622F /* SettingsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		778F49092ACF756A00CC1BB3 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				778F49072ACF755300CC1BB3 /* progress-bar.json */,
+			);
+			path = LottieFiles;
+			sourceTree = "<group>";
+		};
+		77A3FCC72A3CCF8500CCE445 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				77A3FCC82A3CCF9B00CCE445 /* UserDefaultKeys.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		77A3FCCA2A3CD09400CCE445 /* Haptics */ = {
+			isa = PBXGroup;
+			children = (
+				77A3FCCD2A3CD29700CCE445 /* Haptics.swift */,
+			);
+			path = Haptics;
+			sourceTree = "<group>";
+		};
+		77B13FB429DE37D200F908DE /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				77FB74172A1C1EB500DB03CC /* BrewMethodCard.swift */,
+				77DEA9C029D9F1C800C1A620 /* BrewNowCard.swift */,
+				77DEA9C229D9F22400C1A620 /* JournalEntryCard.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		77D75F8F2A0692E600748F4D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7747AF752A7F0FEC00A84325 /* Extensions */,
+				77EBEA482A7B0D7B004DA838 /* Alerts */,
+				774A56562A71E5A400AE1692 /* Utilities */,
+				77A3FCCA2A3CD09400CCE445 /* Haptics */,
+				77A3FCC72A3CCF8500CCE445 /* UserDefaults */,
+				778A9AE129D3ADC6007D5E5B /* Views */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		77DEA9BF29D9F1B300C1A620 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				7706F1F729F3247F00B0A312 /* PromptView.swift */,
+				77F5E4C42AB3C7B6008FAB98 /* Buttons */,
+				775577962A3DF5CB00A9FB23 /* CustomTabBar */,
+				77B13FB429DE37D200F908DE /* Cards */,
+				778A9AE229D3ADE9007D5E5B /* Empty State */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		77E9E72929E88536005C54DC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				77E9E72B29E8856C005C54DC /* CalculatorViewModel.swift */,
+				77A3FCCF2A3D38FF00CCE445 /* BrewTimerViewModel.swift */,
+				77F57A822A3E8AA3001DD89C /* EntriesViewModel.swift */,
+				77A59FBB2A6C439800C69159 /* RecipesViewModel.swift */,
+				7704D11B2A85957F00742907 /* BrewData.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		77EBEA482A7B0D7B004DA838 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				77EBEA492A7B0DB2004DA838 /* RitualError.swift */,
+				77EBEA4B2A7B0E02004DA838 /* Alert.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		77F5E4C42AB3C7B6008FAB98 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				7747AF732A7F072A00A84325 /* BackButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		775FE30129C9080B00B0622F /* Ritual */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 775FE31529C9080C00B0622F /* Build configuration list for PBXNativeTarget "Ritual" */;
+			buildPhases = (
+				775FE2FE29C9080B00B0622F /* Sources */,
+				775FE2FF29C9080B00B0622F /* Frameworks */,
+				775FE30029C9080B00B0622F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ritual;
+			packageProductDependencies = (
+				7722F62B2AAA91860051BF53 /* Collections */,
+				778F49012ACF73D100CC1BB3 /* Lottie */,
+			);
+			productName = Ritual;
+			productReference = 775FE30229C9080B00B0622F /* Ritual.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		775FE2FA29C9080B00B0622F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					775FE30129C9080B00B0622F = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 775FE2FD29C9080B00B0622F /* Build configuration list for PBXProject "Ritual" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 775FE2F929C9080B00B0622F;
+			packageReferences = (
+				7722F62A2AAA91850051BF53 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				778F49002ACF73D100CC1BB3 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
+			productRefGroup = 775FE30329C9080B00B0622F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				775FE30129C9080B00B0622F /* Ritual */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		775FE30029C9080B00B0622F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				778F49082ACF755400CC1BB3 /* progress-bar.json in Resources */,
+				775FE30D29C9080C00B0622F /* Preview Assets.xcassets in Resources */,
+				775FE30A29C9080C00B0622F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		775FE2FE29C9080B00B0622F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775FE31D29CA62EE00B0622F /* EntriesListView.swift in Sources */,
+				77EBEA4A2A7B0DB2004DA838 /* RitualError.swift in Sources */,
+				772193C32AC23F790038C51C /* LaunchScreen.swift in Sources */,
+				775FE31229C9080C00B0622F /* Ritual.xcdatamodeld in Sources */,
+				77A59FBC2A6C439800C69159 /* RecipesViewModel.swift in Sources */,
+				77A3FCCE2A3CD29700CCE445 /* Haptics.swift in Sources */,
+				77FB741A2A1C25D800DB03CC /* BrewCupView.swift in Sources */,
+				77DEA9C129D9F1C800C1A620 /* BrewNowCard.swift in Sources */,
+				7704D11A2A819BD200742907 /* RecipeNotesEmptyState.swift in Sources */,
+				77A3FCD02A3D38FF00CCE445 /* BrewTimerViewModel.swift in Sources */,
+				778F49062ACF741B00CC1BB3 /* LottieView.swift in Sources */,
+				77DEA9C329D9F22400C1A620 /* JournalEntryCard.swift in Sources */,
+				775577982A3DF5F800A9FB23 /* TabBar.swift in Sources */,
+				774A56582A71E5C800AE1692 /* ScrollOffsetPreferenceKey.swift in Sources */,
+				7755779A2A3E027000A9FB23 /* TabItem.swift in Sources */,
+				772193C52AC245780038C51C /* AppContainerView.swift in Sources */,
+				775FE31F29CA63F700B0622F /* SavedRecipesListView.swift in Sources */,
+				775FE32129CA643900B0622F /* SettingsView.swift in Sources */,
+				7744F6D22A50FF6C00C87CEB /* SavedRecipesCell.swift in Sources */,
+				7706F1F629EF5AA800B0A312 /* Prompt.swift in Sources */,
+				7758F1542A67489700B27DF5 /* SavedEntryView.swift in Sources */,
+				77A3FCC92A3CCF9B00CCE445 /* UserDefaultKeys.swift in Sources */,
+				775FE30F29C9080C00B0622F /* Persistence.swift in Sources */,
+				7706F1F829F3247F00B0A312 /* PromptView.swift in Sources */,
+				77498CB72A4121BF0078CF61 /* EmptyRecipeState.swift in Sources */,
+				77FB741E2A1C2BEA00DB03CC /* BrewRecipeView.swift in Sources */,
+				7747AF742A7F072A00A84325 /* BackButton.swift in Sources */,
+				77FB74202A1D7E2C00DB03CC /* BrewTimerView.swift in Sources */,
+				770B392D2A6DBA7800EFC165 /* BrewNowCardEmptyState.swift in Sources */,
+				775FE31929C90A4F00B0622F /* HomeView.swift in Sources */,
+				77E9E72C29E8856C005C54DC /* CalculatorViewModel.swift in Sources */,
+				7704D11E2A85B19600742907 /* Constants.swift in Sources */,
+				7747AF792A7F103B00A84325 /* Entensions.swift in Sources */,
+				77498CB52A411E830078CF61 /* EntryGroup.swift in Sources */,
+				77F57A832A3E8AA3001DD89C /* EntriesViewModel.swift in Sources */,
+				770B392B2A6DB80600EFC165 /* JournalEntryCardEmptyState.swift in Sources */,
+				775FE31B29C91AAB00B0622F /* BrewView.swift in Sources */,
+				77FB74222A1D89DA00DB03CC /* SaveAndWriteView.swift in Sources */,
+				77FB741C2A1C27BF00DB03CC /* BrewRatioView.swift in Sources */,
+				775FE30629C9080C00B0622F /* RitualApp.swift in Sources */,
+				7704D11C2A85957F00742907 /* BrewData.swift in Sources */,
+				776C0F492A5B8125007BBED9 /* SavedRecipesView.swift in Sources */,
+				770BC48F29FCA645000127AD /* EntriesListCell.swift in Sources */,
+				77EBEA4C2A7B0E02004DA838 /* Alert.swift in Sources */,
+				778A9AE429D3ADFE007D5E5B /* EmptyEntryState.swift in Sources */,
+				773912F22A43BBF600A57307 /* NewEntryView.swift in Sources */,
+				77FB74182A1C1EB500DB03CC /* BrewMethodCard.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		775FE31329C9080C00B0622F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		775FE31429C9080C00B0622F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		775FE31629C9080C00B0622F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Ritual/Preview Content\"";
+				DEVELOPMENT_TEAM = B87MBXYUK2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ritual/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tylerrhodes.Ritual;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		775FE31729C9080C00B0622F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Ritual/Preview Content\"";
+				DEVELOPMENT_TEAM = B87MBXYUK2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ritual/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tylerrhodes.Ritual;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		775FE2FD29C9080B00B0622F /* Build configuration list for PBXProject "Ritual" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				775FE31329C9080C00B0622F /* Debug */,
+				775FE31429C9080C00B0622F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		775FE31529C9080C00B0622F /* Build configuration list for PBXNativeTarget "Ritual" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				775FE31629C9080C00B0622F /* Debug */,
+				775FE31729C9080C00B0622F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7722F62A2AAA91850051BF53 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+		778F49002ACF73D100CC1BB3 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7722F62B2AAA91860051BF53 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7722F62A2AAA91850051BF53 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		778F49012ACF73D100CC1BB3 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 778F49002ACF73D100CC1BB3 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		775FE31029C9080C00B0622F /* Ritual.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				775FE31129C9080C00B0622F /* Ritual.xcdatamodel */,
+			);
+			currentVersion = 775FE31129C9080C00B0622F /* Ritual.xcdatamodel */;
+			path = Ritual.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 775FE2FA29C9080B00B0622F /* Project object */;
+}

@@ -1,0 +1,82 @@
+//
+//  SavedEntryView.swift
+//  Ritual
+//
+//  Created by Tyler Rhodes on 7/18/23.
+//
+
+import SwiftUI
+
+struct SavedEntryView: View {
+    @Environment(\.dismiss) var dimiss
+//    @Environment(\.managedObjectContext) private var viewContext
+    
+    var entry: Entry
+    
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                Theme.entryAndRecipesBackground
+                    .ignoresSafeArea()
+                // MARK: - Saved Entry
+                VStack(alignment: .center, spacing: 8) {
+                    Text(entry.timeStamp?.entryDate ?? "")
+                        .font(.system(size: 16, weight: .ultraLight))
+                    Text(entry.entryTitle ?? "")
+                        .font(.system(size: 22, weight: .light))
+                        .fontWeight(.bold)
+                    Text(entry.entry ?? "")
+                        .font(.system(size: 16, weight: .light))
+                }
+                .frame(width: 300, height: 600, alignment: .top)
+                .multilineTextAlignment(.center)
+                Spacer()
+            }
+            .navigationBarBackButtonHidden(true)
+            // MARK: - Saved Entry Toolbar
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    backToSavedEntries
+                }
+            }
+        }
+    }
+}
+
+struct SavedEntryView_Previews: PreviewProvider {
+    static var previews: some View {
+//        let context        = PersistenceController.preview.container.viewContext
+        let context        = PersistenceController.shared.viewContext
+
+        let newItem        = Entry(context: context)
+        newItem.timeStamp  = Date()
+        newItem.entryTitle = "This is your entry title."
+        newItem.entry      = "This is a sample entry for my SavedEntryView within this application."
+
+        return SavedEntryView(entry: newItem)
+            .environment(\.managedObjectContext, context)
+    }
+}
+
+//MARK: - Extensions
+extension Date {
+    var savedEntryDate: String {
+        self.formatted(date: .numeric, time: .omitted)
+    }
+}
+
+private extension SavedEntryView {
+    
+    var backToSavedEntries: some View {
+        Button {
+            dimiss()
+        } label: {
+            HStack {
+                Symbols.back
+            }
+            Text("Saved Entries")
+        }
+        .tint(.black)
+        .fontWeight(.light)
+    }
+}

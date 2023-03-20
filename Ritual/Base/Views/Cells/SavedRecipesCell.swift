@@ -1,0 +1,48 @@
+//
+//  SavedRecipesCell.swift
+//  Ritual
+//
+//  Created by Tyler Rhodes on 7/1/23.
+//
+
+import SwiftUI
+
+struct SavedRecipesCell: View {
+//    @StateObject var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.container.viewContext)
+    @StateObject var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    var recipe: Recipe
+    
+    var body: some View {
+        ZStack {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(recipe.recipeTitle ?? "")
+                    .font(.system(size: 16, weight: .semibold))
+                HStack {
+                    Text(recipe.method ?? "")
+                        .font(.system(size: 16, weight: .light))
+                    Text("·")
+                        .font(.system(size: 16, weight: .bold))
+                    Text("\(recipe.cups) Cups")
+                        .font(.system(size: 16, weight: .light))
+                }
+            }
+        }
+    }
+}
+
+struct SavedRecipesCell_Previews: PreviewProvider {
+    static var previews: some View {
+//        let context           = PersistenceController.preview.container.viewContext
+        let context           = PersistenceController.shared.viewContext
+        let newRecipe         = Recipe(context: context)
+        newRecipe.recipeTitle = "Morning cup 'o Joe"
+        newRecipe.method      = "French Press"
+        newRecipe.cups        = 6
+
+        return SavedRecipesCell(recipe: newRecipe)
+            .environment(\.managedObjectContext, context)
+    }
+}
