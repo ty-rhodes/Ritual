@@ -15,7 +15,7 @@ struct EmptyRecipeState: View {
                     Text("Haven't found a favorite recipe yet?")
                         .font(.title3).bold()
                     Text("You gotta start somewhere.")
-                        .font(.caption)
+                        .font(.footnote)
                 }
                 NavigationLink(destination: BrewView()) {
                     HStack {
@@ -24,12 +24,11 @@ struct EmptyRecipeState: View {
                         Symbols.arrow
                             .foregroundColor(.black)
                     }
-                    .font(.title3).bold()
+                    .font(.headline).bold()
                 }
             }
             .frame(width: 360, height: 180, alignment: .center)
             .multilineTextAlignment(.center)
-            .offset(y: -40)
         }
     }
 }

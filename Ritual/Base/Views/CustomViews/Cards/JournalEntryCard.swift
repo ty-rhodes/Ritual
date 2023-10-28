@@ -42,6 +42,7 @@ struct JournalEntryCard: View {
                 HStack {
                     Text("View Entry")
                         .foregroundColor(.black)
+                        .fontWeight(.semibold)
                     Symbols.arrow
                         .foregroundColor(.black)
                 }

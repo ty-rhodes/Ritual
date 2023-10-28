@@ -50,15 +50,13 @@ struct BrewTimerView: View {
                     
                     brewTimer
                     
-                    Spacer()
                     HStack {
                         resetTimerButton
                         startTimerButton
                     }
                    Spacer()
-//                        .padding(.vertical, DeviceTypes.isiPhoneSE ? 30 : 40)
+                        .padding(.vertical, DeviceTypes.isiPhoneSE ? 44 : 22)
                 }
-                .padding(.vertical, DeviceTypes.isiPhoneSE ? 44 : 22)
                 .onReceive(timer) { _ in
                     if timerViewModel.isTimerRunning {
                         if timerViewModel.timeRemaining > 0 {
@@ -77,7 +75,7 @@ struct BrewTimerView: View {
                     BackButton()
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    NavigationLink(destination: BrewView()) {
+                    NavigationLink(destination: HomeView()) {
                         Symbols.dismiss
                             .font(.title2)
                             .fontWeight(.light)
@@ -124,7 +122,7 @@ private extension BrewTimerView {
                     }
                 }
         }
-        .frame(width: 320, height: 320)
+        .frame(width: 308, height: 308)
         .foregroundColor(.white)
 //        .padding(.vertical, DeviceTypes.isiPhoneSE ? 80 : 40)
     }
@@ -136,7 +134,7 @@ private extension BrewTimerView {
         }) {
             Text("Reset Timer")
         }
-        .frame(width: 140, height: 30)
+        .frame(width: 140, height: 20)
         .font(.system(size: 16, weight: .semibold))
         .padding()
         .background(.clear)
@@ -151,10 +149,10 @@ private extension BrewTimerView {
             timerViewModel.isTimerRunning.toggle()
         }) {
             Text(timerViewModel.isTimerRunning ? "Stop Timer" : "Start Timer")
-                .frame(width: 140, height: 30)
+                .frame(width: 140, height: 20)
                 .font(.system(size: 16, weight: .semibold))
                 .padding()
-                .background(Color.white)
+                .background(Theme.entryAndRecipesBackground)
                 .foregroundColor(.black)
                 .cornerRadius(30)
                 .controlSize(.large)

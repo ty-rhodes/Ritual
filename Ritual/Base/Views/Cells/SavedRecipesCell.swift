@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct SavedRecipesCell: View {
-//    @StateObject var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.container.viewContext)
-    @StateObject var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
-    
     @Environment(\.managedObjectContext) private var viewContext
+
+    @StateObject var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     
     var recipe: Recipe
     
@@ -35,7 +34,6 @@ struct SavedRecipesCell: View {
 
 struct SavedRecipesCell_Previews: PreviewProvider {
     static var previews: some View {
-//        let context           = PersistenceController.preview.container.viewContext
         let context           = PersistenceController.shared.viewContext
         let newRecipe         = Recipe(context: context)
         newRecipe.recipeTitle = "Morning cup 'o Joe"

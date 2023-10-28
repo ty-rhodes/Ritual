@@ -10,27 +10,30 @@ import SwiftUI
 struct JournalEntryCardEmptyState: View {
     var body: some View {
         ZStack {
-            VStack(alignment: .center,spacing: 20) {
-                VStack(spacing: 12) {
-                    Text("You haven't made any journal entries yet.")
-                        .font(.title2).bold()
-                    Text("But there's a first time for everything right?")
-                        .font(.caption)
-                }
-                NavigationLink(destination: NewEntryView()) {
-                    HStack {
-                        Text("Write your first Entry")
-                            .foregroundColor(.black)
-                        Symbols.arrow
-                            .foregroundColor(.black)
+            // Change padding of text inside empty state
+                VStack(alignment: .center,spacing: 20) {
+                    VStack(spacing: 12) {
+                        Text("You haven't made any journal entries yet.")
+                            .font(.title2).bold()
+                        Text("But there's a first time for everything right?")
+                            .font(.footnote)
                     }
-                    .font(.title3).bold()
+                    .frame(width: 260, height: 100, alignment: .center)
+                    NavigationLink(destination: NewEntryView()) {
+                        HStack {
+                            Text("Write your first entry")
+                                .foregroundColor(.black)
+                            Symbols.arrow
+                                .foregroundColor(.black)
+                        }
+                        .font(.headline).bold()
+                    }
                 }
-            }
-            .frame(width: 360, height: 180, alignment: .center)
-            .multilineTextAlignment(.center)
-            .overlay( RoundedRectangle(cornerRadius: 30)
-                .stroke(.white, lineWidth: 1))
+                .frame(width: 360, height: 180, alignment: .center)
+                .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.6)
+                .overlay( RoundedRectangle(cornerRadius: 30)
+                    .stroke(.white, lineWidth: 1))
             .offset(x: 4)
         }
     }

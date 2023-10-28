@@ -6,22 +6,24 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SavedRecipesView: View {
     
     @Environment(\.dismiss) var dimiss
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var viewModel: RecipesViewModel
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe,
-                                           ascending: false)],
-                                           animation: .default)
-    
-    private var recipes: FetchedResults<Recipe>
-    
-    @ObservedObject private var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
+//    @FetchRequest(
+//        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe,
+//                                           ascending: false)],
+//                                           animation: .default)
+//    
+//    private var recipes: FetchedResults<Recipe>
     
     var recipe: Recipe
+    
+//    @ObservedObject private var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     
     @State private var  notes = ""
     @State private var  isEditingNotes = false
@@ -39,8 +41,11 @@ struct SavedRecipesView: View {
                     ScrollView {
                         VStack(spacing: 4) {
                             // MARK: - Recipe Title and Details
-                            recipeImageAndTitle
-                            recipeDetails
+                            VStack(spacing: 30) {
+                                recipeImageAndTitle
+                                recipeDetails
+                            }
+                            
                             // MARK: - Recipe Notes
                             VStack {
                                 HStack(spacing: 200) {
@@ -62,12 +67,17 @@ struct SavedRecipesView: View {
                                     } else {
                                         Text(notes) // Display the notes in non-edit mode
                                             .font(.system(size: 16, weight: .light))
-                                            .frame(width: 350, height: 120, alignment: .topLeading)
+                                            .frame(width: 350, height: 150, alignment: .topLeading)
                                             .multilineTextAlignment(.leading)
+                                            .padding(.horizontal, 14)
+                                            .padding(.vertical, 10)
+                                            .overlay( RoundedRectangle(cornerRadius: 30)
+                                                .stroke(.white, lineWidth: 1))
                                             .foregroundColor(.black)
                                     }
                                 }
                             }
+                            .padding()
                             .fontWeight(.light)
                             // MARK: - Brew Recipe Button
                             brewRecipeButton
@@ -100,6 +110,9 @@ struct SavedRecipesView: View {
                         .onTapGesture {
                             hideKeyboard()
                         }
+                        .onAppear {
+                            notes = viewModel.fetchRecipeNotes(for: recipe)
+                        }
                     }
                 }
             }
@@ -109,7 +122,6 @@ struct SavedRecipesView: View {
 
 struct SavedRecipesView_Previews: PreviewProvider {
     static var previews: some View {
-//        let context            = PersistenceController.preview.container.viewContext
         let context            = PersistenceController.shared.viewContext
         let newRecipe          = Recipe(context: context)
         newRecipe.recipeTitle  = "Morning Cup o' Joe"
@@ -128,11 +140,11 @@ struct SavedRecipesView_Previews: PreviewProvider {
 private extension SavedRecipesView {
     
     var recipeImageAndTitle: some View {
-        VStack(spacing: 18) {
-            Symbols.mug
-                .resizable()
-                .scaledToFit()
-                .frame(width: 32, height: 32, alignment: .center)
+        VStack(spacing: 4) {
+//            Symbols.mug
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: 32, height: 32, alignment: .center)
             Text(recipe.recipeTitle ?? "Morning Cup o' Joe")
                 .font(.system(size: 36, weight: .light))
                 .frame(width: 380, height: 38, alignment: .center)
@@ -141,7 +153,7 @@ private extension SavedRecipesView {
                 .lineLimit(1)
                 .padding(8)
             HStack {
-                Text(recipe.method ?? "")
+                Text(recipe.method ?? "N/A")
                 Divider()
                     .frame(height: 20)
                     .background(Color.black)
@@ -152,7 +164,7 @@ private extension SavedRecipesView {
     }
     
     var recipeDetails: some View {
-        VStack(spacing: 14) {
+        VStack(spacing: 20) {
             VStack {
                 Text("\(recipe.grams)")
                     .font(.system(size: 52))
@@ -166,7 +178,7 @@ private extension SavedRecipesView {
                     .font(.system(size: 16))
             }
             VStack {
-                Text(recipe.ratio ?? "")
+                Text(recipe.ratio ?? "N/A")
                     .font(.system(size: 52))
                 Text("ratio")
                     .font(.system(size: 16))
@@ -198,8 +210,11 @@ private extension SavedRecipesView {
     var recipeNotesEditor: some View {        
         TextField("Write your notes here...", text: $viewModel.recipeNotes, axis: .vertical)
             .font(.system(size: 16, weight: .light))
-            .frame(width: 350, height: 120, alignment: .topLeading)
+            .frame(width: 350, height: 150, alignment: .topLeading)
             .multilineTextAlignment(.leading)
+            .padding(.horizontal, 14)
+            .padding(.vertical, 10)
+            .overlay( RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: 1))
             .foregroundColor(.black)
             .padding(.horizontal, 20)
             .accessibilityHint(Text("This Textfield is for any notes you want to make for your coffee recipe."))
@@ -224,6 +239,7 @@ private extension SavedRecipesView {
     var saveNotesButton: some View {
         Button(action: {
             // Save notes
+            viewModel.saveRecipeNotes(for: recipe, with: notes)
             notes = viewModel.recipeNotes
             isEditingNotes = false
         }) {

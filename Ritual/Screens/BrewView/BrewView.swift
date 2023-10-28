@@ -9,13 +9,15 @@ import SwiftUI
 
 struct BrewView: View {
     @EnvironmentObject var recipesViewModel: RecipesViewModel
-    @Environment(\.managedObjectContext) private var viewContext
+//    @Environment(\.managedObjectContext) private var viewContext
     
-        @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
+    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     
     let brewMethods: [String] = ["Drip", "Pour Over", "French Press", "Espresso"]
     
     @State private var selectedBrewMethod: String? = nil
+    
+    @State private var recipe: Recipe?
     
     var body: some View {
         NavigationStack {
@@ -23,7 +25,7 @@ struct BrewView: View {
                 Theme.brewBackground
                     .ignoresSafeArea()
                 ScrollView {
-                    VStack(spacing: 24) {
+                    VStack( alignment: .leading, spacing: 24) {
                         Spacer()
                         // MARK: - Brew Question
                         Text("What method are you using to brew?")
@@ -32,17 +34,30 @@ struct BrewView: View {
                             .frame(width: 300, height: 150, alignment: .leading)
                             .multilineTextAlignment(.leading)
                             .minimumScaleFactor(0.6)
+                            .padding(.leading, 14)
                         // MARK: - Method ScrollView and Button
                         selectedMethodScrollView
-                        Spacer()
                         // MARK: - Next Button
                         nextButton
                         Spacer()
                     }
-                    .padding(.vertical, DeviceTypes.isiPhoneSE ? 44 : 22)
+                    .padding(.vertical, -30)
+//                    .padding(.vertical, DeviceTypes.isiPhoneSE ? 44 : 12)
                 }
             }
             .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink(destination: HomeView()) {
+                        
+                        Symbols.dismiss
+                            .font(.title2)
+                            .fontWeight(.light)
+                            .foregroundColor(.black)
+                    }
+                }
+            }
+            .toolbarBackground(Theme.brewBackground, for: .navigationBar)
         }
     }
 }
@@ -70,11 +85,11 @@ private extension BrewView {
                                 recipeViewModel.selectedBrewMethod = method
                             }
                         }
-                        .frame(width: 130, height: 340)
+                        .frame(width: 130, height: 300)
                         .padding(.horizontal, 18)
                 }
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 20)
         }
     }
     
@@ -82,15 +97,16 @@ private extension BrewView {
         NavigationLink(destination: BrewCupView().environmentObject(recipesViewModel)) {
             Button("Next") {
                 // Save selected brew method
-                recipesViewModel.saveBrewMethod(brewMethod: recipesViewModel.selectedBrewMethod)
-//                recipeViewModel.saveRecipe()
+//                recipesViewModel.saveRecipe(method: recipesViewModel.newRecipe.method, cups: Int32(recipesViewModel.newRecipe.cups), ratio: recipesViewModel.newRecipe.ratio)
+                recipeViewModel.selectedBrewMethod = selectedBrewMethod ?? ""
             }
             .frame(width: 350, height: 50)
-            .background(Color.white)
-            .foregroundColor(.black)
+            .background(Theme.brewButton)
+            .foregroundColor(.white)
             .font(.system(size: 16, weight: .semibold))
             .cornerRadius(25)
             .controlSize(.large)
+            .padding(.horizontal, 22)
         }
     }
 }

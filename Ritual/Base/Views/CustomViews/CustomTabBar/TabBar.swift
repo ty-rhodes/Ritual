@@ -30,12 +30,12 @@ struct TabBar: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            HStack(spacing: 26) {
+            HStack(spacing: 34) {
                 Spacer()
                 ForEach(tabItems) { item in
                     if item.tab == .brew {
                         BrewTabButton(selectedTab: $selectedTab, item: item)
-                            .offset(y: -14)
+                            .offset(x: -14,y: -14)
                     } else {
                         TabButton(selectedTab: $selectedTab, item: item)
                     }
@@ -66,7 +66,8 @@ struct TabButton: View {
             VStack(spacing: 2) {
                 item.icon
                     .font(.body.bold())
-                    .frame(width: 42, height: 26)
+                    .frame(width: 38, height: 26)
+                    .foregroundStyle(selectedTab == item.tab ? .black : .white)
                 Text(item.text)
                     .font(.caption2)
                     .minimumScaleFactor(0.8)
@@ -92,10 +93,11 @@ struct BrewTabButton: View {
             VStack(spacing: 2) {
                 item.icon
                     .font(.body.bold())
-                    .frame(width: 42, height: 26)
+                    .frame(width: 38, height: 22)
                     .offset(x: 2, y: 2)
+                    .foregroundStyle(selectedTab == item.tab ? .black : .white)
                 Text(item.text)
-                    .font(.caption2)
+                    .font(.system(size: 9))
                     .minimumScaleFactor(0.6)
             }
             .foregroundColor(.white)

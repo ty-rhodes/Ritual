@@ -9,11 +9,13 @@ import SwiftUI
 
 struct BrewCupView: View {
     @EnvironmentObject private var recipesViewModel: RecipesViewModel
-    @Environment(\.managedObjectContext) private var viewContext
+//    @Environment(\.managedObjectContext) private var viewContext
     
-    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
+//    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     
-    @State private var sliderValue = 0.5
+    @State private var recipe: Recipe?
+    
+    @State private var sliderValue = 1.0
     @State private var hapticFeedbackEnabled = true
     
     private var cups: Int {
@@ -28,18 +30,18 @@ struct BrewCupView: View {
                 ScrollView {
                     VStack(spacing: 17) {
                         // MARK: - Cup Question
-                        Text("How much coffee do you want to make?")
-                            .font(.system(size: 50, weight: .light))
-                            .foregroundColor(Theme.entryAndRecipesBackground)
-                            .frame(width: 300, height: 150, alignment: .leading)
-                            .multilineTextAlignment(.leading)
-                            .minimumScaleFactor(0.6)
+                        HStack(spacing: 58) {
+                            Text("How much coffee do you want to make?")
+                                    .font(.system(size: 50, weight: .light))
+                                    .foregroundColor(Theme.entryAndRecipesBackground)
+                                    .frame(width: 300, height: 150, alignment: .leading)
+                                    .multilineTextAlignment(.leading)
+                                    .minimumScaleFactor(0.6)
+                            Text("")
+                        }
                         // MARK: - Cup Slider and Button
-                        Spacer()
                         numberOfCups
-                        Spacer()
                         cupSlider
-                        Spacer()
                         // MARK: - Next Button
                         nextButton
                     }
@@ -53,7 +55,7 @@ struct BrewCupView: View {
                     BackButton()
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    NavigationLink(destination: BrewView()) {
+                    NavigationLink(destination: HomeView()) {
                         Symbols.dismiss
                             .font(.title2)
                             .fontWeight(.light)
@@ -90,7 +92,7 @@ private extension BrewCupView {
     
     var cupSlider: some View {
         // Adjust the range as needed
-        Slider(value: $sliderValue, in: 1...6, step: 1.0)
+        Slider(value: $sliderValue, in: 1...5, step: 1.0)
             .accentColor(Theme.entryAndRecipesBackground)
             .padding(.horizontal, 16)
             .accessibility(label: Text("Cup Slider"))
@@ -111,16 +113,16 @@ private extension BrewCupView {
         NavigationLink(destination: BrewRatioView().environmentObject(recipesViewModel)) {
             Button("Next") {
                 // Save number of cups
-                recipeViewModel.saveRecipe()
 //                recipesViewModel.saveCups(cups: cups)
+                recipesViewModel.selectedCups = cups
             }
             .frame(width: 350, height: 50)
-            .background(Color.white)
-            .foregroundColor(.black)
+            .background(Theme.brewButton)
+            .foregroundColor(.white)
             .font(.system(size: 16, weight: .semibold))
             .cornerRadius(25)
             .controlSize(.large)
         }
-        .padding(.vertical, 54)
+        .padding(.vertical, 42)
     }
 }

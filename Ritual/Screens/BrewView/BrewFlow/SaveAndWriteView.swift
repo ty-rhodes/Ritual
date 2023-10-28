@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SaveAndWriteView: View {
     
-//    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.container.viewContext)
+    //    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.container.viewContext)
     @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     
     var body: some View {
@@ -27,7 +27,7 @@ struct SaveAndWriteView: View {
                         Spacer()
                     }
                     .padding(.vertical, 80)
-                .padding(.horizontal, 35)
+                    .padding(.horizontal, 35)
                 }
             }
             .navigationBarBackButtonHidden(true)
@@ -67,7 +67,7 @@ private extension SaveAndWriteView {
         .background(.clear)
         .foregroundColor(.white)
         .font(.system(size: 16, weight: .semibold, design: .default))
-        .overlay( RoundedRectangle(cornerRadius: 25)
+        .overlay( RoundedRectangle(cornerRadius: 30)
             .stroke(Color.white, lineWidth: 2))
         .controlSize(.large)
         .padding(4)
@@ -80,7 +80,7 @@ private extension SaveAndWriteView {
                 .background(Theme.journalButton)
                 .foregroundColor(.white)
                 .font(.system(size: 16, weight: .semibold, design: .default))
-                .cornerRadius(25)
+                .cornerRadius(30)
                 .controlSize(.large)
                 .padding(4)
         }

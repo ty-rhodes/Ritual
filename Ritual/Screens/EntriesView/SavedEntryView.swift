@@ -19,17 +19,20 @@ struct SavedEntryView: View {
                 Theme.entryAndRecipesBackground
                     .ignoresSafeArea()
                 // MARK: - Saved Entry
-                VStack(alignment: .center, spacing: 8) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text(entry.timeStamp?.entryDate ?? "")
-                        .font(.system(size: 16, weight: .ultraLight))
-                    Text(entry.entryTitle ?? "")
-                        .font(.system(size: 22, weight: .light))
-                        .fontWeight(.bold)
-                    Text(entry.entry ?? "")
-                        .font(.system(size: 16, weight: .light))
+                        .font(.system(size: 16, weight: .thin))
+                    VStack(alignment: .leading, spacing: 40) {
+                        Text(entry.entryTitle ?? "")
+                            .font(.system(size: 26, weight: .light))
+                            .fontWeight(.bold)
+                        Text(entry.entry ?? "")
+                            .font(.system(size: 20, weight: .light))
+                    }
+                    
                 }
-                .frame(width: 300, height: 600, alignment: .top)
-                .multilineTextAlignment(.center)
+                .frame(width: 340, height: 600, alignment: .top)
+                .multilineTextAlignment(.leading)
                 Spacer()
             }
             .navigationBarBackButtonHidden(true)
@@ -45,7 +48,6 @@ struct SavedEntryView: View {
 
 struct SavedEntryView_Previews: PreviewProvider {
     static var previews: some View {
-//        let context        = PersistenceController.preview.container.viewContext
         let context        = PersistenceController.shared.viewContext
 
         let newItem        = Entry(context: context)

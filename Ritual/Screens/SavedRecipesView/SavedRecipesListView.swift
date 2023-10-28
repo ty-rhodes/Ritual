@@ -66,10 +66,10 @@ private extension SavedRecipesListView {
     
     var savedRecipesList: some View {
         List {
-            ForEach(recipes) { recipe in
+            ForEach(viewModel.recipes) { recipe in
                 NavigationLink(destination: SavedRecipesView(recipe: recipe)) {
                     SavedRecipesCell(recipe: recipe)
-                    Text(recipe.recipeTitle ?? "")
+                    Text(recipe.recipeTitle ?? "Untitled Recipe")
                 }
                 // MARK: - Recipe Swipe Actions
                 .swipeActions(edge: .leading) {

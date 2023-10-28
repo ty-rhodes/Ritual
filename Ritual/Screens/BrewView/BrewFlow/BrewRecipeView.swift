@@ -10,16 +10,12 @@ import SwiftUI
 struct BrewRecipeView: View {
     @EnvironmentObject private var recipesViewModel: RecipesViewModel
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.ratio,
-                                           ascending: false)],
-                                           animation: .default)
-
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.ratio, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
 
-    var recipe: Recipe
+//    var recipe: Recipe
     
-//    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
+    @State private var recipe: Recipe?
     
     var body: some View {
         NavigationStack {
@@ -29,55 +25,69 @@ struct BrewRecipeView: View {
                 ScrollView {
                     
                     // MARK: - Recipe Details
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 20) {
                         Text("Your Recipe")
                             .font(.system(size: 50, weight: .light))
                             .foregroundColor(Theme.entryAndRecipesBackground)
-                            .frame(width: 380, height: 60, alignment: .leading)
+                            .frame(width: 300, height: 100, alignment: .leading)
                             .minimumScaleFactor(0.6)
                             .padding(.leading, 20)
-                        // MARK: - Grams of Coffee
-                        VStack(alignment: .leading, spacing: 10) {
-                            VStack(alignment: .leading) {
-                                Text("\(recipe.grams)")
-                                    .font(.system(size: 60))
-                                Text("grams of coffee")
-                                    .font(.system(size: 24))
-                                    .foregroundColor(Theme.entryAndRecipesBackground)
+                        // MARK: - Recipe Grid
+                        VStack(alignment: .center, spacing: 10) {
+                            HStack(spacing: 30) {
+                                // MARK: - Grams of Coffee
+                                VStack {
+                                    Text("\(recipe?.grams ?? 0)")
+                                        .font(.system(size: 60))
+                                    Text("grams of coffee")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(Theme.entryAndRecipesBackground)
+                                }
+                                
+//                                Spacer()
+                                
+                                // MARK: - Ounces of Water
+                                VStack {
+                                    Text("\(recipe?.ounces ?? 0)")
+                                        .font(.system(size: 60))
+                                    Text("ounces of water")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(Theme.entryAndRecipesBackground)
+                                }
                             }
-                            // MARK: - Ounces of Water
-                            VStack(alignment: .leading) {
-                                Text("\(recipe.ounces)")
-                                    .font(.system(size: 60))
-                                Text("ounces of water")
-                                    .font(.system(size: 24))
-                                    .foregroundColor(Theme.entryAndRecipesBackground)
-                            }
-                            // MARK: - Coffee Ratio
-                            VStack(alignment: .leading) {
-                                Text(recipe.ratio ?? "N/A")
-                                    .font(.system(size: 64))
-                                Text("ratio")
-                                    .font(.system(size: 24))
-                                    .foregroundColor(Theme.entryAndRecipesBackground)
-                            }
-                            // MARK: - Brew Time
-                            VStack(alignment: .leading) {
-                                Text("3 min")
-                                    .font(.system(size: 60))
-                                Text("brew time")
-                                    .font(.system(size: 24))
-                                    .foregroundColor(Theme.entryAndRecipesBackground)
+                            
+                            Spacer()
+                            
+                            HStack(spacing: 70) {
+                                // MARK: - Coffee Ratio
+                                VStack {
+                                    Text(recipe?.ratio ?? "N/A")
+                                        .font(.system(size: 64))
+                                    Text("ratio")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(Theme.entryAndRecipesBackground)
+                                }
+                                .padding(.leading, 24)
+                                
+//                                Spacer()
+                                
+                                // MARK: - Brew Time
+                                VStack {
+                                    Text("3 min")
+                                        .font(.system(size: 60))
+                                    Text("brew time")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(Theme.entryAndRecipesBackground)
+                                }
                             }
                         }
                         .fontWeight(.light)
                         .foregroundColor(.white)
-                        .padding(.leading, 20)
+                        .padding(.horizontal, 20)
                         // MARK: - Brew Button
                         Spacer()
                         brewCoffeeButton
                         Spacer()
-                        
                     }
                     .minimumScaleFactor(0.6)
                     .padding(.vertical, DeviceTypes.isiPhoneSE ? 40 : 30)
@@ -92,7 +102,7 @@ struct BrewRecipeView: View {
                 ToolbarItem(placement: .primaryAction) {
                     HStack {
                         saveRecipeButton
-                        NavigationLink(destination: BrewView()) {
+                        NavigationLink(destination: HomeView()) {
                             Symbols.dismiss
                                 .font(.title2)
                                 .fontWeight(.light)
@@ -116,9 +126,8 @@ struct BrewRecipeView_Previews: PreviewProvider {
         newRecipe.ounces       = 36
         newRecipe.ratio        = "1:16"
         
-        return BrewRecipeView(recipe: newRecipe)
+        return BrewRecipeView()
             .environmentObject(RecipesViewModel(viewContext: PersistenceController.shared.viewContext))
-//            .environment(\.managedObjectContext, context)
     }}
 
 //MARK: - Extensions
@@ -128,7 +137,7 @@ private extension BrewRecipeView {
         NavigationLink(destination: BrewTimerView()) {
             Text("Brew Coffee")
                 .frame(width: 350, height: 50)
-                .background(Theme.brewButton)
+                .background(Theme.journalButton)
                 .foregroundColor(.white)
                 .font(.system(size: 16, weight: .semibold, design: .default))
                 .cornerRadius(25)
@@ -136,10 +145,13 @@ private extension BrewRecipeView {
                 .padding()
         }
         .padding(.horizontal, 8)
+        .padding(.vertical, 50)
     }
     
     var saveRecipeButton: some View {
         Button {
+//            recipesViewModel.saveRecipe(method: recipesViewModel.newRecipe.method, cups: Int32(recipesViewModel.newRecipe.cups), ratio: recipesViewModel.newRecipe.ratio)
+            recipesViewModel.recipeInProgress = recipe
             recipesViewModel.saveRecipe()
         } label: {
             Symbols.heart

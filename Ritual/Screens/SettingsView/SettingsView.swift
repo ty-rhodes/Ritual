@@ -12,6 +12,7 @@ struct SettingsView: View {
     @AppStorage(UserDefaultKeys.hapticsEnabled) private var isHapticsEnabled: Bool = true
     
     var body: some View {
+        
         NavigationStack {
             ZStack {
                 Theme.entryAndRecipesBackground
@@ -25,7 +26,7 @@ struct SettingsView: View {
                     }
                     .scrollContentBackground(.hidden)
                     .cornerRadius(20)
-                    .padding(12)
+                    .padding(.horizontal, -4)
                 }
             }
             .navigationTitle("Settings")

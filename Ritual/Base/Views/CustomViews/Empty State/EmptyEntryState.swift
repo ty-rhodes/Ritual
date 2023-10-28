@@ -15,21 +15,20 @@ struct EmptyEntryState: View {
                     Text("You haven't made any journal entries yet.")
                         .font(.title2).bold()
                     Text("But there's a first time for everything right?")
-                        .font(.caption)
+                        .font(.footnote)
                 }
                 NavigationLink(destination: NewEntryView()) {
                     HStack {
-                        Text("Write your first Entry")
+                        Text("Write your first entry")
                             .foregroundColor(.black)
                         Symbols.arrow
                             .foregroundColor(.black)
                     }
-                    .font(.title3).bold()
+                    .font(.headline).bold()
                 }
             }
             .frame(width: 360, height: 180, alignment: .center)
             .multilineTextAlignment(.center)
-            .offset(y: -40)
         }
     }
 }

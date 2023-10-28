@@ -11,24 +11,21 @@ struct EntriesListCell: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
-//    @StateObject var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.container.viewContext)
     @StateObject var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.viewContext)
     
     var entry: Entry
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(entry.entryTitle ?? "")
+                    .font(.system(size: 16, weight: .light))
+                    .fontWeight(.bold)
                 HStack {
                     Text(entry.timeStamp?.entryDate ?? "")
                         .font(.system(size: 16, weight: .ultraLight))
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(entry.entryTitle ?? "")
-                            .font(.system(size: 16, weight: .light))
-                            .fontWeight(.bold)
                         Text(entry.entry ?? "")
                             .font(.system(size: 16, weight: .light))
-                    }
                 }
             }
         }

@@ -19,7 +19,6 @@ struct RecipeNotesEmptyState: View {
             .multilineTextAlignment(.center)
             .overlay( RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: 1))
             .foregroundColor(.black)
-            .padding(-8)
         }
     }
 }

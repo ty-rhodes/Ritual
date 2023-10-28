@@ -12,16 +12,12 @@ struct HomeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp,
-                                           ascending: false)],
-        animation: .default)
+        sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp, ascending: false)], animation: .default)
     
     private var entries: FetchedResults<Entry>
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe,
-                                           ascending: false)],
-        animation: .default)
+        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe, ascending: false)], animation: .default)
     
     private var recipes: FetchedResults<Recipe>
     
@@ -38,26 +34,18 @@ struct HomeView: View {
                     let tabBarHeight: CGFloat = 80
                     ScrollView {
                         Spacer()
-                        VStack(alignment: .leading) {
-                            VStack {
-                                // MARK: - App Greeting
-                                Text("Let's get this day going.")
-                                    .font(.system(size: 60, weight: .light))
-                                    .frame(width: 300, height: 120)
-                                    .multilineTextAlignment(.leading)
-                                    .minimumScaleFactor(0.6)
-                                    .padding(.vertical, 30)
-                                    .padding(.horizontal, 12)
-                            }
+                        VStack {
+                            // MARK: - App Greeting
+                            greetingView
                             // MARK: - Cups Brewed and Entries Saved
                             brewAndCount
                             //MARK: - Recent Brews
-                            VStack(alignment: .leading, spacing: 10) {
+                            VStack(alignment: .center, spacing: 10) {
                                 HStack(spacing: 74) {
                                     Text("Recent Brews")
                                         .font(.system(size: 26, weight: .light))
                                         .padding(.horizontal, 8)
-                                    // MARK: - View All Brew Button
+                                    // MARK: - View All Brews Button
                                     viewAllBrewsButton
                                 }
                                 // MARK: - Recipe ScrollView
@@ -68,7 +56,8 @@ struct HomeView: View {
                                         HStack {
                                             ForEach(recipes) { recipe in
                                                 NavigationLink( destination: SavedRecipesView(recipe: recipe)) {
-                                                    BrewNowCard(brewNowCoffeeType: recipe.method ?? "", brewNowCupAmount: Int(recipe.cups))
+                                                    BrewNowCard(brewNowCoffeeType: recipe.method ?? "", 
+                                                                brewNowCupAmount: Int(recipe.cups))
                                                 }
                                             }
                                             .frame(width: 100, height: 185)
@@ -79,7 +68,7 @@ struct HomeView: View {
                             }
                             .padding(.vertical, 30)
                             //MARK: - Recent Entries
-                            VStack(alignment: .leading, spacing: 10) {
+                            VStack(alignment: .center, spacing: 10) {
                                 HStack(spacing: 66) {
                                     Text("Recent Entries")
                                         .font(.system(size: 26, weight: .light))
@@ -133,8 +122,8 @@ struct HomeView: View {
                         }
                     }
                 }
-                .padding(.vertical, DeviceTypes.isiPhoneSE ? 100 : 40)
-                .padding(.horizontal, 10)
+                .padding(.vertical, DeviceTypes.isiPhoneSE ? 100 : 60)
+                .padding(.horizontal, 1)
             }
             .navigationBarBackButtonHidden(true)
         }
@@ -149,6 +138,19 @@ struct HomeView_Previews: PreviewProvider {
 
 //MARK: - Extensions
 private extension HomeView {
+    
+    var greetingView: some View {
+        HStack(spacing: 60) {
+            Text("Let's get this day going.")
+                .font(.system(size: 60, weight: .light))
+                .frame(width: 300, height: 120, alignment: .leading)
+                .multilineTextAlignment(.leading)
+                .minimumScaleFactor(0.6)
+                .padding(.vertical, 30)
+            
+            Text("")
+        }
+    }
     
     var brewAndCount: some View {
         HStack(alignment: .center, spacing: 20) {
@@ -176,13 +178,13 @@ private extension HomeView {
         .frame(width: 365, height: 120)
         .background(Color.white)
         .cornerRadius(30)
-        .padding(2)
+        .padding(.vertical, 20)
     }
     
     var viewAllBrewsButton: some View {
         NavigationLink(destination: SavedRecipesListView()) {
             Text("View All")
-                .frame(width: 120, height: 44)
+                .frame(width: 120, height: 40)
                 .background(.clear)
                 .font(.system(size: 14, weight: .semibold))
                 .overlay( RoundedRectangle(cornerRadius: 25)
@@ -196,7 +198,7 @@ private extension HomeView {
     var viewAllEntriesButton: some View {
         NavigationLink(destination: EntriesListView()) {
             Text("View All")
-                .frame(width: 120, height: 44)
+                .frame(width: 120, height: 40)
                 .background(.clear)
                 .font(.system(size: 14, weight: .semibold))
                 .overlay( RoundedRectangle(cornerRadius: 25)

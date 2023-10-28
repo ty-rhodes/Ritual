@@ -15,8 +15,9 @@ struct BrewNowCardEmptyState: View {
                     Text("Haven't found a favorite recipe yet?")
                         .font(.title3).bold()
                     Text("You gotta start somewhere.")
-                        .font(.caption)
+                        .font(.footnote)
                 }
+                .frame(width: 260, height: 80, alignment: .center)
                 NavigationLink(destination: BrewView()) {
                     HStack {
                         Text("Create your first recipe")
@@ -24,7 +25,7 @@ struct BrewNowCardEmptyState: View {
                         Symbols.arrow
                             .foregroundColor(.black)
                     }
-                    .font(.title3).bold()
+                    .font(.headline).bold()
                 }
             }
             .frame(width: 360, height: 180, alignment: .center)

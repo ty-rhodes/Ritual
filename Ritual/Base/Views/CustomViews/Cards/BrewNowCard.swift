@@ -28,6 +28,7 @@ struct BrewNowCard: View {
             HStack {
                 Text("Brew Now")
                     .foregroundColor(.black)
+                    .fontWeight(.semibold)
                 Symbols.arrow
                     .foregroundColor(.black)
             }

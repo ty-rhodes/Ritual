@@ -12,6 +12,8 @@ struct BrewRatioView: View {
     @EnvironmentObject private var recipesViewModel: RecipesViewModel
     @Environment(\.managedObjectContext) private var viewContext
     
+    @State private var recipe: Recipe?
+    
     @State private var sliderValue           = 0.5
     @State private var hapticFeedbackEnabled = true
     
@@ -33,28 +35,29 @@ struct BrewRatioView: View {
                 Theme.brewBackground
                     .ignoresSafeArea()
                 ScrollView {
-                    VStack(spacing: 22) {
+                    VStack(spacing: 12) {
                         // MARK: - Ratio Question
-                        Text("How strong do you like it?")
-                            .font(.system(size: 50, weight: .light))
-                            .foregroundColor(Theme.entryAndRecipesBackground)
-                            .frame(width: 300, height: 140, alignment: .leading)
-                            .multilineTextAlignment(.leading)
+                        HStack(spacing: 58) {
+                            Text("How strong do you like it?")
+                                .font(.system(size: 50, weight: .light))
+                                .foregroundColor(Theme.entryAndRecipesBackground)
+                                .frame(width: 300, height: 140, alignment: .leading)
+                                .multilineTextAlignment(.leading)
                             .minimumScaleFactor(0.6)
+                            Text("")
+                        }
                         Spacer()
                         // MARK: - Recommended Label
                         recommendedLabel
                         // MARK: - Ratio Slider
-                        Spacer()
                         selectedRatio
-                        Spacer()
                         ratioSlider
                         Spacer()
                         // MARK: - Next Button
                         nextButton
                         Spacer()
                     }
-                    .padding(.vertical, DeviceTypes.isiPhoneSE ? 44 : 22)
+                    .padding(.vertical, 30)
                 }
             }
             .navigationBarBackButtonHidden(true)
@@ -64,7 +67,7 @@ struct BrewRatioView: View {
                     BackButton()
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    NavigationLink(destination: BrewView()) {
+                    NavigationLink(destination: HomeView()) {
                         Symbols.dismiss
                             .font(.title2)
                             .fontWeight(.light)
@@ -108,7 +111,7 @@ private extension BrewRatioView {
         }
         
         return Text(label)
-            .font(.system(size: 20, weight: .semibold))
+            .font(.system(size: 16, weight: .semibold))
             .frame(width: 140, height: 6)
             .foregroundColor(Theme.entryAndRecipesBackground)
     }
@@ -137,18 +140,22 @@ private extension BrewRatioView {
                     Haptics.lightImpact()
                 }
             }
+//            .onChange(of: ratio) { _ in
+//                recipesViewModel.saveSelectedRatio(ratio: ratio)
+//            }
     }
     
     var nextButton: some View {
-        NavigationLink(destination: BrewRecipeView(recipe: Recipe(context: viewContext)).environmentObject(recipesViewModel)) {
+        NavigationLink(destination: BrewRecipeView().environmentObject(recipesViewModel)) {
             Button("Next") {
                 // Save selected ratio
-                recipesViewModel.saveRecipe()
-//                recipesViewModel.saveSelectedRatio(ratio)
+//                recipesViewModel.saveSelectedRatio(ratio: ratio)
+                recipesViewModel.recipeRatio = selectedRatio as! String
+                recipesViewModel.createRecipe(method: recipesViewModel.selectedBrewMethod, cups: recipesViewModel.selectedCups, ratio: selectedRatio as! String)
             }
             .frame(width: 350, height: 50)
-            .background(Color.white)
-            .foregroundColor(.black)
+            .background(Theme.brewButton)
+            .foregroundColor(.white)
             .font(.system(size: 16, weight: .semibold))
             .cornerRadius(25)
             .controlSize(.large)

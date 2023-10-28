@@ -49,7 +49,6 @@
 		77A59FBC2A6C439800C69159 /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A59FBB2A6C439800C69159 /* RecipesViewModel.swift */; };
 		77DEA9C129D9F1C800C1A620 /* BrewNowCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DEA9C029D9F1C800C1A620 /* BrewNowCard.swift */; };
 		77DEA9C329D9F22400C1A620 /* JournalEntryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DEA9C229D9F22400C1A620 /* JournalEntryCard.swift */; };
-		77E9E72C29E8856C005C54DC /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E9E72B29E8856C005C54DC /* CalculatorViewModel.swift */; };
 		77EBEA4A2A7B0DB2004DA838 /* RitualError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBEA492A7B0DB2004DA838 /* RitualError.swift */; };
 		77EBEA4C2A7B0E02004DA838 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBEA4B2A7B0E02004DA838 /* Alert.swift */; };
 		77F57A832A3E8AA3001DD89C /* EntriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F57A822A3E8AA3001DD89C /* EntriesViewModel.swift */; };
@@ -104,7 +103,6 @@
 		77A59FBB2A6C439800C69159 /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		77DEA9C029D9F1C800C1A620 /* BrewNowCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewNowCard.swift; sourceTree = "<group>"; };
 		77DEA9C229D9F22400C1A620 /* JournalEntryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryCard.swift; sourceTree = "<group>"; };
-		77E9E72B29E8856C005C54DC /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		77EBEA492A7B0DB2004DA838 /* RitualError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualError.swift; sourceTree = "<group>"; };
 		77EBEA4B2A7B0E02004DA838 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		77F57A822A3E8AA3001DD89C /* EntriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesViewModel.swift; sourceTree = "<group>"; };
@@ -377,7 +375,6 @@
 		77E9E72929E88536005C54DC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				77E9E72B29E8856C005C54DC /* CalculatorViewModel.swift */,
 				77A3FCCF2A3D38FF00CCE445 /* BrewTimerViewModel.swift */,
 				77F57A822A3E8AA3001DD89C /* EntriesViewModel.swift */,
 				77A59FBB2A6C439800C69159 /* RecipesViewModel.swift */,
@@ -512,7 +509,6 @@
 				77FB74202A1D7E2C00DB03CC /* BrewTimerView.swift in Sources */,
 				770B392D2A6DBA7800EFC165 /* BrewNowCardEmptyState.swift in Sources */,
 				775FE31929C90A4F00B0622F /* HomeView.swift in Sources */,
-				77E9E72C29E8856C005C54DC /* CalculatorViewModel.swift in Sources */,
 				7704D11E2A85B19600742907 /* Constants.swift in Sources */,
 				7747AF792A7F103B00A84325 /* Entensions.swift in Sources */,
 				77498CB52A411E830078CF61 /* EntryGroup.swift in Sources */,
@@ -670,7 +666,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -703,7 +699,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

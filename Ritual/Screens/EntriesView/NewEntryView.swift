@@ -9,18 +9,13 @@ import SwiftUI
 
 struct NewEntryView: View {
     @Environment(\.dismiss) var dismiss
-    
     @Environment(\.presentationMode) private var presentationMode
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp,
-                                           ascending: false)],
-                                           animation: .default)
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp, ascending: false)], animation: .default)
     
     private var entries: FetchedResults<Entry>
     
-//    @StateObject private var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.container.viewContext)
     @StateObject private var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.viewContext)
     
     var body: some View {
@@ -62,6 +57,29 @@ struct NewEntryView_Previews: PreviewProvider {
 
 //MARK: - Extensions
 private extension NewEntryView {
+    
+    var customEntryTitle: some View {
+        ZStack {
+            if viewModel.newEntryTitle.isEmpty {
+                Text("Subject")
+                    .foregroundStyle(.red)
+                
+                TextField("", text: $viewModel.newEntryTitle)
+                    .onTapGesture {
+                        if self.viewModel.newEntryTitle.isEmpty {
+                            DispatchQueue.main.async {
+                                self.viewModel.newEntryTitle = " "
+                                self.viewModel.newEntryTitle = ""
+                            }
+                        }
+                    }
+            }
+        }
+        .font(.system(size: 24, weight: .light))
+        .frame(width: 350, height: 20)
+        .autocorrectionDisabled(true)
+        .padding()
+    }
     
     var newEntryTitle: some View {
         TextField("Subject", text: $viewModel.newEntryTitle)
