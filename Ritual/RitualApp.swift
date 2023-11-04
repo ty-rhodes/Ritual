@@ -10,8 +10,7 @@ import SwiftUI
 @main
 struct RitualApp: App {
     
-//    @StateObject var recipesViewModel = RecipesViewModel(viewContext: PersistenceController.shared.container.viewContext)
-    let recipesViewModel = RecipesViewModel(viewContext: PersistenceController.shared.container.viewContext)
+    @StateObject var recipesViewModel = RecipesViewModel(viewContext: PersistenceController.shared.container.viewContext)
     
 //    var recipesViewModel: RecipesViewModel
 //
@@ -21,7 +20,6 @@ struct RitualApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            TabBar()
             AppContainerView()
                 .environment(\.managedObjectContext, PersistenceController.shared.viewContext)
                 .environmentObject(recipesViewModel)

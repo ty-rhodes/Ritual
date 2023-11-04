@@ -69,13 +69,13 @@ private extension SavedRecipesListView {
             ForEach(viewModel.recipes) { recipe in
                 NavigationLink(destination: SavedRecipesView(recipe: recipe)) {
                     SavedRecipesCell(recipe: recipe)
-                    Text(recipe.recipeTitle ?? "Untitled Recipe")
+                    Text(recipe.recipeTitle ?? "")
                 }
                 // MARK: - Recipe Swipe Actions
                 .swipeActions(edge: .leading) {
                     NavigationLink(destination: BrewTimerView()) {
                         Button {
-                            // Brew method
+                            // Go to BrewTimerView
                         } label: {
                             Text("Brew")
                         }

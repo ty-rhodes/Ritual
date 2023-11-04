@@ -11,13 +11,16 @@ struct BrewView: View {
     @EnvironmentObject var recipesViewModel: RecipesViewModel
 //    @Environment(\.managedObjectContext) private var viewContext
     
-    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.method, ascending: false)], animation: .default)
+    private var recipes: FetchedResults<Recipe>
+    
+//    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     
     let brewMethods: [String] = ["Drip", "Pour Over", "French Press", "Espresso"]
     
     @State private var selectedBrewMethod: String? = nil
     
-    @State private var recipe: Recipe?
+//    @State private var recipe: Recipe?
     
     var body: some View {
         NavigationStack {
@@ -78,11 +81,11 @@ private extension BrewView {
             HStack(spacing: 30) {
                 ForEach(brewMethods, id: \.self) { method in
                     BrewMethodCard(brewMethodCoffeeType: method)
-                        .background(recipeViewModel.selectedBrewMethod == method ? Color.white : Color.clear)
+                        .background(recipesViewModel.selectedBrewMethod == method ? Color.white : Color.clear)
                         .clipShape(RoundedRectangle(cornerRadius: 30))
                         .onTapGesture {
                             withAnimation {
-                                recipeViewModel.selectedBrewMethod = method
+                                recipesViewModel.selectedBrewMethod = method
                             }
                         }
                         .frame(width: 130, height: 300)
@@ -97,8 +100,8 @@ private extension BrewView {
         NavigationLink(destination: BrewCupView().environmentObject(recipesViewModel)) {
             Button("Next") {
                 // Save selected brew method
-//                recipesViewModel.saveRecipe(method: recipesViewModel.newRecipe.method, cups: Int32(recipesViewModel.newRecipe.cups), ratio: recipesViewModel.newRecipe.ratio)
-                recipeViewModel.selectedBrewMethod = selectedBrewMethod ?? ""
+                recipesViewModel.recipeInProgress?.method = selectedBrewMethod ?? ""
+                recipesViewModel.saveRecipe()
             }
             .frame(width: 350, height: 50)
             .background(Theme.brewButton)

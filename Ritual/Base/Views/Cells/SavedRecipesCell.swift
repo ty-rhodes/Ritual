@@ -17,7 +17,7 @@ struct SavedRecipesCell: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 8) {
-                Text(recipe.recipeTitle ?? "")
+                Text(recipe.recipeTitle ?? "Morning cup o' Joe")
                     .font(.system(size: 16, weight: .semibold))
                 HStack {
                     Text(recipe.method ?? "")

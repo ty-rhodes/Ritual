@@ -11,9 +11,12 @@ struct BrewCupView: View {
     @EnvironmentObject private var recipesViewModel: RecipesViewModel
 //    @Environment(\.managedObjectContext) private var viewContext
     
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.cups, ascending: false)], animation: .default)
+    private var recipes: FetchedResults<Recipe>
+    
 //    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     
-    @State private var recipe: Recipe?
+//    @State private var recipe: Recipe?
     
     @State private var sliderValue = 1.0
     @State private var hapticFeedbackEnabled = true
@@ -114,7 +117,8 @@ private extension BrewCupView {
             Button("Next") {
                 // Save number of cups
 //                recipesViewModel.saveCups(cups: cups)
-                recipesViewModel.selectedCups = cups
+                recipesViewModel.recipeInProgress?.cups = Int32(cups)
+                recipesViewModel.saveRecipe()
             }
             .frame(width: 350, height: 50)
             .background(Theme.brewButton)

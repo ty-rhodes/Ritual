@@ -12,7 +12,10 @@ struct BrewRatioView: View {
     @EnvironmentObject private var recipesViewModel: RecipesViewModel
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State private var recipe: Recipe?
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.ratio, ascending: false)], animation: .default)
+    private var recipes: FetchedResults<Recipe>
+    
+//    @State private var recipe: Recipe?
     
     @State private var sliderValue           = 0.5
     @State private var hapticFeedbackEnabled = true
@@ -146,12 +149,13 @@ private extension BrewRatioView {
     }
     
     var nextButton: some View {
-        NavigationLink(destination: BrewRecipeView().environmentObject(recipesViewModel)) {
+        NavigationLink(destination: BrewRecipeView(viewModel: RecipesViewModel(viewContext: PersistenceController.shared.viewContext)).environmentObject(recipesViewModel)) {
             Button("Next") {
                 // Save selected ratio
 //                recipesViewModel.saveSelectedRatio(ratio: ratio)
-                recipesViewModel.recipeRatio = selectedRatio as! String
-                recipesViewModel.createRecipe(method: recipesViewModel.selectedBrewMethod, cups: recipesViewModel.selectedCups, ratio: selectedRatio as! String)
+                recipesViewModel.recipeInProgress?.ratio = (selectedRatio as! String)
+                recipesViewModel.saveRecipe()
+//                recipesViewModel.createRecipe(method: recipesViewModel.selectedBrewMethod, cups: recipesViewModel.selectedCups, ratio: selectedRatio as! String)
             }
             .frame(width: 350, height: 50)
             .background(Theme.brewButton)

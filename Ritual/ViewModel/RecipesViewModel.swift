@@ -8,12 +8,32 @@
 import SwiftUI
 import CoreData
 
+@MainActor
 final class RecipesViewModel: ObservableObject {
     
+    
+    @Published var recipesList = [RecipesViewModel]()
+//    private let fetchedResultsController: NSFetchedResultsController<Recipe>
     private let viewContext: NSManagedObjectContext
         
     init(viewContext: NSManagedObjectContext) {
-        self.viewContext = viewContext // Inject the managed object context in the initializer
+        self.viewContext = viewContext
+        
+//        fetchedResultsController = NSFetchedResultsController(fetchRequest: Recipe.all, managedObjectContext: viewContext, sectionNameKeyPath: nil, cacheName: nil)
+//        super.init()
+//        fetchedResultsController.delegate = self
+//        
+//        do {
+//            try fetchedResultsController.performFetch()
+//            guard let recipes = fetchedResultsController.fetchedObjects else {
+//                return
+//            }
+//            
+//            self.recipesList = recipes.map(RecipeModelViewModel.init)
+//        } catch {
+//            print(error)
+//        }
+        
         fetchRecipes()
     }
 
@@ -24,16 +44,18 @@ final class RecipesViewModel: ObservableObject {
     @Published var selectedBrewMethod: String = ""
     @Published var selectedCups: Int          = 0
     @Published var recipeRatio: String        = ""
+    @Published var recipeOunces: Int          = 0
+    @Published var recipesGrams: Int          = 0
     
     // Suggested var from Jon
     @Published var recipeInProgress: Recipe?
     
     struct RecipeInput {
         var method: String = ""
-        var cups: Int = 0
-        var ratio: String = ""
-        var grams: Int = 0
-        var ounces: Int = 0
+        var cups: Int      = 0
+        var ratio: String  = ""
+        var grams: Int     = 0
+        var ounces: Int    = 0
     }
     
     func calculateCoffeeAndWater(ratio: Int) -> (gramsOfCoffee: Double, ouncesOfWater: Double) {
@@ -97,10 +119,7 @@ final class RecipesViewModel: ObservableObject {
     func saveRecipe() {
         guard let recipe = recipeInProgress else { return }
         saveContext()
-        recipes.append(recipe)
-        recipeInProgress = nil
-        objectWillChange.send()
-        
+        recipes.append(recipe)        
     }
     
 //    func saveRecipe(method: String, cups: Int32, ratio: String) {
@@ -168,3 +187,54 @@ final class RecipesViewModel: ObservableObject {
         }
     }
 }
+
+//extension RecipesViewModel: NSFetchedResultsControllerDelegate {
+//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        guard let recipes = controller.fetchedObjects as? [Recipe] else {
+//            return
+//        }
+//        
+//        self.recipesList = recipes.map(RecipeModelViewModel.init)
+//    }
+//}
+//
+//struct RecipeModelViewModel: Identifiable {
+//    
+//    private var recipe: Recipe
+//    
+//    init(recipe: Recipe) {
+//        self.recipe = recipe
+//    }
+//    
+//    var id: NSManagedObjectID {
+//        recipe.objectID
+//    }
+//    
+//    var recipeTitle: String {
+//        recipe.recipeTitle ?? ""
+//    }
+//    
+//    var method: String {
+//        recipe.method ?? ""
+//    }
+//    
+//    var cups: Int32 {
+//        recipe.cups
+//    }
+//    
+//    var ratio: String {
+//        recipe.ratio ?? ""
+//    }
+//    
+//    var grams: Int32 {
+//        recipe.grams
+//    }
+//    
+//    var ounces: Int32 {
+//        recipe.ounces
+//    }
+//    
+//    var notes: String {
+//        recipe.notes ?? ""
+//    }
+//}

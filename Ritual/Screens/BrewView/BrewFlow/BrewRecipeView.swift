@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BrewRecipeView: View {
-    @EnvironmentObject private var recipesViewModel: RecipesViewModel
+//    @EnvironmentObject private var recipesViewModel: RecipesViewModel
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.ratio, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
@@ -16,6 +16,13 @@ struct BrewRecipeView: View {
 //    var recipe: Recipe
     
     @State private var recipe: Recipe?
+    
+    @ObservedObject private var recipesViewModel: RecipesViewModel
+    
+    init(viewModel: RecipesViewModel) {
+        self.recipesViewModel = viewModel
+    }
+
     
     var body: some View {
         NavigationStack {
@@ -37,7 +44,7 @@ struct BrewRecipeView: View {
                             HStack(spacing: 30) {
                                 // MARK: - Grams of Coffee
                                 VStack {
-                                    Text("\(recipe?.grams ?? 0)")
+                                    Text("\(recipesViewModel.recipesGrams)")
                                         .font(.system(size: 60))
                                     Text("grams of coffee")
                                         .font(.system(size: 24))
@@ -48,7 +55,7 @@ struct BrewRecipeView: View {
                                 
                                 // MARK: - Ounces of Water
                                 VStack {
-                                    Text("\(recipe?.ounces ?? 0)")
+                                    Text("\(recipesViewModel.recipeOunces)")
                                         .font(.system(size: 60))
                                     Text("ounces of water")
                                         .font(.system(size: 24))
@@ -61,7 +68,8 @@ struct BrewRecipeView: View {
                             HStack(spacing: 70) {
                                 // MARK: - Coffee Ratio
                                 VStack {
-                                    Text(recipe?.ratio ?? "N/A")
+//                                    Text("\(recipe.ratio ?? "N/A")")
+                                    Text(recipesViewModel.recipeRatio)
                                         .font(.system(size: 64))
                                     Text("ratio")
                                         .font(.system(size: 24))
@@ -126,7 +134,7 @@ struct BrewRecipeView_Previews: PreviewProvider {
         newRecipe.ounces       = 36
         newRecipe.ratio        = "1:16"
         
-        return BrewRecipeView()
+        return BrewRecipeView(viewModel: RecipesViewModel(viewContext: PersistenceController.shared.viewContext))
             .environmentObject(RecipesViewModel(viewContext: PersistenceController.shared.viewContext))
     }}
 
