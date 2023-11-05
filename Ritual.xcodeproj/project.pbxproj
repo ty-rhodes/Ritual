@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7704D11A2A819BD200742907 /* RecipeNotesEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704D1192A819BD200742907 /* RecipeNotesEmptyState.swift */; };
-		7704D11C2A85957F00742907 /* BrewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704D11B2A85957F00742907 /* BrewData.swift */; };
 		7704D11E2A85B19600742907 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704D11D2A85B19600742907 /* Constants.swift */; };
 		7706F1F629EF5AA800B0A312 /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7706F1F529EF5AA800B0A312 /* Prompt.swift */; };
 		7706F1F829F3247F00B0A312 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7706F1F729F3247F00B0A312 /* PromptView.swift */; };
@@ -64,7 +63,6 @@
 
 /* Begin PBXFileReference section */
 		7704D1192A819BD200742907 /* RecipeNotesEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeNotesEmptyState.swift; sourceTree = "<group>"; };
-		7704D11B2A85957F00742907 /* BrewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewData.swift; sourceTree = "<group>"; };
 		7704D11D2A85B19600742907 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7706F1F529EF5AA800B0A312 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
 		7706F1F729F3247F00B0A312 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 				77A3FCCF2A3D38FF00CCE445 /* BrewTimerViewModel.swift */,
 				77F57A822A3E8AA3001DD89C /* EntriesViewModel.swift */,
 				77A59FBB2A6C439800C69159 /* RecipesViewModel.swift */,
-				7704D11B2A85957F00742907 /* BrewData.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -525,7 +522,6 @@
 				77FB74222A1D89DA00DB03CC /* SaveAndWriteView.swift in Sources */,
 				77FB741C2A1C27BF00DB03CC /* BrewRatioView.swift in Sources */,
 				775FE30629C9080C00B0622F /* RitualApp.swift in Sources */,
-				7704D11C2A85957F00742907 /* BrewData.swift in Sources */,
 				776C0F492A5B8125007BBED9 /* SavedRecipesView.swift in Sources */,
 				770BC48F29FCA645000127AD /* EntriesListCell.swift in Sources */,
 				77EBEA4C2A7B0E02004DA838 /* Alert.swift in Sources */,
