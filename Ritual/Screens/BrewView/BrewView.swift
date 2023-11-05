@@ -19,7 +19,8 @@ struct BrewView: View {
     let brewMethods: [String] = ["Drip", "Pour Over", "French Press", "Espresso"]
     
     @State private var selectedBrewMethod: String? = nil
-    
+    @State private var linkActivated: Bool = false
+
 //    @State private var recipe: Recipe?
     
     var body: some View {
@@ -61,6 +62,13 @@ struct BrewView: View {
                 }
             }
             .toolbarBackground(Theme.brewBackground, for: .navigationBar)
+            .navigationDestination(isPresented: $linkActivated) {
+                BrewCupView() // Don't need to inject environment object since you did it already to the parent
+            }
+            .onAppear {
+                // Need to call this to start building your recipe in progress. - Jon
+                recipesViewModel.startNewRecipe()
+            }
         }
     }
 }
@@ -97,19 +105,35 @@ private extension BrewView {
     }
     
     var nextButton: some View {
-        NavigationLink(destination: BrewCupView().environmentObject(recipesViewModel)) {
-            Button("Next") {
-                // Save selected brew method
-                recipesViewModel.recipeInProgress?.method = selectedBrewMethod ?? ""
-                recipesViewModel.saveRecipe()
-            }
-            .frame(width: 350, height: 50)
-            .background(Theme.brewButton)
-            .foregroundColor(.white)
-            .font(.system(size: 16, weight: .semibold))
-            .cornerRadius(25)
-            .controlSize(.large)
-            .padding(.horizontal, 22)
+        // You have an issue with the way you build your Next button with a NavigationLink.
+        // This won't activate the link AND the the button action. Try something
+        // like this instead. - Jon
+//        NavigationLink(destination: BrewCupView().environmentObject(recipesViewModel)) {
+//            Button("Next") {
+//                // Save selected brew method
+//                recipesViewModel.recipeInProgress?.method = selectedBrewMethod ?? ""
+//                recipesViewModel.saveRecipe()
+//            }
+//            .frame(width: 350, height: 50)
+//            .background(Theme.brewButton)
+//            .foregroundColor(.white)
+//            .font(.system(size: 16, weight: .semibold))
+//            .cornerRadius(25)
+//            .controlSize(.large)
+//            .padding(.horizontal, 22)
+//        }
+        Button("Next") {
+            // Save selected brew method
+            recipesViewModel.recipeInProgress?.method = selectedBrewMethod ?? ""
+            recipesViewModel.saveRecipe()
+            linkActivated = true
         }
+        .frame(width: 350, height: 50)
+        .background(Theme.brewButton)
+        .foregroundColor(.white)
+        .font(.system(size: 16, weight: .semibold))
+        .cornerRadius(25)
+        .controlSize(.large)
+        .padding(.horizontal, 22)
     }
 }
