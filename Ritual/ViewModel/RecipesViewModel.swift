@@ -104,8 +104,8 @@ final class RecipesViewModel: ObservableObject {
 //        recipe.ratio  = newRecipe.ratio
 //        saveContext()
 //        
-////        // Clear the input after Saving
-////        newRecipe = RecipeInput()
+//        // Clear the input after Saving
+//        newRecipe = RecipeInput()
 //    }
     
     func createRecipe(method: String, cups: Int, ratio: String) {
@@ -119,7 +119,6 @@ final class RecipesViewModel: ObservableObject {
     func saveRecipe() {
         guard let recipe = recipeInProgress else { return }
         saveContext()
-        recipes.append(recipe)        
     }
     
 //    func saveRecipe(method: String, cups: Int32, ratio: String) {
