@@ -20,7 +20,8 @@ struct SavedRecipesListView: View {
     
     private var recipes: FetchedResults<Recipe>
     
-    @StateObject private var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
+    // You don't need this if you're injecting the view model to the environment. - Jon
+//    @StateObject private var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     
     var body: some View {
         NavigationStack {
@@ -49,9 +50,10 @@ struct SavedRecipesListView: View {
                 }
             }
             .toolbarBackground(Theme.entryAndRecipesBackground, for: .navigationBar)
-            .onAppear {
-                viewModel.fetchRecipes()
-            }
+            // Don't need this - Jon
+//            .onAppear {
+//                recipesViewModel.fetchRecipes()
+//            }
         }
     }
 }
@@ -59,6 +61,7 @@ struct SavedRecipesListView: View {
 struct SavedRecipesListView_Previews: PreviewProvider {
     static var previews: some View {
         SavedRecipesListView()
+            .environmentObject(RecipesViewModel(viewContext: PersistenceController.shared.viewContext))
     }
 }
 
@@ -66,7 +69,8 @@ private extension SavedRecipesListView {
     
     var savedRecipesList: some View {
         List {
-            ForEach(viewModel.recipes) { recipe in
+            // Your list should be pointing to the @FethRequest array in your view. - Jon
+            ForEach(recipes) { recipe in
                 NavigationLink(destination: SavedRecipesView(recipe: recipe)) {
                     SavedRecipesCell(recipe: recipe)
                     Text(recipe.recipeTitle ?? "")
@@ -85,8 +89,9 @@ private extension SavedRecipesListView {
             }
             .onDelete { indexSet in
                 indexSet.forEach { index in
-                    if viewModel.recipes.indices.contains(index) {
-                        viewModel.deleteRecipe(at: viewModel.recipes[index])
+                    // To delete a recipe, just go through the viewContext. - Jon
+                    if recipes.indices.contains(index) {
+                        viewContext.delete(recipes[index])
                     }
                 }
             }

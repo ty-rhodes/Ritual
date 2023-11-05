@@ -11,8 +11,8 @@ import CoreData
 @MainActor
 final class RecipesViewModel: ObservableObject {
     
-    
-    @Published var recipesList = [RecipesViewModel]()
+    // An array of RecipesViewModel? - Jon
+//    @Published var recipesList = [RecipesViewModel]()
 //    private let fetchedResultsController: NSFetchedResultsController<Recipe>
     private let viewContext: NSManagedObjectContext
         
@@ -34,11 +34,14 @@ final class RecipesViewModel: ObservableObject {
 //            print(error)
 //        }
         
-        fetchRecipes()
+        // Don't do this in the init. Actually, don't do this at all. The @FetchRequest in the View does this for you. - Jon
+//        fetchRecipes()
     }
 
     @Published var newRecipe: RecipeInput = RecipeInput()
-    @Published var recipes: [Recipe]   = []
+    // Don't have a separate array of recipes here. Only use the @FetchRequest marked array in the View.
+    // When managing items in the list, go through the ManagedObjectContext. - Jon
+//    @Published var recipes: [Recipe]   = []
     @Published var recipeNotes: String = ""
     
     @Published var selectedBrewMethod: String = ""
@@ -70,26 +73,32 @@ final class RecipesViewModel: ObservableObject {
     }
     
     // MARK: - Recipe Methods
-    func fetchRecipes() {
-           do {
-               let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-               let recipes  = try viewContext.fetch(request)
-               self.recipes = recipes
-           } catch {
-               let nsError = error as NSError
-               print("Error fetching entries: \(nsError), \(nsError.userInfo)")
-           }
-       }
+    // Again, don't need this. Just fetch in view. - Jon
+//    func fetchRecipes() {
+//           do {
+//               let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+//               let recipes  = try viewContext.fetch(request)
+//               self.recipes = recipes
+//           } catch {
+//               let nsError = error as NSError
+//               print("Error fetching entries: \(nsError), \(nsError.userInfo)")
+//           }
+//       }
     
     func addRecipe(_ recipe: Recipe) {
-        recipes.append(recipe)
+        // Adding to the array does nothing. When you fetch from Core Data with NSFetchRequest, you get the array
+        // of recipes. But making edits to that array doesn't modify the Core Data objects. Adding to the array
+        // doesn't add it to your saved recipes. You have to go through the ManagedObjectContext to do that.
+        // You can do that here like this, or just do it in the View since you have the context there as well. - Jon
+//        recipes.append(recipe)
+        viewContext.insert(recipe)
     }
     
     func deleteRecipe(at recipe: Recipe) {
         viewContext.delete(recipe)
         saveContext()
         // Remove the deleted recipe from the local 'recipes' array.
-        recipes.removeAll { $0 == recipe }
+//        recipes.removeAll { $0 == recipe }
     }
     
 //    func saveRecipe() {
@@ -107,17 +116,28 @@ final class RecipesViewModel: ObservableObject {
 //        // Clear the input after Saving
 //        newRecipe = RecipeInput()
 //    }
-    
+
+    // Use this to create your initial recipe in progress
+    func startNewRecipe() {
+        let newRecipe = Recipe(context: viewContext)
+        recipeInProgress = newRecipe
+    }
+
     func createRecipe(method: String, cups: Int, ratio: String) {
         let newRecipe = Recipe(context: viewContext)
         newRecipe.method = method
         newRecipe.cups = Int32(cups)
         newRecipe.ratio = ratio
+        // You need to insert the new recipe to your ManagedObjectContext to save it. - Jon
+        viewContext.insert(newRecipe)
         saveContext()
     }
     
     func saveRecipe() {
+        // The warning on this line that Xcode gives should be your clue why this doesn't work.
+        // "Value 'recipe' was defined but never used" - Jon
         guard let recipe = recipeInProgress else { return }
+        viewContext.insert(recipe) // Adding this line removes the warning - Jon
         saveContext()
     }
     
@@ -174,11 +194,13 @@ final class RecipesViewModel: ObservableObject {
         return recipe.notes ?? ""
     }
     
+    // This isn't an async operation, so you don't need the completion handler at all.
     func saveContext(completion: @escaping (Error?) -> () = {_ in}) {
         if viewContext.hasChanges {
             do {
                 try viewContext.save()
-                fetchRecipes()
+                // Just save, don't fetch - Jon
+//                fetchRecipes()
                 completion(nil)
             } catch {
                 completion(error)
