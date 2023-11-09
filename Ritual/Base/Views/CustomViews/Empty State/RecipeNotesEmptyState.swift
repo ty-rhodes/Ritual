@@ -17,8 +17,11 @@ struct RecipeNotesEmptyState: View {
             .frame(width: 350, height:150, alignment: .center)
             .minimumScaleFactor(0.6)
             .multilineTextAlignment(.center)
+            .padding(.horizontal, 14)
+            .padding(.vertical, 10)
             .overlay( RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: 1))
             .foregroundColor(.black)
+            .padding(.horizontal, 20)
         }
     }
 }

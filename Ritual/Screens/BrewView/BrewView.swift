@@ -19,7 +19,7 @@ struct BrewView: View {
     let brewMethods: [String] = ["Drip", "Pour Over", "French Press", "Espresso"]
     
     @State private var selectedBrewMethod: String? = nil
-    @State private var linkActivated: Bool = false
+    @State private var linkActivated: Bool         = false
 
 //    @State private var recipe: Recipe?
     
@@ -124,7 +124,8 @@ private extension BrewView {
 //        }
         Button("Next") {
             // Save selected brew method
-            recipesViewModel.recipeInProgress?.method = selectedBrewMethod ?? ""
+//            recipesViewModel.recipeInProgress?.method = selectedBrewMethod ?? ""
+            recipesViewModel.recipeInProgress?.method = recipesViewModel.selectedBrewMethod
             recipesViewModel.saveRecipe()
             linkActivated = true
         }

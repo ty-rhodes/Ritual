@@ -52,18 +52,7 @@ struct HomeView: View {
                                 if recipes.isEmpty {
                                     BrewNowCardEmptyState()
                                 } else {
-                                    ScrollView(.horizontal) {
-                                        HStack {
-                                            ForEach(recipes) { recipe in
-                                                NavigationLink( destination: SavedRecipesView(recipe: recipe)) {
-                                                    BrewNowCard(brewNowCoffeeType: recipe.method ?? "", 
-                                                                brewNowCupAmount: Int(recipe.cups))
-                                                }
-                                            }
-                                            .frame(width: 100, height: 185)
-                                            .padding(.horizontal)
-                                        }
-                                    }
+                                    recentBrewsScrollView
                                 }
                             }
                             .padding(.vertical, 30)
@@ -80,19 +69,7 @@ struct HomeView: View {
                                 if entries.isEmpty {
                                     JournalEntryCardEmptyState()
                                 } else {
-                                    ScrollView(.horizontal) {
-                                        HStack {
-                                            ForEach(entries) { entry in
-                                                NavigationLink(destination: SavedEntryView(entry: entry)) {
-                                                    JournalEntryCard(entryDate: entry.timeStamp?.entryDate ?? "",
-                                                                     entryTitle: entry.entryTitle ?? "",
-                                                                     entry: entry.entry ?? "")
-                                                }
-                                            }
-                                            .frame(width: 100, height: 185)
-                                            .padding(.horizontal)
-                                        }
-                                    }
+                                    recentEntriesScrollView
                                 }
                             }
                         }
@@ -207,6 +184,39 @@ private extension HomeView {
                 .padding(3)
         }
         .foregroundColor(.black)
+    }
+    
+    var recentBrewsScrollView: some View {
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(recipes) { recipe in
+                    NavigationLink( destination: SavedRecipesView(recipe: recipe)) {
+                        BrewNowCard(brewNowCoffeeType: recipe.method ?? "",
+                                    brewNowCupAmount: Int(recipe.cups))
+                    }
+                }
+                .frame(width: 100, height: 185)
+                .padding(.horizontal)
+            }
+            .padding(.horizontal)
+        }
+    }
+    
+    var recentEntriesScrollView: some View {
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(entries) { entry in
+                    NavigationLink(destination: SavedEntryView(entry: entry)) {
+                        JournalEntryCard(entryDate: entry.timeStamp?.entryDate ?? "",
+                                         entryTitle: entry.entryTitle ?? "",
+                                         entry: entry.entry ?? "")
+                    }
+                }
+                .frame(width: 100, height: 185)
+                .padding(.horizontal)
+            }
+            .padding(.horizontal)
+        }
     }
 }
 

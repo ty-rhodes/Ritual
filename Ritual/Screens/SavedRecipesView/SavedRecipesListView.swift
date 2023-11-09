@@ -15,7 +15,7 @@ struct SavedRecipesListView: View {
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe,
-                                           ascending: false)],
+                                           ascending: true)],
                                            animation: .default)
     
     private var recipes: FetchedResults<Recipe>

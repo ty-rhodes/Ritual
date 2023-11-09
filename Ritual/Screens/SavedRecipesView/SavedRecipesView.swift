@@ -9,17 +9,16 @@ import SwiftUI
 import CoreData
 
 struct SavedRecipesView: View {
-    
     @Environment(\.dismiss) var dimiss
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var viewModel: RecipesViewModel
     
-//    @FetchRequest(
-//        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe,
-//                                           ascending: false)],
-//                                           animation: .default)
-//    
-//    private var recipes: FetchedResults<Recipe>
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe,
+                                           ascending: false)],
+                                           animation: .default)
+    
+    private var recipes: FetchedResults<Recipe>
     
     var recipe: Recipe
     
@@ -141,10 +140,6 @@ private extension SavedRecipesView {
     
     var recipeImageAndTitle: some View {
         VStack(spacing: 4) {
-//            Symbols.mug
-//                .resizable()
-//                .scaledToFit()
-//                .frame(width: 32, height: 32, alignment: .center)
             Text(recipe.recipeTitle ?? "Morning Cup o' Joe")
                 .font(.system(size: 36, weight: .light))
                 .frame(width: 380, height: 38, alignment: .center)

@@ -174,14 +174,14 @@ final class RecipesViewModel: ObservableObject {
 //        newBrewRatio.ratio = ratio
 //        try? viewContext.save()
 //    }
-
-    func fetchSelectedRatio() -> String? {
-        let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-        if let result = try? viewContext.fetch(request), let brewRatio = result.first {
-            return brewRatio.ratio
-        }
-        return nil
-    }
+//
+//    func fetchSelectedRatio() -> String? {
+//        let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+//        if let result = try? viewContext.fetch(request), let brewRatio = result.first {
+//            return brewRatio.ratio
+//        }
+//        return nil
+//    }
     
     // MARK: - Recipe Notes Methods
     func saveRecipeNotes(for recipe: Recipe, with notes: String) {
@@ -199,8 +199,6 @@ final class RecipesViewModel: ObservableObject {
         if viewContext.hasChanges {
             do {
                 try viewContext.save()
-                // Just save, don't fetch - Jon
-//                fetchRecipes()
                 completion(nil)
             } catch {
                 completion(error)

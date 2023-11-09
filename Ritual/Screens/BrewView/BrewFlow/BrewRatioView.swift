@@ -17,6 +17,7 @@ struct BrewRatioView: View {
     
 //    @State private var recipe: Recipe?
     
+    @State private var linkActivated: Bool   = false
     @State private var sliderValue           = 0.5
     @State private var hapticFeedbackEnabled = true
     
@@ -38,7 +39,7 @@ struct BrewRatioView: View {
                 Theme.brewBackground
                     .ignoresSafeArea()
                 ScrollView {
-                    VStack(spacing: 12) {
+                    VStack(spacing: 16) {
                         // MARK: - Ratio Question
                         HStack(spacing: 58) {
                             Text("How strong do you like it?")
@@ -79,6 +80,9 @@ struct BrewRatioView: View {
                 }
             }
             .toolbarBackground(Theme.brewBackground, for: .navigationBar)
+            .navigationDestination(isPresented: $linkActivated) {
+                BrewRecipeView()
+            }
         }
     }
 }
@@ -149,20 +153,34 @@ private extension BrewRatioView {
     }
     
     var nextButton: some View {
-        NavigationLink(destination: BrewRecipeView(viewModel: RecipesViewModel(viewContext: PersistenceController.shared.viewContext)).environmentObject(recipesViewModel)) {
-            Button("Next") {
-                // Save selected ratio
+//        NavigationLink(destination: BrewRecipeView().environmentObject(recipesViewModel)) {
+//            Button("Next") {
+//                // Save selected ratio
+////                recipesViewModel.saveSelectedRatio(ratio: ratio)
+//                recipesViewModel.recipeInProgress?.ratio = (selectedRatio as! String)
+//                recipesViewModel.saveRecipe()
+////                recipesViewModel.createRecipe(method: recipesViewModel.selectedBrewMethod, cups: recipesViewModel.selectedCups, ratio: selectedRatio as! String)
+//            }
+//            .frame(width: 350, height: 50)
+//            .background(Theme.brewButton)
+//            .foregroundColor(.white)
+//            .font(.system(size: 16, weight: .semibold))
+//            .cornerRadius(25)
+//            .controlSize(.large)
+//        }
+        Button("Next") {
+            // Save selected ratio
 //                recipesViewModel.saveSelectedRatio(ratio: ratio)
-                recipesViewModel.recipeInProgress?.ratio = (selectedRatio as! String)
-                recipesViewModel.saveRecipe()
-//                recipesViewModel.createRecipe(method: recipesViewModel.selectedBrewMethod, cups: recipesViewModel.selectedCups, ratio: selectedRatio as! String)
-            }
-            .frame(width: 350, height: 50)
-            .background(Theme.brewButton)
-            .foregroundColor(.white)
-            .font(.system(size: 16, weight: .semibold))
-            .cornerRadius(25)
-            .controlSize(.large)
+            recipesViewModel.recipeInProgress?.ratio = selectedRatio as? String
+            recipesViewModel.saveRecipe()
+            linkActivated = true
         }
+        .frame(width: 350, height: 50)
+        .background(Theme.brewButton)
+        .foregroundColor(.white)
+        .font(.system(size: 16, weight: .semibold))
+        .cornerRadius(25)
+        .controlSize(.large)
+        .padding(.horizontal, 22)
     }
 }

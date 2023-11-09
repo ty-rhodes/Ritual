@@ -18,7 +18,8 @@ struct BrewCupView: View {
     
 //    @State private var recipe: Recipe?
     
-    @State private var sliderValue = 1.0
+    @State private var linkActivated: Bool   = false
+    @State private var sliderValue           = 1.0
     @State private var hapticFeedbackEnabled = true
     
     private var cups: Int {
@@ -67,6 +68,9 @@ struct BrewCupView: View {
                 }
             }
             .toolbarBackground(Theme.brewBackground, for: .navigationBar)
+            .navigationDestination(isPresented: $linkActivated) {
+                BrewRatioView() 
+            }
         }
     }
 }
@@ -113,20 +117,34 @@ private extension BrewCupView {
     }
     
     var nextButton: some View {
-        NavigationLink(destination: BrewRatioView().environmentObject(recipesViewModel)) {
-            Button("Next") {
-                // Save number of cups
+//        NavigationLink(destination: BrewRatioView().environmentObject(recipesViewModel)) {
+//            Button("Next") {
+//                // Save number of cups
+////                recipesViewModel.saveCups(cups: cups)
+//                recipesViewModel.recipeInProgress?.cups = Int32(cups)
+//                recipesViewModel.saveRecipe()
+//            }
+//            .frame(width: 350, height: 50)
+//            .background(Theme.brewButton)
+//            .foregroundColor(.white)
+//            .font(.system(size: 16, weight: .semibold))
+//            .cornerRadius(25)
+//            .controlSize(.large)
+//        }
+        Button("Next") {
+            // Save number of cups
 //                recipesViewModel.saveCups(cups: cups)
-                recipesViewModel.recipeInProgress?.cups = Int32(cups)
-                recipesViewModel.saveRecipe()
-            }
-            .frame(width: 350, height: 50)
-            .background(Theme.brewButton)
-            .foregroundColor(.white)
-            .font(.system(size: 16, weight: .semibold))
-            .cornerRadius(25)
-            .controlSize(.large)
+            recipesViewModel.recipeInProgress?.cups = Int32(cups)
+            recipesViewModel.saveRecipe()
+            linkActivated = true
         }
+        .frame(width: 350, height: 50)
+        .background(Theme.brewButton)
+        .foregroundColor(.white)
+        .font(.system(size: 16, weight: .semibold))
+        .cornerRadius(25)
+        .controlSize(.large)
+        .padding(.horizontal, 22)
         .padding(.vertical, 42)
     }
 }

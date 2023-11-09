@@ -82,9 +82,9 @@ struct EntriesListView: View {
                 }
             }
             .toolbarBackground(Theme.entryAndRecipesBackground, for: .navigationBar)
-            .onAppear {
-                viewModel.fetchEntries()
-            }
+//            .onAppear {
+//                viewModel.fetchEntries()
+//            }
             // Sort Entries by Date
             .onChange(of: sort) { newSort in
                 entries.nsSortDescriptors = sort(order: newSort)
