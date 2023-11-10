@@ -170,8 +170,7 @@ private extension BrewRatioView {
 //        }
         Button("Next") {
             // Save selected ratio
-//                recipesViewModel.saveSelectedRatio(ratio: ratio)
-            recipesViewModel.recipeInProgress?.ratio = selectedRatio as? String
+            recipesViewModel.recipeInProgress?.ratio = ratio
             recipesViewModel.saveRecipe()
             linkActivated = true
         }

@@ -67,8 +67,8 @@ struct BrewRecipeView: View {
                             HStack(spacing: 70) {
                                 // MARK: - Coffee Ratio
                                 VStack {
-                                    Text(recipe?.ratio ?? "N/A")
-//                                    Text(recipesViewModel.recipeRatio)
+//                                    Text(recipe?.ratio ?? "N/A")
+                                    Text(recipesViewModel.recipeInProgress?.ratio ?? "N/A")
                                         .font(.system(size: 64))
                                     Text("ratio")
                                         .font(.system(size: 24))

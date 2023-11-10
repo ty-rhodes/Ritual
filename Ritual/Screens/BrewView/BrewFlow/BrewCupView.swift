@@ -14,8 +14,6 @@ struct BrewCupView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.cups, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
     
-//    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
-    
 //    @State private var recipe: Recipe?
     
     @State private var linkActivated: Bool   = false

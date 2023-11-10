@@ -14,8 +14,6 @@ struct BrewView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.method, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
     
-//    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
-    
     let brewMethods: [String] = ["Drip", "Pour Over", "French Press", "Espresso"]
     
     @State private var selectedBrewMethod: String? = nil

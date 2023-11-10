@@ -27,8 +27,6 @@ final class EntriesViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     @Published var isShowingAlert: Bool = false
     
-    
-    
 //    func groupEntriesByMonth() ->EntriesGroup {
 //        guard !entries.isEmpty else { return [:] }
 //        let groupedEntries = EntriesGroup(grouping: entries) { $0.month }

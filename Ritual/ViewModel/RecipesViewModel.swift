@@ -10,56 +10,26 @@ import CoreData
 
 @MainActor
 final class RecipesViewModel: ObservableObject {
-    
-    // An array of RecipesViewModel? - Jon
-//    @Published var recipesList = [RecipesViewModel]()
-//    private let fetchedResultsController: NSFetchedResultsController<Recipe>
+
     private let viewContext: NSManagedObjectContext
         
     init(viewContext: NSManagedObjectContext) {
         self.viewContext = viewContext
-        
-//        fetchedResultsController = NSFetchedResultsController(fetchRequest: Recipe.all, managedObjectContext: viewContext, sectionNameKeyPath: nil, cacheName: nil)
-//        super.init()
-//        fetchedResultsController.delegate = self
-//        
-//        do {
-//            try fetchedResultsController.performFetch()
-//            guard let recipes = fetchedResultsController.fetchedObjects else {
-//                return
-//            }
-//            
-//            self.recipesList = recipes.map(RecipeModelViewModel.init)
-//        } catch {
-//            print(error)
-//        }
-        
-        // Don't do this in the init. Actually, don't do this at all. The @FetchRequest in the View does this for you. - Jon
-//        fetchRecipes()
     }
-
-    @Published var newRecipe: RecipeInput = RecipeInput()
+    
     // Don't have a separate array of recipes here. Only use the @FetchRequest marked array in the View.
     // When managing items in the list, go through the ManagedObjectContext. - Jon
 //    @Published var recipes: [Recipe]   = []
-    @Published var recipeNotes: String = ""
     
     @Published var selectedBrewMethod: String = ""
     @Published var selectedCups: Int          = 0
     @Published var recipeRatio: String        = ""
     @Published var recipeOunces: Int          = 0
     @Published var recipesGrams: Int          = 0
+    @Published var recipeNotes: String        = ""
     
     // Suggested var from Jon
     @Published var recipeInProgress: Recipe?
-    
-    struct RecipeInput {
-        var method: String = ""
-        var cups: Int      = 0
-        var ratio: String  = ""
-        var grams: Int     = 0
-        var ounces: Int    = 0
-    }
     
     func calculateCoffeeAndWater(ratio: Int) -> (gramsOfCoffee: Double, ouncesOfWater: Double) {
         // Constants
@@ -73,18 +43,6 @@ final class RecipesViewModel: ObservableObject {
     }
     
     // MARK: - Recipe Methods
-    // Again, don't need this. Just fetch in view. - Jon
-//    func fetchRecipes() {
-//           do {
-//               let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-//               let recipes  = try viewContext.fetch(request)
-//               self.recipes = recipes
-//           } catch {
-//               let nsError = error as NSError
-//               print("Error fetching entries: \(nsError), \(nsError.userInfo)")
-//           }
-//       }
-    
     func addRecipe(_ recipe: Recipe) {
         // Adding to the array does nothing. When you fetch from Core Data with NSFetchRequest, you get the array
         // of recipes. But making edits to that array doesn't modify the Core Data objects. Adding to the array
@@ -119,15 +77,15 @@ final class RecipesViewModel: ObservableObject {
 
     // Use this to create your initial recipe in progress
     func startNewRecipe() {
-        let newRecipe = Recipe(context: viewContext)
+        let newRecipe    = Recipe(context: viewContext)
         recipeInProgress = newRecipe
     }
 
     func createRecipe(method: String, cups: Int, ratio: String) {
-        let newRecipe = Recipe(context: viewContext)
+        let newRecipe    = Recipe(context: viewContext)
         newRecipe.method = method
-        newRecipe.cups = Int32(cups)
-        newRecipe.ratio = ratio
+        newRecipe.cups   = Int32(cups)
+        newRecipe.ratio  = ratio
         // You need to insert the new recipe to your ManagedObjectContext to save it. - Jon
         viewContext.insert(newRecipe)
         saveContext()
@@ -206,54 +164,3 @@ final class RecipesViewModel: ObservableObject {
         }
     }
 }
-
-//extension RecipesViewModel: NSFetchedResultsControllerDelegate {
-//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-//        guard let recipes = controller.fetchedObjects as? [Recipe] else {
-//            return
-//        }
-//        
-//        self.recipesList = recipes.map(RecipeModelViewModel.init)
-//    }
-//}
-//
-//struct RecipeModelViewModel: Identifiable {
-//    
-//    private var recipe: Recipe
-//    
-//    init(recipe: Recipe) {
-//        self.recipe = recipe
-//    }
-//    
-//    var id: NSManagedObjectID {
-//        recipe.objectID
-//    }
-//    
-//    var recipeTitle: String {
-//        recipe.recipeTitle ?? ""
-//    }
-//    
-//    var method: String {
-//        recipe.method ?? ""
-//    }
-//    
-//    var cups: Int32 {
-//        recipe.cups
-//    }
-//    
-//    var ratio: String {
-//        recipe.ratio ?? ""
-//    }
-//    
-//    var grams: Int32 {
-//        recipe.grams
-//    }
-//    
-//    var ounces: Int32 {
-//        recipe.ounces
-//    }
-//    
-//    var notes: String {
-//        recipe.notes ?? ""
-//    }
-//}

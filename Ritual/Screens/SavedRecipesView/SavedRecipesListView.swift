@@ -20,9 +20,6 @@ struct SavedRecipesListView: View {
     
     private var recipes: FetchedResults<Recipe>
     
-    // You don't need this if you're injecting the view model to the environment. - Jon
-//    @StateObject private var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -50,10 +47,6 @@ struct SavedRecipesListView: View {
                 }
             }
             .toolbarBackground(Theme.entryAndRecipesBackground, for: .navigationBar)
-            // Don't need this - Jon
-//            .onAppear {
-//                recipesViewModel.fetchRecipes()
-//            }
         }
     }
 }
@@ -69,7 +62,7 @@ private extension SavedRecipesListView {
     
     var savedRecipesList: some View {
         List {
-            // Your list should be pointing to the @FethRequest array in your view. - Jon
+            // List should be pointing to the @FethRequest array in your view. 
             ForEach(recipes) { recipe in
                 NavigationLink(destination: SavedRecipesView(recipe: recipe)) {
                     SavedRecipesCell(recipe: recipe)
