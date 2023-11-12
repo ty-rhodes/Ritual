@@ -177,7 +177,7 @@ private extension SavedRecipesView {
                     .font(.system(size: 16))
             }
             VStack {
-                Text("4 min")
+                Text("3 min")
                     .font(.system(size: 52))
                 Text("brew time")
                     .font(.system(size: 16))

@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct SaveAndWriteView: View {
+    @EnvironmentObject var recipesViewModel: RecipesViewModel
     
-    //    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.container.viewContext)
-    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
+//    @StateObject private var recipesViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
+    
+    @State private var linkActivated: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -31,6 +33,9 @@ struct SaveAndWriteView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
+            .navigationDestination(isPresented: $linkActivated) {
+                SavedRecipesListView() // Don't need to inject environment object since you did it already to the parent
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     BackButton()
@@ -60,6 +65,8 @@ private extension SaveAndWriteView {
     var saveRecipeButton: some View {
         Button(action: {
             // Navigate to SavedRecipesView
+            recipesViewModel.saveRecipe()
+            linkActivated = true
         }) {
             Text("Save Recipe")
         }

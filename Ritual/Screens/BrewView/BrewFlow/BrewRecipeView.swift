@@ -15,6 +15,8 @@ struct BrewRecipeView: View {
     
     @State private var recipe: Recipe?
     
+    @State private var hapticFeedbackEnabled = true
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -72,7 +74,7 @@ struct BrewRecipeView: View {
                                 
                                 // MARK: - Brew Time
                                 VStack {
-                                    Text("4 min")
+                                    Text("3 min")
                                         .font(.system(size: 60))
                                     Text("brew time")
                                         .font(.system(size: 24))
@@ -150,6 +152,9 @@ private extension BrewRecipeView {
     
     var saveRecipeButton: some View {
         Button {
+            if hapticFeedbackEnabled {
+                Haptics.lightImpact()
+            }
             recipesViewModel.recipeInProgress = recipe
             recipesViewModel.saveRecipe()
         } label: {
