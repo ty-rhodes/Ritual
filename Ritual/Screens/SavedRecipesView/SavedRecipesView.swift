@@ -132,6 +132,7 @@ struct SavedRecipesView_Previews: PreviewProvider {
         
         return SavedRecipesView(recipe: newRecipe)
             .environment(\.managedObjectContext, context)
+            .environmentObject(RecipesViewModel(viewContext: PersistenceController.shared.viewContext))
     }
 }
 
@@ -179,7 +180,7 @@ private extension SavedRecipesView {
                     .font(.system(size: 16))
             }
             VStack {
-                Text("3 min")
+                Text("4 min")
                     .font(.system(size: 52))
                 Text("brew time")
                     .font(.system(size: 16))

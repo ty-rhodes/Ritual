@@ -12,16 +12,8 @@ struct BrewRecipeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.ratio, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
-
-//    var recipe: Recipe
     
     @State private var recipe: Recipe?
-    
-//    @ObservedObject private var recipesViewModel: RecipesViewModel
-    
-//    init(viewModel: RecipesViewModel) {
-//        self.recipesViewModel = viewModel
-//    }
     
     var body: some View {
         NavigationStack {
@@ -80,7 +72,7 @@ struct BrewRecipeView: View {
                                 
                                 // MARK: - Brew Time
                                 VStack {
-                                    Text("3 min")
+                                    Text("4 min")
                                         .font(.system(size: 60))
                                     Text("brew time")
                                         .font(.system(size: 24))
@@ -158,7 +150,6 @@ private extension BrewRecipeView {
     
     var saveRecipeButton: some View {
         Button {
-//            recipesViewModel.saveRecipe(method: recipesViewModel.newRecipe.method, cups: Int32(recipesViewModel.newRecipe.cups), ratio: recipesViewModel.newRecipe.ratio)
             recipesViewModel.recipeInProgress = recipe
             recipesViewModel.saveRecipe()
         } label: {

@@ -14,8 +14,6 @@ struct BrewCupView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.cups, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
     
-//    @State private var recipe: Recipe?
-    
     @State private var linkActivated: Bool   = false
     @State private var sliderValue           = 1.0
     @State private var hapticFeedbackEnabled = true
@@ -109,9 +107,6 @@ private extension BrewCupView {
                     Haptics.lightImpact()
                 }
             }
-//            .onChange(of: cups) { _ in
-//                recipesViewModel.saveCups(cups: cups)
-//            }
     }
     
     var nextButton: some View {
@@ -131,9 +126,8 @@ private extension BrewCupView {
 //        }
         Button("Next") {
             // Save number of cups
-//                recipesViewModel.saveCups(cups: cups)
             recipesViewModel.recipeInProgress?.cups = Int32(cups)
-            recipesViewModel.saveRecipe()
+//            recipesViewModel.saveRecipe()
             linkActivated = true
         }
         .frame(width: 350, height: 50)

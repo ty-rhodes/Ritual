@@ -38,7 +38,6 @@
 		775FE31F29CA63F700B0622F /* SavedRecipesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FE31E29CA63F700B0622F /* SavedRecipesListView.swift */; };
 		775FE32129CA643900B0622F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FE32029CA643900B0622F /* SettingsView.swift */; };
 		776C0B592AF3065900859DEC /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776C0B582AF3065900859DEC /* BaseModel.swift */; };
-		776C0B5B2AF306C100859DEC /* Recipe+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776C0B5A2AF306C100859DEC /* Recipe+Ext.swift */; };
 		776C0F492A5B8125007BBED9 /* SavedRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776C0F482A5B8125007BBED9 /* SavedRecipesView.swift */; };
 		778A9AE429D3ADFE007D5E5B /* EmptyEntryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A9AE329D3ADFE007D5E5B /* EmptyEntryState.swift */; };
 		778F49022ACF73D100CC1BB3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 778F49012ACF73D100CC1BB3 /* Lottie */; };
@@ -94,7 +93,6 @@
 		775FE32029CA643900B0622F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		775FE32229CBC3E500B0622F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		776C0B582AF3065900859DEC /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
-		776C0B5A2AF306C100859DEC /* Recipe+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+Ext.swift"; sourceTree = "<group>"; };
 		776C0F482A5B8125007BBED9 /* SavedRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesView.swift; sourceTree = "<group>"; };
 		778A9AE329D3ADFE007D5E5B /* EmptyEntryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEntryState.swift; sourceTree = "<group>"; };
 		778F49052ACF741B00CC1BB3 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				7747AF782A7F103B00A84325 /* Entensions.swift */,
-				776C0B5A2AF306C100859DEC /* Recipe+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -528,7 +525,6 @@
 				778A9AE429D3ADFE007D5E5B /* EmptyEntryState.swift in Sources */,
 				773912F22A43BBF600A57307 /* NewEntryView.swift in Sources */,
 				77FB74182A1C1EB500DB03CC /* BrewMethodCard.swift in Sources */,
-				776C0B5B2AF306C100859DEC /* Recipe+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

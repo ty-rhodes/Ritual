@@ -153,13 +153,12 @@ final class RecipesViewModel: ObservableObject {
     }
     
     // This isn't an async operation, so you don't need the completion handler at all.
-    func saveContext(completion: @escaping (Error?) -> () = {_ in}) {
+    func saveContext() {
         if viewContext.hasChanges {
             do {
                 try viewContext.save()
-                completion(nil)
             } catch {
-                completion(error)
+                print("❗️Error saving to core data. \(error.localizedDescription)")
             }
         }
     }

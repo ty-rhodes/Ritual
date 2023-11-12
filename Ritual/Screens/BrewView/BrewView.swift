@@ -16,10 +16,7 @@ struct BrewView: View {
     
     let brewMethods: [String] = ["Drip", "Pour Over", "French Press", "Espresso"]
     
-    @State private var selectedBrewMethod: String? = nil
-    @State private var linkActivated: Bool         = false
-
-//    @State private var recipe: Recipe?
+    @State private var linkActivated: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -51,7 +48,6 @@ struct BrewView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     NavigationLink(destination: HomeView()) {
-                        
                         Symbols.dismiss
                             .font(.title2)
                             .fontWeight(.light)
@@ -122,7 +118,6 @@ private extension BrewView {
 //        }
         Button("Next") {
             // Save selected brew method
-//            recipesViewModel.recipeInProgress?.method = selectedBrewMethod ?? ""
             recipesViewModel.recipeInProgress?.method = recipesViewModel.selectedBrewMethod
             recipesViewModel.saveRecipe()
             linkActivated = true

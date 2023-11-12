@@ -207,9 +207,9 @@ private extension HomeView {
             HStack {
                 ForEach(entries) { entry in
                     NavigationLink(destination: SavedEntryView(entry: entry)) {
-                        JournalEntryCard(entryDate: entry.timeStamp?.entryDate ?? "",
-                                         entryTitle: entry.entryTitle ?? "",
-                                         entry: entry.entry ?? "")
+                        JournalEntryCard(entryDate: entry.timeStamp?.entryDate ?? "N/A",
+                                         entryTitle: entry.entryTitle ?? "N/A",
+                                         entry: entry.entry ?? "N/A")
                     }
                 }
                 .frame(width: 100, height: 185)
