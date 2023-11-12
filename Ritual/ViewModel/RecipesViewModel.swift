@@ -58,37 +58,11 @@ final class RecipesViewModel: ObservableObject {
         // Remove the deleted recipe from the local 'recipes' array.
 //        recipes.removeAll { $0 == recipe }
     }
-    
-//    func saveRecipe() {
-//        guard !newRecipe.method.isEmpty else { return }
-//        guard !newRecipe.ratio.isEmpty else { return }
-//        
-//        let recipe = Recipe(context: viewContext)
-//        recipe.method = newRecipe.method
-//        recipe.cups   = Int32(newRecipe.cups)
-//        recipe.grams  = Int32(newRecipe.grams)
-//        recipe.ounces = Int32(newRecipe.ounces)
-//        recipe.ratio  = newRecipe.ratio
-//        saveContext()
-//        
-//        // Clear the input after Saving
-//        newRecipe = RecipeInput()
-//    }
 
     // Use this to create your initial recipe in progress
     func startNewRecipe() {
         let newRecipe    = Recipe(context: viewContext)
         recipeInProgress = newRecipe
-    }
-
-    func createRecipe(method: String, cups: Int, ratio: String) {
-        let newRecipe    = Recipe(context: viewContext)
-        newRecipe.method = method
-        newRecipe.cups   = Int32(cups)
-        newRecipe.ratio  = ratio
-        // You need to insert the new recipe to your ManagedObjectContext to save it. - Jon
-        viewContext.insert(newRecipe)
-        saveContext()
     }
     
     func saveRecipe() {
@@ -98,48 +72,6 @@ final class RecipesViewModel: ObservableObject {
         viewContext.insert(recipe) // Adding this line removes the warning - Jon
         saveContext()
     }
-    
-//    func saveRecipe(method: String, cups: Int32, ratio: String) {
-//        guard !method.isEmpty else { return }
-//        guard !cups.isMultiple(of: 0) else { return }
-//        guard !ratio.isEmpty else { return }
-//
-//        let newRecipe    = Recipe(context: viewContext)
-//        newRecipe.method = method
-//        newRecipe.cups   = cups
-//        newRecipe.ratio  = ratio
-//        saveContext()
-//    }
-//    
-//    func saveBrewMethod(brewMethod: String) {
-//        guard !brewMethod.isEmpty else { return }
-//
-//        let recipe    = Recipe(context: viewContext)
-//        recipe.method = brewMethod
-//        saveContext()
-//    }
-//
-//    func saveCups(cups: Int) {
-//        guard !cups.isMultiple(of: 0) else { return }
-//
-//        let recipe  = Recipe(context: viewContext)
-//        recipe.cups = Int32(cups)
-//        saveContext()
-//    }
-//
-//    func saveSelectedRatio(ratio: String) {
-//        let newBrewRatio = Recipe(context: viewContext)
-//        newBrewRatio.ratio = ratio
-//        try? viewContext.save()
-//    }
-//
-//    func fetchSelectedRatio() -> String? {
-//        let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
-//        if let result = try? viewContext.fetch(request), let brewRatio = result.first {
-//            return brewRatio.ratio
-//        }
-//        return nil
-//    }
     
     // MARK: - Recipe Notes Methods
     func saveRecipeNotes(for recipe: Recipe, with notes: String) {
@@ -152,7 +84,6 @@ final class RecipesViewModel: ObservableObject {
         return recipe.notes ?? ""
     }
     
-    // This isn't an async operation, so you don't need the completion handler at all.
     func saveContext() {
         if viewContext.hasChanges {
             do {

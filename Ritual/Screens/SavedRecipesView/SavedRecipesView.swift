@@ -13,16 +13,10 @@ struct SavedRecipesView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var viewModel: RecipesViewModel
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe,
-                                           ascending: false)],
-                                           animation: .default)
-    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
     
     var recipe: Recipe
-    
-//    @ObservedObject private var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     
     @State private var  notes = ""
     @State private var  isEditingNotes = false
@@ -44,7 +38,6 @@ struct SavedRecipesView: View {
                                 recipeImageAndTitle
                                 recipeDetails
                             }
-                            
                             // MARK: - Recipe Notes
                             VStack {
                                 HStack(spacing: 200) {
@@ -64,7 +57,7 @@ struct SavedRecipesView: View {
                                     } else if notes.isEmpty  {
                                         RecipeNotesEmptyState()
                                     } else {
-                                        Text(notes) // Display the notes in non-edit mode
+                                        Text(viewModel.recipeNotes) // Display the notes in non-edit mode
                                             .font(.system(size: 16, weight: .light))
                                             .frame(width: 350, height: 150, alignment: .topLeading)
                                             .multilineTextAlignment(.leading)
@@ -153,7 +146,11 @@ private extension SavedRecipesView {
                 Divider()
                     .frame(height: 20)
                     .background(Color.black)
-                Text("\(recipe.cups) Cups")
+                if recipe.cups == 1 {
+                    Text("\(recipe.cups) Cup")
+                } else {
+                    Text("\(recipe.cups) Cups")
+                }
             }
             .font(.system(size: 14, weight: .semibold))
         }

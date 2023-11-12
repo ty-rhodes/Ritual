@@ -87,9 +87,15 @@ private extension BrewCupView {
             Text("\(cups)")
                 .font(.system(size: 140))
                 .foregroundColor(.white)
-            Text("Cups")
-                .font(.system(size: 30, weight: .light))
-                .foregroundColor(Theme.entryAndRecipesBackground)
+            if sliderValue == 1 {
+                Text("Cup")
+                    .font(.system(size: 30, weight: .light))
+                    .foregroundColor(Theme.entryAndRecipesBackground)
+            } else {
+                Text("Cups")
+                    .font(.system(size: 30, weight: .light))
+                    .foregroundColor(Theme.entryAndRecipesBackground)
+            }
         }
     }
     

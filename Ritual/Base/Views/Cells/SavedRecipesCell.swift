@@ -24,8 +24,13 @@ struct SavedRecipesCell: View {
                         .font(.system(size: 16, weight: .light))
                     Text("·")
                         .font(.system(size: 16, weight: .bold))
-                    Text("\(recipe.cups) Cups")
-                        .font(.system(size: 16, weight: .light))
+                    if recipe.cups == 1 {
+                        Text("\(recipe.cups) Cup")
+                            .font(.system(size: 16, weight: .light))
+                    } else {
+                        Text("\(recipe.cups) Cups")
+                            .font(.system(size: 16, weight: .light))
+                    }
                 }
             }
         }

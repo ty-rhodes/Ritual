@@ -20,10 +20,17 @@ struct BrewNowCard: View {
                 .bold()
                 .frame(width: 100, height: 80, alignment: .leading)
             
-            Text("\(brewNowCupAmount) Cups")
-                .font(.subheadline)
-                .foregroundColor(.black)
-                .frame(width: 100, height: 20, alignment: .leading)
+            if brewNowCupAmount == 1 {
+                Text("\(brewNowCupAmount) Cup")
+                    .font(.subheadline)
+                    .foregroundColor(.black)
+                    .frame(width: 100, height: 20, alignment: .leading)
+            } else {
+                Text("\(brewNowCupAmount) Cups")
+                    .font(.subheadline)
+                    .foregroundColor(.black)
+                    .frame(width: 100, height: 20, alignment: .leading)
+            }
             
             HStack {
                 Text("Brew Now")

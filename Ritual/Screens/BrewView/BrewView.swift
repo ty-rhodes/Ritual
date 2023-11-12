@@ -16,7 +16,8 @@ struct BrewView: View {
     
     let brewMethods: [String] = ["Drip", "Pour Over", "French Press", "Espresso"]
     
-    @State private var linkActivated: Bool = false
+    @State private var linkActivated: Bool   = false
+    @State private var hapticFeedbackEnabled = true
     
     var body: some View {
         NavigationStack {
@@ -88,6 +89,9 @@ private extension BrewView {
                         .onTapGesture {
                             withAnimation {
                                 recipesViewModel.selectedBrewMethod = method
+                            }
+                            if hapticFeedbackEnabled {
+                                Haptics.lightImpact()
                             }
                         }
                         .frame(width: 130, height: 300)
