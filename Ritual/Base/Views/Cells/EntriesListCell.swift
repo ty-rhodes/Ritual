@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct EntriesListCell: View {
-    
     @Environment(\.managedObjectContext) private var viewContext
     
     @StateObject var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.viewContext)
@@ -34,7 +33,6 @@ struct EntriesListCell: View {
 
 struct EntriesListCell_Previews: PreviewProvider {
     static var previews: some View {
-//        let context = PersistenceController.preview.container.viewContext
         let context = PersistenceController.shared.viewContext
         let newItem = Entry(context: context)
         newItem.timeStamp  = Date()

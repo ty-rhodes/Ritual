@@ -11,12 +11,6 @@ import SwiftUI
 struct RitualApp: App {
     
     @StateObject var recipesViewModel = RecipesViewModel(viewContext: PersistenceController.shared.container.viewContext)
-    
-//    var recipesViewModel: RecipesViewModel
-//
-//    init() {
-//        recipesViewModel = RecipesViewModel(viewContext: persistenceController)
-//    }
 
     var body: some Scene {
         WindowGroup {

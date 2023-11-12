@@ -11,14 +11,10 @@ struct HomeView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp, ascending: false)], animation: .default)
-    
+    @FetchRequest( sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp, ascending: false)], animation: .default)
     private var entries: FetchedResults<Entry>
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe, ascending: false)], animation: .default)
-    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
     
     @State private var scrollOffset: CGFloat  = 0

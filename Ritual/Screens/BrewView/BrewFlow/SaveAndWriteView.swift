@@ -10,8 +10,6 @@ import SwiftUI
 struct SaveAndWriteView: View {
     @EnvironmentObject var recipesViewModel: RecipesViewModel
     
-//    @StateObject private var recipesViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
-    
     @State private var linkActivated: Bool = false
     
     var body: some View {

@@ -16,10 +16,7 @@ struct EntriesListView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp,
-                                                     ascending: true)],
-                                                     animation: .default)
-    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp, ascending: true)], animation: .default)
     private var entries: FetchedResults<Entry>
 
     @StateObject private var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.viewContext)
@@ -82,9 +79,6 @@ struct EntriesListView: View {
                 }
             }
             .toolbarBackground(Theme.entryAndRecipesBackground, for: .navigationBar)
-//            .onAppear {
-//                viewModel.fetchEntries()
-//            }
             // Sort Entries by Date
             .onChange(of: sort) { newSort in
                 entries.nsSortDescriptors = sort(order: newSort)

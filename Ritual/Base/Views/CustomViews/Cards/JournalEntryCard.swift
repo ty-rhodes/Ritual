@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct JournalEntryCard: View {
-//    @StateObject var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.container.viewContext)
+
     @StateObject var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.viewContext)
-    
-    @Environment(\.managedObjectContext) private var viewContext
     
     let entryDate: String
     let entryTitle: String
@@ -20,7 +18,6 @@ struct JournalEntryCard: View {
     var body: some View {
         VStack(alignment: .center, spacing: 14) {
             Text(entryDate)
-//                .font(.system(size: 16, weight: .light))
                 .font(.subheadline)
                 .fontWeight(.ultraLight)
                 .foregroundColor(.black)

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct BrewRatioView: View {
-    
     @EnvironmentObject private var recipesViewModel: RecipesViewModel
-    @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.ratio, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>

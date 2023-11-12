@@ -10,7 +10,6 @@ import SwiftUI
 struct JournalEntryCardEmptyState: View {
     var body: some View {
         ZStack {
-            // Change padding of text inside empty state
                 VStack(alignment: .center,spacing: 20) {
                     VStack(spacing: 12) {
                         Text("You haven't made any journal entries yet.")

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SavedEntryView: View {
     @Environment(\.dismiss) var dimiss
-//    @Environment(\.managedObjectContext) private var viewContext
     
     var entry: Entry
     

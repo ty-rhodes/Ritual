@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BrewRecipeView: View {
     @EnvironmentObject private var recipesViewModel: RecipesViewModel
-    @Environment(\.managedObjectContext) private var viewContext
+    
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.ratio, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
     
@@ -42,9 +42,6 @@ struct BrewRecipeView: View {
                                         .font(.system(size: 24))
                                         .foregroundColor(Theme.entryAndRecipesBackground)
                                 }
-                                
-//                                Spacer()
-                                
                                 // MARK: - Ounces of Water
                                 VStack {
                                     Text("\(recipesViewModel.recipeOunces)")
@@ -60,7 +57,6 @@ struct BrewRecipeView: View {
                             HStack(spacing: 70) {
                                 // MARK: - Coffee Ratio
                                 VStack {
-//                                    Text(recipe?.ratio ?? "N/A")
                                     Text(recipesViewModel.recipeInProgress?.ratio ?? "N/A")
                                         .font(.system(size: 64))
                                     Text("ratio")
@@ -68,9 +64,6 @@ struct BrewRecipeView: View {
                                         .foregroundColor(Theme.entryAndRecipesBackground)
                                 }
                                 .padding(.leading, 24)
-                                
-//                                Spacer()
-                                
                                 // MARK: - Brew Time
                                 VStack {
                                     Text("3 min")
@@ -126,7 +119,6 @@ struct BrewRecipeView_Previews: PreviewProvider {
         newRecipe.ounces       = 36
         newRecipe.ratio        = "1:16"
         
-//        return BrewRecipeView(viewModel: RecipesViewModel(viewContext: PersistenceController.shared.viewContext))
         return BrewRecipeView()
             .environmentObject(RecipesViewModel(viewContext: PersistenceController.shared.viewContext))
     }}

@@ -13,7 +13,7 @@ struct TabBar: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            
+            // MARK: - Custom Tab Group
             Group {
                 switch selectedTab {
                 case .home:
@@ -29,7 +29,7 @@ struct TabBar: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
+            // MARK: - TabView
             HStack(spacing: 34) {
                 Spacer()
                 ForEach(tabItems) { item in

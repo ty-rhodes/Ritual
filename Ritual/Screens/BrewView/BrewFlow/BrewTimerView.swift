@@ -12,15 +12,11 @@ struct BrewTimerView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe,
-                                           ascending: false)],
-                                           animation: .default)
-    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
     
     @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
-    @StateObject private var timerViewModel = BrewTimerViewModel()
+    @StateObject private var timerViewModel  = BrewTimerViewModel()
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let totalSeconds: TimeInterval      = 180
@@ -42,14 +38,15 @@ struct BrewTimerView: View {
                     .ignoresSafeArea()
                 VStack(spacing: 40) {
                     Spacer()
+                    // MARK: - Timer Header
                     Text("Let's Brew")
                         .font(.system(size: 50, weight: .light))
                         .foregroundColor(Theme.entryAndRecipesBackground)
                         .frame(width: 340, height: 60, alignment: .leading)
                         .minimumScaleFactor(0.6)
-                    
+                    // MARK: - Timer
                     brewTimer
-                    
+                    // MARK: - Timer Buttons
                     HStack {
                         resetTimerButton
                         startTimerButton
@@ -124,7 +121,6 @@ private extension BrewTimerView {
         }
         .frame(width: 308, height: 308)
         .foregroundColor(.white)
-//        .padding(.vertical, DeviceTypes.isiPhoneSE ? 80 : 40)
     }
     
     var resetTimerButton: some View {

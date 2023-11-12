@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BrewView: View {
     @EnvironmentObject var recipesViewModel: RecipesViewModel
-//    @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.method, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
