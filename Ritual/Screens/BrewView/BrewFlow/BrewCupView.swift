@@ -28,7 +28,7 @@ struct BrewCupView: View {
                 Theme.brewBackground
                     .ignoresSafeArea()
                 ScrollView {
-                    VStack(spacing: 17) {
+                    VStack(spacing: 11) {
                         // MARK: - Cup Question
                         HStack(spacing: 58) {
                             Text("How much coffee do you want to make?")

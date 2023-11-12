@@ -23,9 +23,8 @@ struct BrewRecipeView: View {
                 Theme.brewBackground
                     .ignoresSafeArea()
                 ScrollView {
-                    
                     // MARK: - Recipe Details
-                    VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 14) {
                         Text("Your Recipe")
                             .font(.system(size: 50, weight: .light))
                             .foregroundColor(Theme.entryAndRecipesBackground)

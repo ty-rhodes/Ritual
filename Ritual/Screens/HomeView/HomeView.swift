@@ -99,7 +99,8 @@ struct HomeView: View {
                         }
                     }
                 }
-                .padding(.vertical, DeviceTypes.isiPhoneSE ? 100 : 60)
+                .padding(.vertical, 60)
+//                .padding(.vertical, 84)
                 .padding(.horizontal, 1)
             }
             .navigationBarBackButtonHidden(true)

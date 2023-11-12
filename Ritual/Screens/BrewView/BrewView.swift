@@ -25,7 +25,7 @@ struct BrewView: View {
                 Theme.brewBackground
                     .ignoresSafeArea()
                 ScrollView {
-                    VStack( alignment: .leading, spacing: 24) {
+                    VStack( alignment: .leading, spacing: 18) {
                         Spacer()
                         // MARK: - Brew Question
                         Text("What method are you using to brew?")

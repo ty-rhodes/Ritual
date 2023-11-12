@@ -37,7 +37,7 @@ struct BrewRatioView: View {
                 Theme.brewBackground
                     .ignoresSafeArea()
                 ScrollView {
-                    VStack(spacing: 16) {
+                    VStack(spacing: 13) {
                         // MARK: - Ratio Question
                         HStack(spacing: 58) {
                             Text("How strong do you like it?")
