@@ -15,7 +15,10 @@ struct BrewRecipeView: View {
     
     @State private var recipe: Recipe?
     
+    @State private var linkActivated: Bool   = false
     @State private var hapticFeedbackEnabled = true
+    @State private var heartIconColor: Color = .black
+    @State private var isHeartIconScaledUp   = false
     
     var body: some View {
         NavigationStack {
@@ -36,7 +39,7 @@ struct BrewRecipeView: View {
                             HStack(spacing: 30) {
                                 // MARK: - Grams of Coffee
                                 VStack {
-                                    Text("\(recipesViewModel.recipesGrams)")
+                                    Text("\(recipesViewModel.gramsOfCoffee)")
                                         .font(.system(size: 60))
                                     Text("grams of coffee")
                                         .font(.system(size: 24))
@@ -44,7 +47,7 @@ struct BrewRecipeView: View {
                                 }
                                 // MARK: - Ounces of Water
                                 VStack {
-                                    Text("\(recipesViewModel.recipeOunces)")
+                                    Text("\(recipesViewModel.ouncesOfWater)")
                                         .font(.system(size: 60))
                                     Text("ounces of water")
                                         .font(.system(size: 24))
@@ -105,6 +108,9 @@ struct BrewRecipeView: View {
                 }
             }
             .toolbarBackground(Theme.brewBackground, for: .navigationBar)
+            .navigationDestination(isPresented: $linkActivated) {
+                BrewTimerView() // Don't need to inject environment object since you did it already to the parent
+            }
         }
     }
 }
@@ -112,12 +118,12 @@ struct BrewRecipeView: View {
 
 struct BrewRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        let context            = PersistenceController.shared.viewContext
-        let newRecipe          = Recipe(context: context)
-        newRecipe.recipeTitle  = "Morning Cup o' Joe"
-        newRecipe.grams        = 1080
-        newRecipe.ounces       = 36
-        newRecipe.ratio        = "1:16"
+        let context             = PersistenceController.shared.viewContext
+        let newRecipe           = Recipe(context: context)
+        newRecipe.recipeTitle   = "Morning Cup o' Joe"
+        newRecipe.gramsOfCoffee = 1080
+        newRecipe.ouncesOfWater = 36
+        newRecipe.ratio         = "1:16"
         
         return BrewRecipeView()
             .environmentObject(RecipesViewModel(viewContext: PersistenceController.shared.viewContext))
@@ -127,16 +133,32 @@ struct BrewRecipeView_Previews: PreviewProvider {
 private extension BrewRecipeView {
     
     var brewCoffeeButton: some View {
-        NavigationLink(destination: BrewTimerView()) {
-            Text("Brew Coffee")
-                .frame(width: 350, height: 50)
-                .background(Theme.journalButton)
-                .foregroundColor(.white)
-                .font(.system(size: 16, weight: .semibold, design: .default))
-                .cornerRadius(25)
-                .controlSize(.large)
-                .padding()
+//        NavigationLink(destination: BrewTimerView()) {
+//            Text("Brew Coffee")
+//                .frame(width: 350, height: 50)
+//                .background(Theme.journalButton)
+//                .foregroundColor(.white)
+//                .font(.system(size: 16, weight: .semibold, design: .default))
+//                .cornerRadius(25)
+//                .controlSize(.large)
+//                .padding()
+//        }
+//        .padding(.horizontal, 8)
+//        .padding(.vertical, 50)
+        Button("Brew Coffee") {
+            // Save selected ratio
+            if hapticFeedbackEnabled {
+                Haptics.mediumImpact()
+            }
+            linkActivated = true
         }
+        .frame(width: 350, height: 50)
+        .background(Theme.journalButton)
+        .foregroundColor(.white)
+        .font(.system(size: 16, weight: .semibold))
+        .cornerRadius(25)
+        .controlSize(.large)
+        .padding()
         .padding(.horizontal, 8)
         .padding(.vertical, 50)
     }
@@ -144,15 +166,34 @@ private extension BrewRecipeView {
     var saveRecipeButton: some View {
         Button {
             if hapticFeedbackEnabled {
-                Haptics.lightImpact()
+                Haptics.successNotification()
             }
             recipesViewModel.recipeInProgress = recipe
             recipesViewModel.saveRecipe()
+            // Change the icon color for one second and then revert it back to clear
+            withAnimation {
+                heartIconColor = Theme.brewButton
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                withAnimation {
+                    heartIconColor = .black
+                }
+            }
+            withAnimation(.easeInOut(duration: 0.5)) {
+                            isHeartIconScaledUp = true
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                isHeartIconScaledUp = false
+                            }
+                        }
+
         } label: {
             Symbols.heart
                 .font(.title3)
                 .fontWeight(.light)
-                .foregroundColor(.black)
+                .foregroundStyle(heartIconColor)
+                .scaleEffect(isHeartIconScaledUp ? 1.2 : 1.0)
         }
     }
 }

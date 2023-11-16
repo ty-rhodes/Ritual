@@ -31,16 +31,36 @@ final class RecipesViewModel: ObservableObject {
     // Suggested var from Jon
     @Published var recipeInProgress: Recipe?
     
-    func calculateCoffeeAndWater(ratio: Int) -> (gramsOfCoffee: Double, ouncesOfWater: Double) {
-        // Constants
-        let coffeePerOunce = 5.0 / 4.0 // 5g of coffee for every 4 ounces of water
+    var gramsOfCoffee: Int {
+           guard let ratio = recipeInProgress?.ratio, let cups = recipeInProgress?.cups else {
+               return 0
+           }
+           return calculateCoffeeAndWater(ratio: ratio, cups: Int(cups)).gramsOfCoffee
+       }
+
+       var ouncesOfWater: Int {
+           guard let ratio = recipeInProgress?.ratio, let cups = recipeInProgress?.cups else {
+               return 0
+           }
+           return calculateCoffeeAndWater(ratio: ratio, cups: Int(cups)).ouncesOfWater
+       }
+    
+    // MARK: - Calculate Coffee and Water
+    func calculateCoffeeAndWater(ratio: String, cups: Int) -> (gramsOfCoffee: Int, ouncesOfWater: Int) {
+        let parts = ratio.components(separatedBy: ":")
+        guard parts.count == 2, let coffeePart = Int(parts[0]), let waterPart = Int(parts[1]) else {
+            return (0, 0)
+        }
         
-        // Calculate ounces of water needed for 1 cup of coffee based on the ratio
-        let ouncesOfWater = 8.0 // 1 cup is generally considered to be 8 ounces
-        let gramsOfCoffee = (ouncesOfWater / Double(ratio)) * coffeePerOunce
+        // Calculate grams of coffee based on the ratio and cups
+        let gramsOfCoffee = coffeePart * cups * 24 // 24 grams per cup
+        
+        // Calculate ounces of water based on the ratio and cups, with 1 cup equaling 12 ounces of water
+        let ouncesOfWater = (waterPart * cups * 22) / 28 // 12 ounces per cup
         
         return (gramsOfCoffee, ouncesOfWater)
     }
+
     
     // MARK: - Recipe Methods
     func addRecipe(_ recipe: Recipe) {

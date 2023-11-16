@@ -12,7 +12,6 @@ struct SettingsView: View {
     @AppStorage(UserDefaultKeys.hapticsEnabled) private var isHapticsEnabled: Bool = true
     
     var body: some View {
-        
         NavigationStack {
             ZStack {
                 Theme.entryAndRecipesBackground
@@ -20,7 +19,7 @@ struct SettingsView: View {
                 VStack {
                     // MARK: - Settings Form
                     Form {
-                        hapticsEnabler
+//                        hapticsEnabler
                         brewStandards
                         termsOfService
                     }
@@ -29,7 +28,7 @@ struct SettingsView: View {
                     .padding(.horizontal, -4)
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle("General Info")
         }
     }
 }
@@ -55,7 +54,7 @@ private extension SettingsView {
     var brewStandards: some View {
         Section(header: Label("General Brewing Standards", systemImage: "mug")
             .foregroundColor(.secondary)) {
-                Text("Water Temperature Range: 195-205 degrees.\n\nA broad ratio standard is 1:16 in grams.\n\nIf you don't have a scale, use 1 tablespoon (about 5g) of coffee for every 4 ounces of water.")
+                Text("Water Temperature Range: 195-205 degrees.\n\nA broad ratio standard is 1:16 in grams.\n\nIf you don't have a scale, use 1 tablespoon (about 15g) of coffee for every 4 ounces of water.")
                     .font(.system(size: 16, weight: .light))
                     .minimumScaleFactor(0.6)
                     .fixedSize(horizontal: false, vertical: true)

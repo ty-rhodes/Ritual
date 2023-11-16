@@ -10,7 +10,8 @@ import SwiftUI
 struct SaveAndWriteView: View {
     @EnvironmentObject var recipesViewModel: RecipesViewModel
     
-    @State private var linkActivated: Bool = false
+    @State private var linkActivated: Bool   = false
+    @State private var hapticFeedbackEnabled = true
     
     var body: some View {
         NavigationStack {
@@ -32,7 +33,7 @@ struct SaveAndWriteView: View {
             }
             .navigationBarBackButtonHidden(true)
             .navigationDestination(isPresented: $linkActivated) {
-                SavedRecipesListView() // Don't need to inject environment object since you did it already to the parent
+                SavedRecipesListView()
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -63,6 +64,9 @@ private extension SaveAndWriteView {
     var saveRecipeButton: some View {
         Button(action: {
             // Navigate to SavedRecipesView
+            if hapticFeedbackEnabled {
+                Haptics.successNotification()
+            }
             recipesViewModel.saveRecipe()
             linkActivated = true
         }) {

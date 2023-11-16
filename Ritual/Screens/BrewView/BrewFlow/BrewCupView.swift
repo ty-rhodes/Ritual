@@ -115,22 +115,11 @@ private extension BrewCupView {
     }
     
     var nextButton: some View {
-//        NavigationLink(destination: BrewRatioView().environmentObject(recipesViewModel)) {
-//            Button("Next") {
-//                // Save number of cups
-////                recipesViewModel.saveCups(cups: cups)
-//                recipesViewModel.recipeInProgress?.cups = Int32(cups)
-//                recipesViewModel.saveRecipe()
-//            }
-//            .frame(width: 350, height: 50)
-//            .background(Theme.brewButton)
-//            .foregroundColor(.white)
-//            .font(.system(size: 16, weight: .semibold))
-//            .cornerRadius(25)
-//            .controlSize(.large)
-//        }
         Button("Next") {
             // Save number of cups
+            if hapticFeedbackEnabled {
+                Haptics.mediumImpact()
+            }
             recipesViewModel.recipeInProgress?.cups = Int32(cups)
 //            recipesViewModel.saveRecipe()
             linkActivated = true

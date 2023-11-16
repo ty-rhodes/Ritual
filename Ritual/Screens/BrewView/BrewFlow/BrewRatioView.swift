@@ -146,23 +146,11 @@ private extension BrewRatioView {
     }
     
     var nextButton: some View {
-//        NavigationLink(destination: BrewRecipeView().environmentObject(recipesViewModel)) {
-//            Button("Next") {
-//                // Save selected ratio
-////                recipesViewModel.saveSelectedRatio(ratio: ratio)
-//                recipesViewModel.recipeInProgress?.ratio = (selectedRatio as! String)
-//                recipesViewModel.saveRecipe()
-////                recipesViewModel.createRecipe(method: recipesViewModel.selectedBrewMethod, cups: recipesViewModel.selectedCups, ratio: selectedRatio as! String)
-//            }
-//            .frame(width: 350, height: 50)
-//            .background(Theme.brewButton)
-//            .foregroundColor(.white)
-//            .font(.system(size: 16, weight: .semibold))
-//            .cornerRadius(25)
-//            .controlSize(.large)
-//        }
         Button("Next") {
             // Save selected ratio
+            if hapticFeedbackEnabled {
+                Haptics.mediumImpact()
+            }
             recipesViewModel.recipeInProgress?.ratio = ratio
             recipesViewModel.saveRecipe()
             linkActivated = true

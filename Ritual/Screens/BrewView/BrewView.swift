@@ -41,7 +41,6 @@ struct BrewView: View {
                         Spacer()
                     }
                     .padding(.vertical, -30)
-//                    .padding(.vertical, DeviceTypes.isiPhoneSE ? 44 : 12)
                 }
             }
             .navigationBarBackButtonHidden(true)
@@ -60,7 +59,7 @@ struct BrewView: View {
                 BrewCupView() // Don't need to inject environment object since you did it already to the parent
             }
             .onAppear {
-                // Need to call this to start building your recipe in progress. - Jon
+                // Need to call this to start building your recipe in progress.
                 recipesViewModel.startNewRecipe()
             }
         }
@@ -90,7 +89,7 @@ private extension BrewView {
                                 recipesViewModel.selectedBrewMethod = method
                             }
                             if hapticFeedbackEnabled {
-                                Haptics.lightImpact()
+                                Haptics.mediumImpact()
                             }
                         }
                         .frame(width: 130, height: 300)
@@ -121,6 +120,9 @@ private extension BrewView {
 //        }
         Button("Next") {
             // Save selected brew method
+            if hapticFeedbackEnabled {
+                Haptics.mediumImpact()
+            }
             recipesViewModel.recipeInProgress?.method = recipesViewModel.selectedBrewMethod
             recipesViewModel.saveRecipe()
             linkActivated = true

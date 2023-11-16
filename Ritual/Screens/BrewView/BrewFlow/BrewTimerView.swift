@@ -22,6 +22,8 @@ struct BrewTimerView: View {
     private let totalSeconds: TimeInterval      = 180
     private let animationDuration: TimeInterval = 180
     
+    @State private var hapticFeedbackEnabled = true
+    
     private var timerFormatted: String {
         let formatter                    = DateComponentsFormatter()
         formatter.allowedUnits           = [.minute, .second]
@@ -125,6 +127,9 @@ private extension BrewTimerView {
     
     var resetTimerButton: some View {
         Button(action: {
+            if hapticFeedbackEnabled {
+                Haptics.lightImpact()
+            }
             timerViewModel.resetTimer()
             timerViewModel.Time?.invalidate()
         }) {
@@ -142,6 +147,9 @@ private extension BrewTimerView {
     
     var startTimerButton: some View {
         Button(action: {
+            if hapticFeedbackEnabled {
+                Haptics.lightImpact()
+            }
             timerViewModel.isTimerRunning.toggle()
         }) {
             Text(timerViewModel.isTimerRunning ? "Stop Timer" : "Start Timer")

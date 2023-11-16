@@ -10,15 +10,14 @@ import CoreData
 
 struct SavedRecipesView: View {
     @Environment(\.dismiss) var dimiss
-    @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject var viewModel: RecipesViewModel
+    @EnvironmentObject var recipesViewModel: RecipesViewModel
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
     
     var recipe: Recipe
     
-    @State private var  notes = ""
+    @State private var  notes          = ""
     @State private var  isEditingNotes = false
     
     @State private var scrollOffset: CGFloat  = 0
@@ -43,6 +42,7 @@ struct SavedRecipesView: View {
                                 HStack(spacing: 200) {
                                     Text("Notes")
                                         .font(.system(size: 26, weight: .light))
+                                        .frame(width: 80)
                                     
                                     if isEditingNotes {
                                         saveNotesButton
@@ -57,7 +57,7 @@ struct SavedRecipesView: View {
                                     } else if notes.isEmpty  {
                                         RecipeNotesEmptyState()
                                     } else {
-                                        Text(viewModel.recipeNotes) // Display the notes in non-edit mode
+                                        Text(recipesViewModel.recipeNotes) // Display the notes in non-edit mode
                                             .font(.system(size: 16, weight: .light))
                                             .frame(width: 350, height: 150, alignment: .topLeading)
                                             .multilineTextAlignment(.leading)
@@ -88,22 +88,13 @@ struct SavedRecipesView: View {
                             ToolbarItem(placement: .navigationBarLeading) {
                                 backToSavedRecipes
                             }
-//                            ToolbarItem(placement: .primaryAction) {
-//                                Button {
-//                                    // Toggle to save or unsave recipe
-//                                } label: {
-//                                    Symbols.heart
-//                                        .font(.title2)
-//                                        .foregroundColor(Color(.label))
-//                                }
-//                            }
                         }
                         .toolbarBackground(Theme.entryAndRecipesBackground, for: .navigationBar)
                         .onTapGesture {
                             hideKeyboard()
                         }
                         .onAppear {
-                            notes = viewModel.fetchRecipeNotes(for: recipe)
+                            notes = recipesViewModel.fetchRecipeNotes(for: recipe)
                         }
                     }
                 }
@@ -114,14 +105,14 @@ struct SavedRecipesView: View {
 
 struct SavedRecipesView_Previews: PreviewProvider {
     static var previews: some View {
-        let context            = PersistenceController.shared.viewContext
-        let newRecipe          = Recipe(context: context)
-        newRecipe.recipeTitle  = "Morning Cup o' Joe"
-        newRecipe.method       = "French Press"
-        newRecipe.cups         = 6
-        newRecipe.grams        = 1080
-        newRecipe.ounces       = 36
-        newRecipe.ratio        = "1:16"
+        let context             = PersistenceController.shared.viewContext
+        let newRecipe           = Recipe(context: context)
+        newRecipe.recipeTitle   = "Morning Cup o' Joe"
+        newRecipe.method        = "French Press"
+        newRecipe.cups          = 6
+        newRecipe.gramsOfCoffee = 1080
+        newRecipe.ouncesOfWater = 36
+        newRecipe.ratio         = "1:16"
         
         return SavedRecipesView(recipe: newRecipe)
             .environment(\.managedObjectContext, context)
@@ -159,13 +150,13 @@ private extension SavedRecipesView {
     var recipeDetails: some View {
         VStack(spacing: 20) {
             VStack {
-                Text("\(recipe.grams)")
+                Text("\(recipe.gramsOfCoffee)")
                     .font(.system(size: 52))
                 Text("grams of coffee")
                     .font(.system(size: 16))
             }
             VStack {
-                Text("\(recipe.ounces)")
+                Text("\(recipe.ouncesOfWater)")
                     .font(.system(size: 52))
                 Text("ounces of water")
                     .font(.system(size: 16))
@@ -201,7 +192,7 @@ private extension SavedRecipesView {
     }
     
     var recipeNotesEditor: some View {        
-        TextField("Write your notes here...", text: $viewModel.recipeNotes, axis: .vertical)
+        TextField("Write your notes here...", text: $recipesViewModel.recipeNotes, axis: .vertical)
             .font(.system(size: 16, weight: .light))
             .frame(width: 350, height: 150, alignment: .topLeading)
             .multilineTextAlignment(.leading)
@@ -232,8 +223,8 @@ private extension SavedRecipesView {
     var saveNotesButton: some View {
         Button(action: {
             // Save notes
-            viewModel.saveRecipeNotes(for: recipe, with: notes)
-            notes = viewModel.recipeNotes
+            recipesViewModel.saveRecipeNotes(for: recipe, with: notes)
+            notes = recipesViewModel.recipeNotes
             isEditingNotes = false
         }) {
             Text("Save")
