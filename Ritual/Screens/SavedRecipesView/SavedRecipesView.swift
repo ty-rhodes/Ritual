@@ -20,6 +20,9 @@ struct SavedRecipesView: View {
     @State private var  notes          = ""
     @State private var  isEditingNotes = false
     
+    @State private var linkActivated: Bool   = false
+    @State private var hapticFeedbackEnabled = true
+    
     @State private var scrollOffset: CGFloat  = 0
     @State private var contentHeight: CGFloat = 0
     
@@ -90,6 +93,9 @@ struct SavedRecipesView: View {
                             }
                         }
                         .toolbarBackground(Theme.entryAndRecipesBackground, for: .navigationBar)
+                        .navigationDestination(isPresented: $linkActivated) {
+                            BrewTimerView() // Don't need to inject environment object since you did it already to the parent
+                        }
                         .onTapGesture {
                             hideKeyboard()
                         }
@@ -112,7 +118,7 @@ struct SavedRecipesView_Previews: PreviewProvider {
         newRecipe.cups          = 6
         newRecipe.gramsOfCoffee = 1080
         newRecipe.ouncesOfWater = 36
-        newRecipe.ratio         = "1:16"
+        newRecipe.ratio         = "1:16" 
         
         return SavedRecipesView(recipe: newRecipe)
             .environment(\.managedObjectContext, context)
@@ -178,23 +184,39 @@ private extension SavedRecipesView {
     
     
     var brewRecipeButton: some View {
-        NavigationLink(destination: BrewTimerView()) {
-            Text("Brew This Recipe")
-                .frame(width: 350, height: 50)
-                .background(Theme.brewButton)
-                .foregroundColor(.white)
-                .font(.system(size: 16, weight: .semibold, design: .default))
-                .cornerRadius(25)
-                .controlSize(.large)
-                .padding()
+//        NavigationLink(destination: BrewTimerView()) {
+//            Text("Brew This Recipe")
+//                .frame(width: 350, height: 50)
+//                .background(Theme.brewButton)
+//                .foregroundColor(.white)
+//                .font(.system(size: 16, weight: .semibold, design: .default))
+//                .cornerRadius(25)
+//                .controlSize(.large)
+//                .padding()
+//        }
+//        .padding(.horizontal, 8)
+        
+        Button("Brew This Recipe") {
+            // Save selected ratio
+            if hapticFeedbackEnabled {
+                Haptics.mediumImpact()
+            }
+            linkActivated = true
         }
+        .frame(width: 350, height: 50)
+        .background(Theme.brewButton)
+        .foregroundColor(.white)
+        .font(.system(size: 16, weight: .semibold))
+        .cornerRadius(25)
+        .controlSize(.large)
+        .padding()
         .padding(.horizontal, 8)
     }
     
     var recipeNotesEditor: some View {        
         TextField("Write your notes here...", text: $recipesViewModel.recipeNotes, axis: .vertical)
             .font(.system(size: 16, weight: .light))
-            .frame(width: 350, height: 150, alignment: .topLeading)
+            .frame(width: 340, height: 150, alignment: .topLeading)
             .multilineTextAlignment(.leading)
             .padding(.horizontal, 14)
             .padding(.vertical, 10)

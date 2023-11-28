@@ -60,18 +60,8 @@ final class RecipesViewModel: ObservableObject {
         
         return (gramsOfCoffee, ouncesOfWater)
     }
-
     
     // MARK: - Recipe Methods
-    func addRecipe(_ recipe: Recipe) {
-        // Adding to the array does nothing. When you fetch from Core Data with NSFetchRequest, you get the array
-        // of recipes. But making edits to that array doesn't modify the Core Data objects. Adding to the array
-        // doesn't add it to your saved recipes. You have to go through the ManagedObjectContext to do that.
-        // You can do that here like this, or just do it in the View since you have the context there as well. - Jon
-//        recipes.append(recipe)
-        viewContext.insert(recipe)
-    }
-    
     func deleteRecipe(at recipe: Recipe) {
         viewContext.delete(recipe)
         saveContext()

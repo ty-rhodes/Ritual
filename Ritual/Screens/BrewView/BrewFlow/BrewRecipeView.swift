@@ -193,7 +193,7 @@ private extension BrewRecipeView {
                 .font(.title3)
                 .fontWeight(.light)
                 .foregroundStyle(heartIconColor)
-                .scaleEffect(isHeartIconScaledUp ? 1.2 : 1.0)
+                .scaleEffect(isHeartIconScaledUp ? 1.5 : 1.0)
         }
     }
 }

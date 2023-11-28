@@ -14,7 +14,7 @@ struct RecipeNotesEmptyState: View {
                 Text("Add a note to this tasty brew.")
                     .font(.title3).bold()
             }
-            .frame(width: 350, height:150, alignment: .center)
+            .frame(width: 340, height:150, alignment: .center)
             .minimumScaleFactor(0.6)
             .multilineTextAlignment(.center)
             .padding(.horizontal, 14)

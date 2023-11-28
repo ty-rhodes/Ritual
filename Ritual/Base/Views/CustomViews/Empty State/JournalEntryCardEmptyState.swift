@@ -33,7 +33,7 @@ struct JournalEntryCardEmptyState: View {
                 .minimumScaleFactor(0.6)
                 .overlay( RoundedRectangle(cornerRadius: 30)
                     .stroke(.white, lineWidth: 1))
-            .offset(x: 4)
+//            .offset(x: 4)
         }
     }
 }

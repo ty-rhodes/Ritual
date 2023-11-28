@@ -71,9 +71,9 @@ struct EntriesListView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     BackButton()
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    sortEntry
-                }
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    sortEntry
+//                }
                 ToolbarItem(placement: .primaryAction) {
                     addEntry
                 }

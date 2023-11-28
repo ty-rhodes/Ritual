@@ -32,7 +32,7 @@ struct BrewNowCardEmptyState: View {
             .multilineTextAlignment(.center)
             .overlay( RoundedRectangle(cornerRadius: 30)
                 .stroke(.white, lineWidth: 1))
-            .offset(x: 4)
+//            .offset(x: 4)
         }
     }
 }

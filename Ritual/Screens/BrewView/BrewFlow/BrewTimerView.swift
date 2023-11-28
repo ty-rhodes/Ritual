@@ -82,6 +82,7 @@ struct BrewTimerView: View {
                     }
                 }
             }
+            .toolbarBackground(Theme.brewBackground, for: .navigationBar)
             .background(
                 NavigationLink(destination: SaveAndWriteView(),
                                isActive: $timerViewModel.navigateToSaveAndWrite,
