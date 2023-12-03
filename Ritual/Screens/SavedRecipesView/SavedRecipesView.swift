@@ -42,7 +42,7 @@ struct SavedRecipesView: View {
                             }
                             // MARK: - Recipe Notes
                             VStack {
-                                HStack(spacing: 200) {
+                                HStack(spacing: 190) {
                                     Text("Notes")
                                         .font(.system(size: 26, weight: .light))
                                         .frame(width: 80)
@@ -62,7 +62,7 @@ struct SavedRecipesView: View {
                                     } else {
                                         Text(recipesViewModel.recipeNotes) // Display the notes in non-edit mode
                                             .font(.system(size: 16, weight: .light))
-                                            .frame(width: 350, height: 150, alignment: .topLeading)
+                                            .frame(width: 340, height: 150, alignment: .topLeading)
                                             .multilineTextAlignment(.leading)
                                             .padding(.horizontal, 14)
                                             .padding(.vertical, 10)

@@ -13,7 +13,7 @@ struct SavedRecipesListView: View {
     @EnvironmentObject var recipesViewModel: RecipesViewModel
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest( sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.createdAt, ascending: true)], animation: .default)
+    @FetchRequest( sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.createdAt, ascending: false)], animation: .default)
     private var recipes: FetchedResults<Recipe>
     
     var body: some View {

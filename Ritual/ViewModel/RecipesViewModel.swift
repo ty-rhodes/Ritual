@@ -18,7 +18,7 @@ final class RecipesViewModel: ObservableObject {
     }
     
     // Don't have a separate array of recipes here. Only use the @FetchRequest marked array in the View.
-    // When managing items in the list, go through the ManagedObjectContext. - Jon
+    // When managing items in the list, go through the ManagedObjectContext.
 //    @Published var recipes: [Recipe]   = []
     
     @Published var selectedBrewMethod: String = ""
@@ -62,12 +62,12 @@ final class RecipesViewModel: ObservableObject {
     }
     
     // MARK: - Recipe Methods
-    func deleteRecipe(at recipe: Recipe) {
-        viewContext.delete(recipe)
-        saveContext()
-        // Remove the deleted recipe from the local 'recipes' array.
-//        recipes.removeAll { $0 == recipe }
-    }
+//    func deleteRecipe(at recipe: Recipe) {
+//        viewContext.delete(recipe)
+//        saveContext()
+//        // Remove the deleted recipe from the local 'recipes' array.
+////        recipes.removeAll { $0 == recipe }
+//    }
 
     // Use this to create your initial recipe in progress
     func startNewRecipe() {
@@ -77,9 +77,9 @@ final class RecipesViewModel: ObservableObject {
     
     func saveRecipe() {
         // The warning on this line that Xcode gives should be your clue why this doesn't work.
-        // "Value 'recipe' was defined but never used" - Jon
+        // "Value 'recipe' was defined but never used"
         guard let recipe = recipeInProgress else { return }
-        viewContext.insert(recipe) // Adding this line removes the warning - Jon
+        viewContext.insert(recipe) // Adding this line removes the warning 
         saveContext()
     }
     
@@ -94,6 +94,7 @@ final class RecipesViewModel: ObservableObject {
         return recipe.notes ?? ""
     }
     
+    // MARK: - Save Context
     func saveContext() {
         if viewContext.hasChanges {
             do {

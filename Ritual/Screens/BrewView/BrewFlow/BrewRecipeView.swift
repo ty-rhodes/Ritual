@@ -10,8 +10,8 @@ import SwiftUI
 struct BrewRecipeView: View {
     @EnvironmentObject private var recipesViewModel: RecipesViewModel
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.ratio, ascending: false)], animation: .default)
-    private var recipes: FetchedResults<Recipe>
+//    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.ratio, ascending: false)], animation: .default)
+//    private var recipes: FetchedResults<Recipe>
     
     @State private var recipe: Recipe?
     

@@ -126,6 +126,7 @@ private extension BrewView {
             recipesViewModel.recipeInProgress?.method = recipesViewModel.selectedBrewMethod
             recipesViewModel.saveRecipe()
             linkActivated = true
+            recipesViewModel.selectedBrewMethod = ""
         }
         .frame(width: 350, height: 50)
         .background(Theme.brewButton)

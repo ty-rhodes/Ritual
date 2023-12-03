@@ -39,7 +39,7 @@ struct SavedEntryView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     backToSavedEntries
-                }
+                }                                                                                                                                 
             }
         }
     }
