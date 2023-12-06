@@ -41,39 +41,39 @@ struct SavedRecipesView: View {
                                 recipeDetails
                             }
                             // MARK: - Recipe Notes
-                            VStack {
-                                HStack(spacing: 190) {
-                                    Text("Notes")
-                                        .font(.system(size: 26, weight: .light))
-                                        .frame(width: 80)
-                                    
-                                    if isEditingNotes {
-                                        saveNotesButton
-                                    } else {
-                                        editNotesButton
-                                    }
-                                }
-                                // MARK: - Notes View
-                                Group {
-                                    if isEditingNotes {
-                                        recipeNotesEditor
-                                    } else if notes.isEmpty  {
-                                        RecipeNotesEmptyState()
-                                    } else {
-                                        Text(recipesViewModel.recipeNotes) // Display the notes in non-edit mode
-                                            .font(.system(size: 16, weight: .light))
-                                            .frame(width: 340, height: 150, alignment: .topLeading)
-                                            .multilineTextAlignment(.leading)
-                                            .padding(.horizontal, 14)
-                                            .padding(.vertical, 10)
-                                            .overlay( RoundedRectangle(cornerRadius: 30)
-                                                .stroke(.white, lineWidth: 1))
-                                            .foregroundColor(.black)
-                                    }
-                                }
-                            }
-                            .padding()
-                            .fontWeight(.light)
+//                            VStack {
+//                                HStack(spacing: 190) {
+//                                    Text("Notes")
+//                                        .font(.system(size: 26, weight: .light))
+//                                        .frame(width: 80)
+//                                    
+//                                    if isEditingNotes {
+//                                        saveNotesButton
+//                                    } else {
+//                                        editNotesButton
+//                                    }
+//                                }
+//                                // MARK: - Notes View
+//                                Group {
+//                                    if isEditingNotes {
+//                                        recipeNotesEditor
+//                                    } else if notes.isEmpty  {
+//                                        RecipeNotesEmptyState()
+//                                    } else {
+//                                        Text(recipesViewModel.recipeNotes) // Display the notes in non-edit mode
+//                                            .font(.system(size: 16, weight: .light))
+//                                            .frame(width: 340, height: 150, alignment: .topLeading)
+//                                            .multilineTextAlignment(.leading)
+//                                            .padding(.horizontal, 14)
+//                                            .padding(.vertical, 10)
+//                                            .overlay( RoundedRectangle(cornerRadius: 30)
+//                                                .stroke(.white, lineWidth: 1))
+//                                            .foregroundColor(.black)
+//                                    }
+//                                }
+//                            }
+//                            .padding()
+//                            .fontWeight(.light)
                             // MARK: - Brew Recipe Button
                             brewRecipeButton
                         }
@@ -100,7 +100,8 @@ struct SavedRecipesView: View {
                             hideKeyboard()
                         }
                         .onAppear {
-                            notes = recipesViewModel.fetchRecipeNotes(for: recipe)
+//                            notes = recipesViewModel.fetchRecipeNotes(for: recipe)
+                            notes = recipesViewModel.recipeNotes
                         }
                     }
                 }
@@ -211,6 +212,7 @@ private extension SavedRecipesView {
         .controlSize(.large)
         .padding()
         .padding(.horizontal, 8)
+        .padding(.vertical, 40)
     }
     
     var recipeNotesEditor: some View {        

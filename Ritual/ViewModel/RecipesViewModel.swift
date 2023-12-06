@@ -21,6 +21,7 @@ final class RecipesViewModel: ObservableObject {
     // When managing items in the list, go through the ManagedObjectContext.
 //    @Published var recipes: [Recipe]   = []
     
+    // MARK: - Variables
     @Published var selectedBrewMethod: String = ""
     @Published var selectedCups: Int          = 0
     @Published var recipeRatio: String        = ""
@@ -28,7 +29,7 @@ final class RecipesViewModel: ObservableObject {
     @Published var recipesGrams: Int          = 0
     @Published var recipeNotes: String        = ""
     
-    // Suggested var from Jon
+    // Variable implemented throughout Brew Flow to persist recipe
     @Published var recipeInProgress: Recipe?
     
     var gramsOfCoffee: Int {
@@ -45,7 +46,7 @@ final class RecipesViewModel: ObservableObject {
            return calculateCoffeeAndWater(ratio: ratio, cups: Int(cups)).ouncesOfWater
        }
     
-    // MARK: - Calculate Coffee and Water
+    // MARK: - Methods
     func calculateCoffeeAndWater(ratio: String, cups: Int) -> (gramsOfCoffee: Int, ouncesOfWater: Int) {
         let parts = ratio.components(separatedBy: ":")
         guard parts.count == 2, let coffeePart = Int(parts[0]), let waterPart = Int(parts[1]) else {
@@ -61,7 +62,6 @@ final class RecipesViewModel: ObservableObject {
         return (gramsOfCoffee, ouncesOfWater)
     }
     
-    // MARK: - Recipe Methods
 //    func deleteRecipe(at recipe: Recipe) {
 //        viewContext.delete(recipe)
 //        saveContext()
@@ -83,7 +83,6 @@ final class RecipesViewModel: ObservableObject {
         saveContext()
     }
     
-    // MARK: - Recipe Notes Methods
     func saveRecipeNotes(for recipe: Recipe, with notes: String) {
         guard !notes.isEmpty else { return }
         recipe.notes = notes
@@ -94,7 +93,6 @@ final class RecipesViewModel: ObservableObject {
         return recipe.notes ?? ""
     }
     
-    // MARK: - Save Context
     func saveContext() {
         if viewContext.hasChanges {
             do {
