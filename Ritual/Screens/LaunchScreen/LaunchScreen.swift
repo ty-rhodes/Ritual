@@ -19,11 +19,6 @@ struct LaunchScreen: View {
         ZStack {
             Theme.homeBackground
                 .ignoresSafeArea()
-//            Image("launch-logo")
-//                .resizable()
-//                .scaledToFit()
-//                .frame(width: 200, height: 200)
-//                .scaleEffect(scale)
             LottieView(name: Animations.progress, loopMode: .repeat(2), animationSpeed: 1)
                 .frame(width: 200, height: 200)
                 .scaleEffect(scale)
