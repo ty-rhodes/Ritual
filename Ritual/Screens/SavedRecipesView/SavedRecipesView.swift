@@ -156,15 +156,15 @@ private extension SavedRecipesView {
     var recipeDetails: some View {
         VStack(spacing: 20) {
             VStack {
-                Text("\(recipe.gramsOfCoffee)")
-//                Text("\(recipesViewModel.gramsOfCoffee(for: recipe))")
+//                Text("\(recipe.gramsOfCoffee)")
+                Text("\(recipesViewModel.gramsOfCoffee)")
                     .font(.system(size: 52))
                 Text("grams of coffee")
                     .font(.system(size: 16))
             }
             VStack {
-                Text("\(recipe.ouncesOfWater)")
-//                Text("\(recipesViewModel.ouncesOfWater(for: recipe))")
+//                Text("\(recipe.ouncesOfWater)")
+                Text("\(recipesViewModel.ouncesOfWater)")
                     .font(.system(size: 52))
                 Text("ounces of water")
                     .font(.system(size: 16))
