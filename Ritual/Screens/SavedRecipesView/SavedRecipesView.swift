@@ -94,15 +94,14 @@ struct SavedRecipesView: View {
                         }
                         .toolbarBackground(Theme.entryAndRecipesBackground, for: .navigationBar)
                         .navigationDestination(isPresented: $linkActivated) {
-                            BrewTimerView() // Don't need to inject environment object since you did it already to the parent
+                            BrewTimerView()
                         }
                         .onTapGesture {
                             hideKeyboard()
                         }
-                        .onAppear {
+//                        .onAppear {
 //                            notes = recipesViewModel.fetchRecipeNotes(for: recipe)
-                            notes = recipesViewModel.recipeNotes
-                        }
+//                        }
                     }
                 }
             }
@@ -158,12 +157,14 @@ private extension SavedRecipesView {
         VStack(spacing: 20) {
             VStack {
                 Text("\(recipe.gramsOfCoffee)")
+//                Text("\(recipesViewModel.gramsOfCoffee(for: recipe))")
                     .font(.system(size: 52))
                 Text("grams of coffee")
                     .font(.system(size: 16))
             }
             VStack {
                 Text("\(recipe.ouncesOfWater)")
+//                Text("\(recipesViewModel.ouncesOfWater(for: recipe))")
                     .font(.system(size: 52))
                 Text("ounces of water")
                     .font(.system(size: 16))

@@ -65,7 +65,7 @@ private extension SaveAndWriteView {
         Button(action: {
             // Navigate to SavedRecipesView
             if hapticFeedbackEnabled {
-                Haptics.successNotification()
+                Haptics.mediumImpact()
             }
             recipesViewModel.saveRecipe()
             linkActivated = true

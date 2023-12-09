@@ -17,21 +17,16 @@ final class RecipesViewModel: ObservableObject {
         self.viewContext = viewContext
     }
     
-    // Don't have a separate array of recipes here. Only use the @FetchRequest marked array in the View.
-    // When managing items in the list, go through the ManagedObjectContext.
-//    @Published var recipes: [Recipe]   = []
-    
     // MARK: - Variables
     @Published var selectedBrewMethod: String = ""
     @Published var selectedCups: Int          = 0
     @Published var recipeRatio: String        = ""
-    @Published var recipeOunces: Int          = 0
-    @Published var recipesGrams: Int          = 0
     @Published var recipeNotes: String        = ""
     
     // Variable implemented throughout Brew Flow to persist recipe
     @Published var recipeInProgress: Recipe?
     
+    // Computed properties used for amount of coffee and water in recipe
     var gramsOfCoffee: Int {
            guard let ratio = recipeInProgress?.ratio, let cups = recipeInProgress?.cups else {
                return 0
@@ -39,7 +34,7 @@ final class RecipesViewModel: ObservableObject {
            return calculateCoffeeAndWater(ratio: ratio, cups: Int(cups)).gramsOfCoffee
        }
 
-       var ouncesOfWater: Int {
+    var ouncesOfWater: Int {
            guard let ratio = recipeInProgress?.ratio, let cups = recipeInProgress?.cups else {
                return 0
            }
@@ -61,15 +56,8 @@ final class RecipesViewModel: ObservableObject {
         
         return (gramsOfCoffee, ouncesOfWater)
     }
-    
-//    func deleteRecipe(at recipe: Recipe) {
-//        viewContext.delete(recipe)
-//        saveContext()
-//        // Remove the deleted recipe from the local 'recipes' array.
-////        recipes.removeAll { $0 == recipe }
-//    }
 
-    // Use this to create your initial recipe in progress
+//     Use this to create your initial recipe in progress
     func startNewRecipe() {
         let newRecipe    = Recipe(context: viewContext)
         recipeInProgress = newRecipe

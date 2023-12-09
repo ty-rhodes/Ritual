@@ -146,7 +146,7 @@ private extension BrewRecipeView {
 //        .padding(.horizontal, 8)
 //        .padding(.vertical, 50)
         Button("Brew Coffee") {
-            // Save selected ratio
+            // Go to BrewTimerView()
             if hapticFeedbackEnabled {
                 Haptics.mediumImpact()
             }
@@ -187,7 +187,6 @@ private extension BrewRecipeView {
                                 isHeartIconScaledUp = false
                             }
                         }
-
         } label: {
             Symbols.heart
                 .font(.title3)
