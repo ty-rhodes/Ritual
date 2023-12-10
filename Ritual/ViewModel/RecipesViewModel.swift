@@ -67,7 +67,9 @@ final class RecipesViewModel: ObservableObject {
         // The warning on this line that Xcode gives should be your clue why this doesn't work.
         // "Value 'recipe' was defined but never used"
         guard let recipe = recipeInProgress else { return }
-        viewContext.insert(recipe) // Adding this line removes the warning 
+        recipe.gramsOfCoffee = Int32(gramsOfCoffee)
+        recipe.ouncesOfWater = Int32(ouncesOfWater)
+        viewContext.insert(recipe) // Adding this line removes the warning
         saveContext()
     }
     

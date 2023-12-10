@@ -10,9 +10,6 @@ import SwiftUI
 struct BrewCupView: View {
     @EnvironmentObject private var recipesViewModel: RecipesViewModel
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.cups, ascending: false)], animation: .default)
-    private var recipes: FetchedResults<Recipe>
-    
     @State private var linkActivated: Bool   = false
     @State private var sliderValue           = 1.0
     @State private var hapticFeedbackEnabled = true

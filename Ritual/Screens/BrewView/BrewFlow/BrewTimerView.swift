@@ -9,13 +9,8 @@ import SwiftUI
 
 struct BrewTimerView: View {
     @Environment(\.dismiss) private var dismiss
-    
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.recipe, ascending: false)], animation: .default)
-    private var recipes: FetchedResults<Recipe>
-    
-    @StateObject private var recipeViewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     @StateObject private var timerViewModel  = BrewTimerViewModel()
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()

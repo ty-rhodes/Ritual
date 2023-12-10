@@ -10,9 +10,6 @@ import SwiftUI
 struct BrewView: View {
     @EnvironmentObject var recipesViewModel: RecipesViewModel
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.method, ascending: false)], animation: .default)
-    private var recipes: FetchedResults<Recipe>
-    
     let brewMethods: [String] = ["Drip", "Pour Over", "French Press", "Espresso"]
     
     @State private var linkActivated: Bool   = false

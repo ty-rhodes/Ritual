@@ -9,8 +9,6 @@ import SwiftUI
 
 struct SavedRecipesCell: View {
     @Environment(\.managedObjectContext) private var viewContext
-
-    @StateObject var viewModel = RecipesViewModel(viewContext: PersistenceController.shared.viewContext)
     
     var recipe: Recipe
     

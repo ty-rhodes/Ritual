@@ -10,9 +10,6 @@ import SwiftUI
 struct BrewRatioView: View {
     @EnvironmentObject private var recipesViewModel: RecipesViewModel
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Recipe.ratio, ascending: false)], animation: .default)
-    private var recipes: FetchedResults<Recipe>
-    
     @State private var linkActivated: Bool   = false
     @State private var sliderValue           = 0.5
     @State private var hapticFeedbackEnabled = true
