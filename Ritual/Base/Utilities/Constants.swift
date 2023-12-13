@@ -28,8 +28,10 @@ enum Theme {
     static let journalButton             = Color("journalbutton")
     static let homeBackground            = Image("homebackground")
 }
+
 enum Animations {
     static let progress = "progress-bar"
+    static let welcome  = "welcome-screen"
 }
 
 // The enums below adjust our app to properly fit the screen size for each device.

@@ -164,7 +164,7 @@ private extension BrewRecipeView {
             if hapticFeedbackEnabled {
                 Haptics.successNotification()
             }
-            recipesViewModel.recipeInProgress = recipe
+//            recipesViewModel.recipeInProgress = recipe
             recipesViewModel.saveRecipe()
             // Change the icon color for one second and then revert it back to clear
             withAnimation {

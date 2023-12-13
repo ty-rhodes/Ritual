@@ -58,7 +58,7 @@ private extension SavedRecipesListView {
     
     var savedRecipesList: some View {
         List {
-            // List should be pointing to the @FethRequest array in your view. 
+            // List should be pointing to the @FetchRequest array in your view. 
             ForEach(recipes) { recipe in
                 NavigationLink(destination: SavedRecipesView(recipe: recipe)) {
                     SavedRecipesCell(recipe: recipe)
