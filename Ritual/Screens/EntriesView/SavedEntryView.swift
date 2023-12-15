@@ -30,7 +30,7 @@ struct SavedEntryView: View {
                     }
                     
                 }
-                .frame(width: 380, height: 600, alignment: .top)
+                .frame(width: 350, height: 600, alignment: .top)
                 .multilineTextAlignment(.leading)
                 Spacer()
             }

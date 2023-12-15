@@ -78,7 +78,7 @@ private extension SavedRecipesListView {
             }
             .onDelete { indexSet in
                 indexSet.forEach { index in
-                    // To delete a recipe, just go through the viewContext. - Jon
+                    // To delete a recipe, just go through the viewContext.
                     if recipes.indices.contains(index) {
                         viewContext.delete(recipes[index])
                     }

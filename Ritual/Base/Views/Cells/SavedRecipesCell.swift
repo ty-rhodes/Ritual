@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SavedRecipesCell: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject private var recipesViewModel: RecipesViewModel
     
     var recipe: Recipe
     
@@ -45,5 +45,6 @@ struct SavedRecipesCell_Previews: PreviewProvider {
 
         return SavedRecipesCell(recipe: newRecipe)
             .environment(\.managedObjectContext, context)
+            .environmentObject(RecipesViewModel(viewContext: PersistenceController.shared.viewContext))
     }
 }

@@ -186,16 +186,7 @@ private extension SavedRecipesView {
     var brewRecipeButton: some View {
 //        NavigationLink(destination: BrewTimerView()) {
 //            Text("Brew This Recipe")
-//                .frame(width: 350, height: 50)
-//                .background(Theme.brewButton)
-//                .foregroundColor(.white)
-//                .font(.system(size: 16, weight: .semibold, design: .default))
-//                .cornerRadius(25)
-//                .controlSize(.large)
-//                .padding()
 //        }
-//        .padding(.horizontal, 8)
-        
         Button("Brew This Recipe") {
             // Save selected ratio
             if hapticFeedbackEnabled {

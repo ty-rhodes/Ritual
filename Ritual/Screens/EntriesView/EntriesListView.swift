@@ -14,8 +14,6 @@ enum Sort {
 
 struct EntriesListView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
-    
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp, ascending: true)], animation: .default)
     private var entries: FetchedResults<Entry>
 

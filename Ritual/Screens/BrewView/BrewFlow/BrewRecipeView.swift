@@ -105,7 +105,7 @@ struct BrewRecipeView: View {
             }
             .toolbarBackground(Theme.brewBackground, for: .navigationBar)
             .navigationDestination(isPresented: $linkActivated) {
-                BrewTimerView() // Don't need to inject environment object since you did it already to the parent
+                BrewTimerView()
             }
         }
     }
@@ -131,16 +131,7 @@ private extension BrewRecipeView {
     var brewCoffeeButton: some View {
 //        NavigationLink(destination: BrewTimerView()) {
 //            Text("Brew Coffee")
-//                .frame(width: 350, height: 50)
-//                .background(Theme.journalButton)
-//                .foregroundColor(.white)
-//                .font(.system(size: 16, weight: .semibold, design: .default))
-//                .cornerRadius(25)
-//                .controlSize(.large)
-//                .padding()
 //        }
-//        .padding(.horizontal, 8)
-//        .padding(.vertical, 50)
         Button("Brew Coffee") {
             // Go to BrewTimerView()
             if hapticFeedbackEnabled {

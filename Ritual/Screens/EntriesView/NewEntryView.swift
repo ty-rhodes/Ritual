@@ -10,11 +10,6 @@ import SwiftUI
 struct NewEntryView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) private var presentationMode
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp, ascending: false)], animation: .default)
-    
-    private var entries: FetchedResults<Entry>
     
     @StateObject private var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.viewContext)
     
