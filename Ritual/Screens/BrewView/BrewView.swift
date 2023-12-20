@@ -43,12 +43,20 @@ struct BrewView: View {
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    NavigationLink(destination: HomeView()) {
-                        Symbols.dismiss
-                            .font(.title2)
-                            .fontWeight(.light)
-                            .foregroundColor(.black)
-                    }
+//                    NavigationLink(destination: HomeView()) {
+                        Button(action: {
+//                            recipesViewModel.recipeInProgress?.method = nil
+                        }, label: {
+//                            Symbols.dismiss
+//                                .font(.title2)
+//                                .fontWeight(.light)
+//                                .foregroundColor(.black)
+                        })
+//                        Symbols.dismiss
+//                            .font(.title2)
+//                            .fontWeight(.light)
+//                            .foregroundColor(.black)
+//                    }
                 }
             }
             .toolbarBackground(Theme.brewBackground, for: .navigationBar)

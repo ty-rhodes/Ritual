@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabBar: View {
+    @EnvironmentObject var recipesViewModel: RecipesViewModel
     
     @State private var selectedTab: Tab = .home
     

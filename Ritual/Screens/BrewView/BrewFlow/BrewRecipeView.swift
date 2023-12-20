@@ -94,12 +94,13 @@ struct BrewRecipeView: View {
                 ToolbarItem(placement: .primaryAction) {
                     HStack {
                         saveRecipeButton
-                        NavigationLink(destination: HomeView()) {
-                            Symbols.dismiss
-                                .font(.title2)
-                                .fontWeight(.light)
-                                .foregroundColor(.black)
-                        }
+//                        NavigationLink(destination: HomeView()) {
+//                            Symbols.dismiss
+//                                .font(.title2)
+//                                .fontWeight(.light)
+//                                .foregroundColor(.black)
+//                        }
+                        Spacer()
                     }
                 }
             }

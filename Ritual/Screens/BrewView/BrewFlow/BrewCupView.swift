@@ -51,12 +51,12 @@ struct BrewCupView: View {
                     BackButton()
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    NavigationLink(destination: HomeView()) {
-                        Symbols.dismiss
-                            .font(.title2)
-                            .fontWeight(.light)
-                            .foregroundColor(.black)
-                    }
+//                    NavigationLink(destination: HomeView()) {
+//                        Symbols.dismiss
+//                            .font(.title2)
+//                            .fontWeight(.light)
+//                            .foregroundColor(.black)
+//                    }
                 }
             }
             .toolbarBackground(Theme.brewBackground, for: .navigationBar)
