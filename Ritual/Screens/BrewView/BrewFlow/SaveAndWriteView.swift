@@ -76,8 +76,7 @@ private extension SaveAndWriteView {
         .background(.clear)
         .foregroundColor(.white)
         .font(.system(size: 16, weight: .semibold, design: .default))
-        .overlay( RoundedRectangle(cornerRadius: 30)
-            .stroke(Color.white, lineWidth: 2))
+        .overlay( RoundedRectangle(cornerRadius: 30).stroke(Color.white, lineWidth: 2))
         .controlSize(.large)
         .padding(4)
     }

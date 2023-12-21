@@ -64,18 +64,19 @@ struct BrewTimerView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
+            // MARK: - Timer Toolbar
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     BackButton()
                 }
-                ToolbarItem(placement: .primaryAction) {
-                    NavigationLink(destination: HomeView()) {
-                        Symbols.dismiss
-                            .font(.title2)
-                            .fontWeight(.light)
-                            .foregroundColor(.black)
-                    }
-                }
+//                ToolbarItem(placement: .primaryAction) {
+//                    NavigationLink(destination: HomeView()) {
+//                        Symbols.dismiss
+//                            .font(.title2)
+//                            .fontWeight(.light)
+//                            .foregroundColor(.black)
+//                    }
+//                }
             }
             .toolbarBackground(Theme.brewBackground, for: .navigationBar)
             .background(
