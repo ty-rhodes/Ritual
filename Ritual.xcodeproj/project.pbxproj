@@ -14,6 +14,7 @@
 		770B392B2A6DB80600EFC165 /* JournalEntryCardEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B392A2A6DB80600EFC165 /* JournalEntryCardEmptyState.swift */; };
 		770B392D2A6DBA7800EFC165 /* BrewNowCardEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B392C2A6DBA7800EFC165 /* BrewNowCardEmptyState.swift */; };
 		770BC48F29FCA645000127AD /* EntriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770BC48E29FCA645000127AD /* EntriesListCell.swift */; };
+		771635012B34B60C009F21A8 /* OnboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771635002B34B60C009F21A8 /* OnboardScreen.swift */; };
 		772193C32AC23F790038C51C /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772193C22AC23F790038C51C /* LaunchScreen.swift */; };
 		772193C52AC245780038C51C /* AppContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772193C42AC245780038C51C /* AppContainerView.swift */; };
 		7722F62C2AAA91860051BF53 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 7722F62B2AAA91860051BF53 /* Collections */; };
@@ -69,6 +70,7 @@
 		770B392A2A6DB80600EFC165 /* JournalEntryCardEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryCardEmptyState.swift; sourceTree = "<group>"; };
 		770B392C2A6DBA7800EFC165 /* BrewNowCardEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewNowCardEmptyState.swift; sourceTree = "<group>"; };
 		770BC48E29FCA645000127AD /* EntriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesListCell.swift; sourceTree = "<group>"; };
+		771635002B34B60C009F21A8 /* OnboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardScreen.swift; sourceTree = "<group>"; };
 		772193C22AC23F790038C51C /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		772193C42AC245780038C51C /* AppContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainerView.swift; sourceTree = "<group>"; };
 		773912F12A43BBF600A57307 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 				7744F6D12A50FF6C00C87CEB /* SavedRecipesCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		771634FF2B34B5EE009F21A8 /* OnboardScreen */ = {
+			isa = PBXGroup;
+			children = (
+				771635002B34B60C009F21A8 /* OnboardScreen.swift */,
+			);
+			path = OnboardScreen;
 			sourceTree = "<group>";
 		};
 		772193C62AC2489F0038C51C /* LaunchScreen */ = {
@@ -262,6 +272,7 @@
 		778A9AE529D3B0C0007D5E5B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				771634FF2B34B5EE009F21A8 /* OnboardScreen */,
 				772193C62AC2489F0038C51C /* LaunchScreen */,
 				778A9AE629D3B0DD007D5E5B /* HomeView */,
 				778A9AE729D3B130007D5E5B /* EntriesView */,
@@ -518,6 +529,7 @@
 				7747AF792A7F103B00A84325 /* Entensions.swift in Sources */,
 				77498CB52A411E830078CF61 /* EntryGroup.swift in Sources */,
 				77F57A832A3E8AA3001DD89C /* EntriesViewModel.swift in Sources */,
+				771635012B34B60C009F21A8 /* OnboardScreen.swift in Sources */,
 				770B392B2A6DB80600EFC165 /* JournalEntryCardEmptyState.swift in Sources */,
 				775FE31B29C91AAB00B0622F /* BrewView.swift in Sources */,
 				77FB74222A1D89DA00DB03CC /* SaveAndWriteView.swift in Sources */,
