@@ -90,6 +90,7 @@ struct BrewRecipeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     BackButton()
+                        .foregroundStyle(Color(uiColor: .lightGray))
                 }
                 ToolbarItem(placement: .primaryAction) {
                     HStack {

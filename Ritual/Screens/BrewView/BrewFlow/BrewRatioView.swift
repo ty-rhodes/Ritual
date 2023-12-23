@@ -62,6 +62,7 @@ struct BrewRatioView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     BackButton()
+                        .foregroundStyle(Color(uiColor: .lightGray))
                 }
                 ToolbarItem(placement: .primaryAction) {
 //                    NavigationLink(destination: HomeView()) {
