@@ -37,7 +37,7 @@ struct OnboardScreen: View {
                 Button(action: {
                     isFirstTime = false
                 }, label: {
-                    Text("Continue")
+                    Text("Get Started")
                         .frame(width: 350, height: 50)
                         .background(.white)
                         .foregroundStyle(.black)
