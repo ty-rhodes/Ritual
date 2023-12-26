@@ -29,10 +29,6 @@ final class EntriesViewModel: ObservableObject {
     @Published var isShowingAlert: Bool = false
     
     // MARK: - Methods
-    func addEntry(_ entry: Entry) {
-        entries.append(entry)
-    }
-    
     func deleteEntry(at entry: Entry) {
         withAnimation {
             viewContext.delete(entry)

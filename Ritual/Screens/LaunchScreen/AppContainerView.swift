@@ -16,8 +16,8 @@ struct AppContainerView: View {
         if !isLaunchScreenViewPresented {
             TabBar()
                 .sheet(isPresented: $isFirstTime, content: {
-                    OnboardScreen()
-                        .interactiveDismissDisabled()
+                        OnboardScreen()
+                            .interactiveDismissDisabled()
                 })
         } else {
             LaunchScreen(isPresented: $isLaunchScreenViewPresented)

@@ -22,6 +22,7 @@ final class RecipesViewModel: ObservableObject {
     @Published var selectedCups: Int          = 0
     @Published var recipeRatio: String        = ""
     @Published var recipeNotes: String        = ""
+    @Published var recipes: [Recipe]          = []
     
     // Variable implemented throughout Brew Flow to persist recipe
     @Published var recipeInProgress: Recipe?
@@ -64,12 +65,10 @@ final class RecipesViewModel: ObservableObject {
     }
     
     func saveRecipe() {
-        // The warning on this line that Xcode gives should be your clue why this doesn't work.
-        // "Value 'recipe' was defined but never used"
         guard let recipe = recipeInProgress else { return }
         recipe.gramsOfCoffee = Int32(gramsOfCoffee)
         recipe.ouncesOfWater = Int32(ouncesOfWater)
-        viewContext.insert(recipe) // Adding this line removes the warning
+//        viewContext.insert(recipe)
         saveContext()
     }
     

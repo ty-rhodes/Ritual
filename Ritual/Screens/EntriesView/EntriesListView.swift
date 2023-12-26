@@ -14,12 +14,12 @@ enum Sort {
 
 struct EntriesListView: View {
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp, ascending: true)], animation: .default)
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Entry.timeStamp, ascending: false)], animation: .default)
     private var entries: FetchedResults<Entry>
 
     @StateObject private var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.viewContext)
     
-    @State private var sort: Sort = .ascending
+    @State private var sort: Sort = .descending
     
     @State private var scrollOffset: CGFloat  = 0
     @State private var contentHeight: CGFloat = 0
@@ -36,7 +36,7 @@ struct EntriesListView: View {
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                         } else {
                             List {
-                                ForEach(viewModel.entries) { entry in
+                                ForEach(entries) { entry in
                                     NavigationLink (destination: SavedEntryView(entry: entry)) {
                                         EntriesListCell(entry: entry)
                                     }
@@ -44,7 +44,7 @@ struct EntriesListView: View {
                                 }
                                 .onDelete { indexSet in
                                     indexSet.forEach { index in
-                                        if viewModel.entries.indices.contains(index) {
+                                        if entries.indices.contains(index) {
                                             viewModel.deleteEntry(at: viewModel.entries[index])
                                         }
                                     }
@@ -69,9 +69,9 @@ struct EntriesListView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     BackButton()
                 }
-//                ToolbarItem(placement: .topBarTrailing) {
-//                    sortEntry
-//                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    sortEntry
+                }
                 ToolbarItem(placement: .primaryAction) {
                     addEntry
                 }
@@ -125,9 +125,8 @@ private extension EntriesListView {
             Section {
                 Text("Sort")
                 Picker(selection: $sort) {
-                    Label("Ascending", systemImage: "arrow.up").tag(Sort.ascending)
-                    Label("Descending", systemImage: "arrow.down").tag(Sort.descending)
-
+                    Label("Newest to Oldest", systemImage: "arrow.down").tag(Sort.descending)
+                    Label("Oldest to Newest", systemImage: "arrow.up").tag(Sort.ascending)
                 } label: {
                     Text("Sort By")
                 }
