@@ -13,7 +13,7 @@ struct BrewRecipeView: View {
     @State private var recipe: Recipe?
     @State private var linkActivated: Bool   = false
     @State private var hapticFeedbackEnabled = true
-    @State private var heartIconColor: Color = .black
+    @State private var heartIconColor: Color = Theme.entryAndRecipesBackground
     @State private var isHeartIconScaledUp   = false
     
     var body: some View {
@@ -67,6 +67,7 @@ struct BrewRecipeView: View {
                                 VStack {
                                     Text("3 min")
                                         .font(.system(size: 60))
+                                    
                                     Text("brew time")
                                         .font(.system(size: 24))
                                         .foregroundColor(Theme.entryAndRecipesBackground)
@@ -165,7 +166,7 @@ private extension BrewRecipeView {
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 withAnimation {
-                    heartIconColor = .black
+                    heartIconColor = Theme.brewButton
                 }
             }
             withAnimation(.easeInOut(duration: 0.5)) {
@@ -181,7 +182,7 @@ private extension BrewRecipeView {
                 .font(.title3)
                 .fontWeight(.light)
                 .foregroundStyle(heartIconColor)
-                .scaleEffect(isHeartIconScaledUp ? 1.5 : 1.0)
+                .scaleEffect(isHeartIconScaledUp ? 2.0 : 1.0)
         }
     }
 }

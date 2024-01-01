@@ -40,7 +40,7 @@ struct SavedRecipesView: View {
                                 recipeImageAndTitle
                                 recipeDetails
                             }
-                            // MARK: - Recipe Notes
+//                            // MARK: - Recipe Notes
 //                            VStack {
 //                                HStack(spacing: 190) {
 //                                    Text("Notes")
@@ -237,8 +237,8 @@ private extension SavedRecipesView {
     var saveNotesButton: some View {
         Button(action: {
             // Save notes
-            recipesViewModel.saveRecipeNotes(for: recipe, with: notes)
             notes = recipesViewModel.recipeNotes
+            recipesViewModel.saveRecipeNotes(for: recipe, with: notes)
             isEditingNotes = false
         }) {
             Text("Save")
@@ -259,7 +259,7 @@ private extension SavedRecipesView {
             HStack {
                 Symbols.back
             }
-            Text("Saved Recipes")
+            Text("Back")
         }
         .tint(.black)
         .fontWeight(.light)

@@ -14,12 +14,11 @@ struct BrewMethodCard: View {
     
     var body: some View {
             VStack(alignment: .center) {
-//                Symbols.mug
-//                Image(brewMethodImageName)
                 iconName
                     .resizable()
                     .scaledToFit()
                     .frame(width: 120, height: 120)
+                    .fontWeight(.thin)
                 
                 Text(brewMethodCoffeeType)
             }

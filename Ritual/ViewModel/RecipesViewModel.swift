@@ -58,7 +58,7 @@ final class RecipesViewModel: ObservableObject {
         return (gramsOfCoffee, ouncesOfWater)
     }
 
-    // Use this to create your initial recipe in progress
+    // This creates the initial recipe in progress
     func startNewRecipe() {
         let newRecipe    = Recipe(context: viewContext)
         recipeInProgress = newRecipe
