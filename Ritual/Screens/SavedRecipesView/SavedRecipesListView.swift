@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct SavedRecipesListView: View {
-    
     @EnvironmentObject var recipesViewModel: RecipesViewModel
     @Environment(\.managedObjectContext) private var viewContext
     

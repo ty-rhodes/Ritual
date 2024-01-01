@@ -40,12 +40,12 @@ struct SaveAndWriteView: View {
                     BackButton()
                 }
                 ToolbarItem(placement: .primaryAction) {
-                    NavigationLink(destination: BrewView()) {
-                        Symbols.dismiss
-                            .font(.title2)
-                            .fontWeight(.light)
-                            .foregroundColor(.black)
-                    }
+//                    NavigationLink(destination: BrewView()) {
+//                        Symbols.dismiss
+//                            .font(.title2)
+//                            .fontWeight(.light)
+//                            .foregroundColor(.black)
+//                    }
                 }
             }
         }

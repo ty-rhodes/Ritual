@@ -12,6 +12,13 @@ struct BrewView: View {
     
     let brewMethods: [String] = ["Drip", "Pour Over", "French Press", "Espresso"]
     
+    let brewMethodIcons: [String: Image] = [
+        "Drip": Symbols.mug,
+        "Pour Over": Symbols.pourOver,
+        "French Press": Symbols.frenchPress,
+        "Espresso": Symbols.espresso
+    ]
+    
     @State private var linkActivated: Bool   = false
     @State private var hapticFeedbackEnabled = true
     
@@ -86,7 +93,8 @@ private extension BrewView {
         ScrollView(.horizontal) {
             HStack(spacing: 30) {
                 ForEach(brewMethods, id: \.self) { method in
-                    BrewMethodCard(brewMethodCoffeeType: method)
+                    let iconName = brewMethodIcons[method] ?? Symbols.mug
+                    BrewMethodCard(brewMethodCoffeeType: method, iconName: iconName)
                         .background(recipesViewModel.selectedBrewMethod == method ? Color.white : Color.clear)
                         .clipShape(RoundedRectangle(cornerRadius: 30))
                         .onTapGesture {
@@ -119,7 +127,7 @@ private extension BrewView {
                 Haptics.mediumImpact()
             }
             recipesViewModel.recipeInProgress?.method = recipesViewModel.selectedBrewMethod
-            recipesViewModel.saveRecipe()
+//            recipesViewModel.saveRecipe()
             linkActivated = true
             recipesViewModel.selectedBrewMethod = ""
         }

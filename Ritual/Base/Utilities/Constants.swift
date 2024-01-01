@@ -18,6 +18,11 @@ enum Symbols {
     static let addEntry    = Image(systemName: "plus")
     static let back        = Image(systemName: "chevron.left")
     static let link        = Image(systemName: "link")
+    
+    // Brew Methods
+    static let pourOver    = Image("PourOverIcon")
+    static let frenchPress = Image("FrenchPressIcon")
+    static let espresso    = Image("EspressoICon")
 }
 
 enum Theme {

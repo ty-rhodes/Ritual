@@ -21,8 +21,15 @@ struct EntriesListView: View {
     
     @State private var sort: Sort = .descending
     
+//    @State private var searchText = ""
+    
     @State private var scrollOffset: CGFloat  = 0
     @State private var contentHeight: CGFloat = 0
+    
+//    var filteredEntries: [Entry] {
+//        guard !searchText.isEmpty else { return viewModel.entries }
+//        return entries.filter { $0.entry!.localizedCaseInsensitiveContains(searchText) }
+//    }
     
     var body: some View {
         NavigationStack {
@@ -55,6 +62,12 @@ struct EntriesListView: View {
                             .multilineTextAlignment(.leading)
                             .lineLimit(3)
                             .truncationMode(.tail)
+//                            .searchable(text: $searchText, prompt: "Search Entries")
+//                            .overlay {
+//                                if filteredEntries.isEmpty {
+//                                    ContentUnavailableView.search(text: searchText)
+//                                }
+//                            }
                         }
                         Spacer()
                     }
@@ -86,7 +99,6 @@ struct EntriesListView: View {
 
     func sort(order: Sort) -> [NSSortDescriptor] {
         [NSSortDescriptor(keyPath: \Entry.timeStamp, ascending: order == .ascending)]
-        
     }
     
 }

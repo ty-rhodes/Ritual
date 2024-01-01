@@ -22,12 +22,18 @@ struct OnboardScreen: View {
                     .padding(.bottom, 35)
                 
                 // Points View
-                VStack(alignment: .leading, spacing: 25){
-                    PointView(symbol: "book.pages", title: "Log Entries", subTitle: "Write and log your own journal entries to meditate and look back on.")
+                VStack(alignment: .leading, spacing: 25) {
+                    PointView(symbol: "book.pages",
+                              title: "Log Entries",
+                              subTitle: "Write and log your own journal entries to meditate and look back on.")
                     
-                    PointView(symbol: "pencil.and.list.clipboard", title: "Save Recipes", subTitle: "Create and save your brew recipes for your future reference.")
+                    PointView(symbol: "pencil.and.list.clipboard", 
+                              title: "Save Recipes",
+                              subTitle: "Create and save your brew recipes for your future reference.")
                     
-                    PointView(symbol: "mug", title: "Brew and Renew!", subTitle: "Brew your desired method within the brew flow.")
+                    PointView(symbol: "mug", 
+                              title: "Brew and Renew!",
+                              subTitle: "Brew your desired method within the brew flow.")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 15)

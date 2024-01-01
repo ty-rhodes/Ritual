@@ -10,10 +10,13 @@ import SwiftUI
 struct BrewMethodCard: View {
     
     let brewMethodCoffeeType: String
+    let iconName: Image
     
     var body: some View {
             VStack(alignment: .center) {
-                Symbols.mug
+//                Symbols.mug
+//                Image(brewMethodImageName)
+                iconName
                     .resizable()
                     .scaledToFit()
                     .frame(width: 120, height: 120)
@@ -27,6 +30,6 @@ struct BrewMethodCard: View {
 
 struct BrewMethodCard_Previews: PreviewProvider {
     static var previews: some View {
-        BrewMethodCard(brewMethodCoffeeType: "French Press")
+        BrewMethodCard(brewMethodCoffeeType: "French Press", iconName: Symbols.frenchPress)
     }
 }
