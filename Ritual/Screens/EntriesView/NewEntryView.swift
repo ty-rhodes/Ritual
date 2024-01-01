@@ -13,6 +13,8 @@ struct NewEntryView: View {
     
     @StateObject private var viewModel = EntriesViewModel(viewContext: PersistenceController.shared.viewContext)
     
+    @State private var linkActivated: Bool   = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -36,6 +38,9 @@ struct NewEntryView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     addEntryButton
                 }
+            }
+            .navigationDestination(isPresented: $linkActivated) {
+                EntriesListView()
             }
             .onTapGesture {
                 hideKeyboard()
@@ -104,7 +109,8 @@ private extension NewEntryView {
             viewModel.saveNewEntry(title: viewModel.newEntryTitle, text: viewModel.newEntry)
             viewModel.newEntryTitle = ""
             viewModel.newEntry = ""
-            presentationMode.wrappedValue.dismiss()
+//            presentationMode.wrappedValue.dismiss()
+            linkActivated = true
         }
         .frame(alignment: .center)
         .font(.system(size: 20, weight: .light))
