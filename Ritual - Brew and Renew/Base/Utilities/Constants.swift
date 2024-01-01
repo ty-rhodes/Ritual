@@ -35,7 +35,6 @@ enum Theme {
 }
 
 enum Animations {
-    static let progress = "progress-bar"
     static let welcome  = "welcome-screen"
 }
 

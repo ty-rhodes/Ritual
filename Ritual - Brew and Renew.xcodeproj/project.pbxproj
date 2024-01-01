@@ -44,7 +44,6 @@
 		778A9AE429D3ADFE007D5E5B /* EmptyEntryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A9AE329D3ADFE007D5E5B /* EmptyEntryState.swift */; };
 		778F49022ACF73D100CC1BB3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 778F49012ACF73D100CC1BB3 /* Lottie */; };
 		778F49062ACF741B00CC1BB3 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778F49052ACF741B00CC1BB3 /* LottieView.swift */; };
-		778F49082ACF755400CC1BB3 /* progress-bar.json in Resources */ = {isa = PBXBuildFile; fileRef = 778F49072ACF755300CC1BB3 /* progress-bar.json */; };
 		77A3FCC92A3CCF9B00CCE445 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A3FCC82A3CCF9B00CCE445 /* UserDefaultKeys.swift */; };
 		77A3FCCE2A3CD29700CCE445 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A3FCCD2A3CD29700CCE445 /* Haptics.swift */; };
 		77A3FCD02A3D38FF00CCE445 /* BrewTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A3FCCF2A3D38FF00CCE445 /* BrewTimerViewModel.swift */; };
@@ -83,7 +82,7 @@
 		775577972A3DF5F800A9FB23 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		775577992A3E027000A9FB23 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		7758F1532A67489700B27DF5 /* SavedEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedEntryView.swift; sourceTree = "<group>"; };
-		775FE30229C9080B00B0622F /* Ritual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ritual.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		775FE30229C9080B00B0622F /* Ritual- Brew and Renew - Brew and Renew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ritual- Brew and Renew - Brew and Renew.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		775FE30529C9080C00B0622F /* RitualApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualApp.swift; sourceTree = "<group>"; };
 		775FE30929C9080C00B0622F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		775FE30C29C9080C00B0622F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -100,7 +99,6 @@
 		7777129E2B28E5C500B8D45E /* welcome-screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "welcome-screen.json"; sourceTree = "<group>"; };
 		778A9AE329D3ADFE007D5E5B /* EmptyEntryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEntryState.swift; sourceTree = "<group>"; };
 		778F49052ACF741B00CC1BB3 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		778F49072ACF755300CC1BB3 /* progress-bar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "progress-bar.json"; path = "Ritual/LottieFiles/progress-bar.json"; sourceTree = SOURCE_ROOT; };
 		77A3FCC82A3CCF9B00CCE445 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		77A3FCCD2A3CD29700CCE445 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		77A3FCCF2A3D38FF00CCE445 /* BrewTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewTimerViewModel.swift; sourceTree = "<group>"; };
@@ -209,7 +207,7 @@
 		775FE2F929C9080B00B0622F = {
 			isa = PBXGroup;
 			children = (
-				775FE30429C9080B00B0622F /* Ritual */,
+				775FE30429C9080B00B0622F /* Ritual - Brew and Renew */,
 				775FE30329C9080B00B0622F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -217,12 +215,12 @@
 		775FE30329C9080B00B0622F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				775FE30229C9080B00B0622F /* Ritual.app */,
+				775FE30229C9080B00B0622F /* Ritual- Brew and Renew - Brew and Renew.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		775FE30429C9080B00B0622F /* Ritual */ = {
+		775FE30429C9080B00B0622F /* Ritual - Brew and Renew */ = {
 			isa = PBXGroup;
 			children = (
 				775FE31029C9080C00B0622F /* Ritual.xcdatamodeld */,
@@ -231,13 +229,13 @@
 				7706F1F429EF5A9000B0A312 /* Model */,
 				77E9E72929E88536005C54DC /* ViewModel */,
 				778A9AE529D3B0C0007D5E5B /* Screens */,
-				775FE32229CBC3E500B0622F /* Info.plist */,
-				775FE30529C9080C00B0622F /* RitualApp.swift */,
-				775FE30929C9080C00B0622F /* Assets.xcassets */,
 				778F49092ACF756A00CC1BB3 /* LottieFiles */,
+				775FE30529C9080C00B0622F /* RitualApp.swift */,
+				775FE32229CBC3E500B0622F /* Info.plist */,
+				775FE30929C9080C00B0622F /* Assets.xcassets */,
 				775FE30B29C9080C00B0622F /* Preview Content */,
 			);
-			path = Ritual;
+			path = "Ritual - Brew and Renew";
 			sourceTree = "<group>";
 		};
 		775FE30B29C9080C00B0622F /* Preview Content */ = {
@@ -331,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				7777129E2B28E5C500B8D45E /* welcome-screen.json */,
-				778F49072ACF755300CC1BB3 /* progress-bar.json */,
 			);
 			path = LottieFiles;
 			sourceTree = "<group>";
@@ -417,9 +414,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		775FE30129C9080B00B0622F /* Ritual */ = {
+		775FE30129C9080B00B0622F /* Ritual- Brew and Renew - Brew and Renew */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 775FE31529C9080C00B0622F /* Build configuration list for PBXNativeTarget "Ritual" */;
+			buildConfigurationList = 775FE31529C9080C00B0622F /* Build configuration list for PBXNativeTarget "Ritual- Brew and Renew - Brew and Renew" */;
 			buildPhases = (
 				775FE2FE29C9080B00B0622F /* Sources */,
 				775FE2FF29C9080B00B0622F /* Frameworks */,
@@ -429,13 +426,13 @@
 			);
 			dependencies = (
 			);
-			name = Ritual;
+			name = "Ritual- Brew and Renew - Brew and Renew";
 			packageProductDependencies = (
 				7722F62B2AAA91860051BF53 /* Collections */,
 				778F49012ACF73D100CC1BB3 /* Lottie */,
 			);
 			productName = Ritual;
-			productReference = 775FE30229C9080B00B0622F /* Ritual.app */;
+			productReference = 775FE30229C9080B00B0622F /* Ritual- Brew and Renew - Brew and Renew.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -453,7 +450,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 775FE2FD29C9080B00B0622F /* Build configuration list for PBXProject "Ritual- Brew and Renew" */;
+			buildConfigurationList = 775FE2FD29C9080B00B0622F /* Build configuration list for PBXProject "Ritual - Brew and Renew" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -470,7 +467,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				775FE30129C9080B00B0622F /* Ritual */,
+				775FE30129C9080B00B0622F /* Ritual- Brew and Renew - Brew and Renew */,
 			);
 		};
 /* End PBXProject section */
@@ -481,7 +478,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7777129F2B28E5C500B8D45E /* welcome-screen.json in Resources */,
-				778F49082ACF755400CC1BB3 /* progress-bar.json in Resources */,
 				775FE30D29C9080C00B0622F /* Preview Assets.xcassets in Resources */,
 				775FE30A29C9080C00B0622F /* Assets.xcassets in Resources */,
 			);
@@ -673,11 +669,12 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Ritual/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = B87MBXYUK2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Ritual/Info.plist;
+				INFOPLIST_FILE = "Ritual - Brew and Renew/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ritual - Brew and Renew";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -687,9 +684,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tylerrhodes.Ritual;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tylerrhodes.Ritual - Brew and Renew";
+				PRODUCT_NAME = "Ritual- Brew and Renew - Brew and Renew";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -707,11 +704,12 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Ritual/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = B87MBXYUK2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Ritual/Info.plist;
+				INFOPLIST_FILE = "Ritual - Brew and Renew/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ritual - Brew and Renew";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -721,9 +719,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tylerrhodes.Ritual;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tylerrhodes.Ritual - Brew and Renew";
+				PRODUCT_NAME = "Ritual- Brew and Renew - Brew and Renew";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -736,7 +734,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		775FE2FD29C9080B00B0622F /* Build configuration list for PBXProject "Ritual- Brew and Renew" */ = {
+		775FE2FD29C9080B00B0622F /* Build configuration list for PBXProject "Ritual - Brew and Renew" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				775FE31329C9080C00B0622F /* Debug */,
@@ -745,7 +743,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		775FE31529C9080C00B0622F /* Build configuration list for PBXNativeTarget "Ritual" */ = {
+		775FE31529C9080C00B0622F /* Build configuration list for PBXNativeTarget "Ritual- Brew and Renew - Brew and Renew" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				775FE31629C9080C00B0622F /* Debug */,

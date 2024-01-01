@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "775FE30129C9080B00B0622F"
-               BuildableName = "Ritual.app"
-               BlueprintName = "Ritual"
-               ReferencedContainer = "container:Ritual- Brew and Renew.xcodeproj">
+               BuildableName = "Ritual- Brew and Renew - Brew and Renew.app"
+               BlueprintName = "Ritual- Brew and Renew - Brew and Renew"
+               ReferencedContainer = "container:Ritual - Brew and Renew.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "775FE30129C9080B00B0622F"
-            BuildableName = "Ritual.app"
-            BlueprintName = "Ritual"
-            ReferencedContainer = "container:Ritual- Brew and Renew.xcodeproj">
+            BuildableName = "Ritual- Brew and Renew - Brew and Renew.app"
+            BlueprintName = "Ritual- Brew and Renew - Brew and Renew"
+            ReferencedContainer = "container:Ritual - Brew and Renew.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -67,9 +67,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "775FE30129C9080B00B0622F"
-            BuildableName = "Ritual.app"
-            BlueprintName = "Ritual"
-            ReferencedContainer = "container:Ritual- Brew and Renew.xcodeproj">
+            BuildableName = "Ritual- Brew and Renew - Brew and Renew.app"
+            BlueprintName = "Ritual- Brew and Renew - Brew and Renew"
+            ReferencedContainer = "container:Ritual - Brew and Renew.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
