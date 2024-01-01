@@ -453,7 +453,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 775FE2FD29C9080B00B0622F /* Build configuration list for PBXProject "Ritual" */;
+			buildConfigurationList = 775FE2FD29C9080B00B0622F /* Build configuration list for PBXProject "Ritual- Brew and Renew" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -692,6 +692,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -725,6 +726,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -734,7 +736,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		775FE2FD29C9080B00B0622F /* Build configuration list for PBXProject "Ritual" */ = {
+		775FE2FD29C9080B00B0622F /* Build configuration list for PBXProject "Ritual- Brew and Renew" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				775FE31329C9080C00B0622F /* Debug */,
