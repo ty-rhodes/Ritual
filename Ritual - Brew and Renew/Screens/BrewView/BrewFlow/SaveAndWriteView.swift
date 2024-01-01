@@ -17,6 +17,8 @@ struct SaveAndWriteView: View {
         NavigationStack {
             ZStack {
                 Theme.homeBackground
+                    .resizable()
+                    .scaledToFill()
                     .ignoresSafeArea()
                 ScrollView {
                     VStack {

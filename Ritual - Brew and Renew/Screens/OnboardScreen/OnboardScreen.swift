@@ -13,6 +13,8 @@ struct OnboardScreen: View {
     var body: some View {
         ZStack {
             Theme.homeBackground
+                .resizable()
+                .scaledToFill()
                 .ignoresSafeArea()
             VStack(spacing: 15) {
                 Text("Welcome to \nRitual")

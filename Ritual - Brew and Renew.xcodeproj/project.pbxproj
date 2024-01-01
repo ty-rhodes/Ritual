@@ -685,9 +685,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tylerrhodes.Ritual - Brew and Renew";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tylerrhodes.Ritual;
 				PRODUCT_NAME = "Ritual- Brew and Renew - Brew and Renew";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -720,9 +720,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tylerrhodes.Ritual - Brew and Renew";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tylerrhodes.Ritual;
 				PRODUCT_NAME = "Ritual- Brew and Renew - Brew and Renew";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;

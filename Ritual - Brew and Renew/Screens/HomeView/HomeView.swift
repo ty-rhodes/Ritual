@@ -24,6 +24,8 @@ struct HomeView: View {
         NavigationStack {
             ZStack {
                 Theme.homeBackground
+                    .resizable()
+                    .scaledToFill()
                     .ignoresSafeArea()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 GeometryReader { geometry in
