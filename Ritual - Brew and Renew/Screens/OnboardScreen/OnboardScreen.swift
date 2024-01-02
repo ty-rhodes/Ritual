@@ -40,7 +40,7 @@ struct OnboardScreen: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 15)
                 
-                Spacer(minLength: 220)
+                Spacer()
                 
                 Button(action: {
                     isFirstTime = false
@@ -58,6 +58,7 @@ struct OnboardScreen: View {
                 Spacer()
             }
             .padding(15)
+            .padding(.vertical, 20)
         }
     }
     

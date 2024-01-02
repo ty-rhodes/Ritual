@@ -14,7 +14,7 @@ struct PromptView: View {
     var body: some View {
         Text(prompts[randomIndex].promptDescription)
             .font(.system(size: 40, weight: .light))
-            .frame(width: 360, height: 400)
+            .frame(width: 360, height: 320)
             .padding(.horizontal)
             .minimumScaleFactor(0.6)
             .multilineTextAlignment(.center)

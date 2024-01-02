@@ -70,6 +70,13 @@ private extension SettingsView {
                 }
                 .font(.system(size: 16, weight: .light))
                 .foregroundColor(.black)
+                
+                HStack {
+                    Symbols.link
+                    Link("Privacy Policy", destination: URL(string: "https://sites.google.com/view/ritualbrewandrenew/home")!)
+                }
+                .font(.system(size: 16, weight: .light))
+                .foregroundColor(.black)
             }
     }
 }

@@ -29,7 +29,7 @@ struct SaveAndWriteView: View {
                         }
                         Spacer()
                     }
-                    .padding(.vertical, 80)
+                    .padding(.vertical, 10)
                     .padding(.horizontal, 35)
                 }
             }
