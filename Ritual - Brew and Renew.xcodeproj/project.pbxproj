@@ -21,7 +21,7 @@
 		773912F22A43BBF600A57307 /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773912F12A43BBF600A57307 /* NewEntryView.swift */; };
 		7744F6D22A50FF6C00C87CEB /* SavedRecipesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744F6D12A50FF6C00C87CEB /* SavedRecipesCell.swift */; };
 		7747AF742A7F072A00A84325 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747AF732A7F072A00A84325 /* BackButton.swift */; };
-		7747AF792A7F103B00A84325 /* Entensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747AF782A7F103B00A84325 /* Entensions.swift */; };
+		7747AF792A7F103B00A84325 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7747AF782A7F103B00A84325 /* Extensions.swift */; };
 		77498CB52A411E830078CF61 /* EntryGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77498CB42A411E830078CF61 /* EntryGroup.swift */; };
 		77498CB72A4121BF0078CF61 /* EmptyRecipeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77498CB62A4121BF0078CF61 /* EmptyRecipeState.swift */; };
 		774A56582A71E5C800AE1692 /* ScrollOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774A56572A71E5C800AE1692 /* ScrollOffsetPreferenceKey.swift */; };
@@ -75,7 +75,7 @@
 		773912F12A43BBF600A57307 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
 		7744F6D12A50FF6C00C87CEB /* SavedRecipesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipesCell.swift; sourceTree = "<group>"; };
 		7747AF732A7F072A00A84325 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
-		7747AF782A7F103B00A84325 /* Entensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entensions.swift; sourceTree = "<group>"; };
+		7747AF782A7F103B00A84325 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		77498CB42A411E830078CF61 /* EntryGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryGroup.swift; sourceTree = "<group>"; };
 		77498CB62A4121BF0078CF61 /* EmptyRecipeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRecipeState.swift; sourceTree = "<group>"; };
 		774A56572A71E5C800AE1692 /* ScrollOffsetPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetPreferenceKey.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		7747AF752A7F0FEC00A84325 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7747AF782A7F103B00A84325 /* Entensions.swift */,
+				7747AF782A7F103B00A84325 /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -522,7 +522,7 @@
 				770B392D2A6DBA7800EFC165 /* BrewNowCardEmptyState.swift in Sources */,
 				775FE31929C90A4F00B0622F /* HomeView.swift in Sources */,
 				7704D11E2A85B19600742907 /* Constants.swift in Sources */,
-				7747AF792A7F103B00A84325 /* Entensions.swift in Sources */,
+				7747AF792A7F103B00A84325 /* Extensions.swift in Sources */,
 				77498CB52A411E830078CF61 /* EntryGroup.swift in Sources */,
 				77F57A832A3E8AA3001DD89C /* EntriesViewModel.swift in Sources */,
 				771635012B34B60C009F21A8 /* OnboardScreen.swift in Sources */,
