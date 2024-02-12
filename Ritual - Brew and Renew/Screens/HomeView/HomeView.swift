@@ -192,6 +192,11 @@ private extension HomeView {
                     NavigationLink( destination: SavedRecipesView(recipe: recipe)) {
                         BrewNowCard(brewNowCoffeeType: recipe.method ?? "",
                                     brewNowCupAmount: Int(recipe.cups))
+                        .scrollTransition { content, phase in
+                            content
+                                .rotation3DEffect(.degrees(phase.isIdentity ? 0 : 60), axis: (x: -1, y: 1, z: 0), perspective: 0.5)
+                                .scaleEffect(phase.isIdentity ? 1 : 0.6)
+                        }
                     }
                 }
                 .frame(width: 100, height: 185)
@@ -209,6 +214,11 @@ private extension HomeView {
                         JournalEntryCard(entryDate: entry.timeStamp?.entryDate ?? "N/A",
                                          entryTitle: entry.entryTitle ?? "N/A",
                                          entry: entry.entry ?? "N/A")
+                        .scrollTransition { content, phase in
+                            content
+                                .rotation3DEffect(.degrees(phase.isIdentity ? 0 : 60), axis: (x: -1, y: 1, z: 0), perspective: 0.5)
+                                .scaleEffect(phase.isIdentity ? 1 : 0.6)
+                        }
                     }
                 }
                 .frame(width: 100, height: 185)
