@@ -194,7 +194,7 @@ private extension HomeView {
                                     brewNowCupAmount: Int(recipe.cups))
                         .scrollTransition { content, phase in
                             content
-                                .rotation3DEffect(.degrees(phase.isIdentity ? 0 : 60), axis: (x: -1, y: 1, z: 0), perspective: 0.5)
+                                .rotation3DEffect(.degrees(phase.isIdentity ? 0 : 60), axis: (x: 1, y: 1, z: 0), perspective: 0.5)
                                 .scaleEffect(phase.isIdentity ? 1 : 0.6)
                         }
                     }
@@ -216,7 +216,7 @@ private extension HomeView {
                                          entry: entry.entry ?? "N/A")
                         .scrollTransition { content, phase in
                             content
-                                .rotation3DEffect(.degrees(phase.isIdentity ? 0 : 60), axis: (x: -1, y: 1, z: 0), perspective: 0.5)
+                                .rotation3DEffect(.degrees(phase.isIdentity ? 0 : 60), axis: (x: 1, y: 1, z: 0), perspective: 0.5)
                                 .scaleEffect(phase.isIdentity ? 1 : 0.6)
                         }
                     }
