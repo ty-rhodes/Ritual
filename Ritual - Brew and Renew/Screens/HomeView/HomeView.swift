@@ -245,5 +245,3 @@ extension Date {
         )
     }
 }
-
-
