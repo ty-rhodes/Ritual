@@ -228,20 +228,3 @@ private extension HomeView {
         }
     }
 }
-
-extension Date {
-    var displayFormat: String {
-        self.formatted(date: .long, time: .omitted)
-    }
-    
-    var timeFormat: String {
-        self.formatted(
-            .dateTime
-                .year(.defaultDigits)
-                .month(.wide)
-                .day(.twoDigits)
-                .hour()
-                .minute()
-        )
-    }
-}
